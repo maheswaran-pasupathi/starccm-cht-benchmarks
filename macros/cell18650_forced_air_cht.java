@@ -139,13 +139,20 @@ public class cell18650_forced_air_cht extends StarMacro {
         cellPc.enable(SegregatedSolidEnergyModel.class);
         cellR.setPhysicsContinuum(cellPc);
 
-        // STAGE 1 (this pass): placeholder default solid material -- gets the
-        // CAD/mesh/regions/continua/reports skeleton compiling and running
-        // end to end first. STAGE 2 (next pass): swap in the real, cited
-        // 18650 k/rho/cp values (K_CELL/RHO_CELL/CP_CELL, already computed
-        // above from literature) once the exact material-property-setter API
-        // is confirmed -- tracked in README.md's status section, not silently
-        // skipped.
+        // STAGE 2: real, cited 18650 solid material properties (K_CELL /
+        // RHO_CELL / CP_CELL, computed above from literature -- see
+        // README.md), replacing the Stage-1 default placeholder material.
+        // The per-property classes live under star.flow (density) and
+        // star.energy (specific heat, thermal conductivity), but all three
+        // sit on the same underlying Material object exposed by the
+        // continuum's SolidModel, and star.material.MaterialProperty itself
+        // carries setConstant(double) -- no need to touch the Constant
+        // method object directly.
+        Material cellMaterial = cellPc.getModelManager().getModel(SolidModel.class).getMaterial();
+        MaterialPropertyManager cellProps = cellMaterial.getMaterialProperties();
+        cellProps.getMaterialProperty(ConstantDensityProperty.class).setConstant(RHO_CELL);
+        cellProps.getMaterialProperty(SpecificHeatProperty.class).setConstant(CP_CELL);
+        cellProps.getMaterialProperty(ThermalConductivityProperty.class).setConstant(K_CELL);
 
         // volumetric heat source in the cell (uniform, from real q''') --
         // this IS core to what the case demonstrates, so it's in the

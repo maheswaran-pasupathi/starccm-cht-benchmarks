@@ -70,14 +70,20 @@ source had nowhere to go. This was caught live: the energy residual sat
 completely flat for 40+ iterations while flow residuals converged normally.
 Fixed by adding the missing `createDirectInterface()` call.
 
-**Stage 2 (next): real material properties.** This run used STAR-CCM+'s
-default placeholder solid material, not yet the cell's real cited
-properties above -- which is exactly why the validation check currently
-shows a large (~100%) discrepancy: a near-isothermal cell (0.006 K rise)
-is the expected result of a much-higher-conductivity placeholder material,
-not a simulation error. Setting the real k/ρ/cp values (already computed
-and ready to use, see the table above) is the next concrete step, expected
-to close this gap substantially.
+**Stage 2 (done): real material properties.** The Stage 1 run used
+STAR-CCM+'s default placeholder solid material, which is why the
+validation check showed a large (~100%) discrepancy: a near-isothermal
+cell (0.006 K rise) was the expected result of a much-higher-conductivity
+placeholder, not a simulation error. The macro now sets the cell's real,
+cited k/ρ/cp values directly on the material -- found via
+`star.material.MaterialProperty.setConstant(double)`, reached through the
+continuum's `SolidModel.getMaterial()` and
+`MaterialPropertyManager.getMaterialProperty(Class)`, using the
+per-property classes `star.flow.ConstantDensityProperty`,
+`star.energy.SpecificHeatProperty`, and
+`star.energy.ThermalConductivityProperty`. Compiled clean against the
+real STAR-CCM+ jars. Next: rerun with the real properties in place and
+confirm the analytical-vs-CFD gap closes substantially.
 
 **Also open:** the energy residual, while genuinely converging (not stuck),
 had not reached a tight final value within the 800-iteration budget used for
