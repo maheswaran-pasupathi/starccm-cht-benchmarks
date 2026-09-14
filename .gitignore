@@ -1,0 +1,17 @@
+# STAR-CCM+ simulation state files -- large binaries, machine/run-specific,
+# never belong in git history. Real results live in results/*.csv instead.
+sim_states/
+*.sim
+*.sim~
+
+# Compiled macro classes
+out/
+*.class
+
+# Local run logs
+*.log
+
+# Java/OS noise
+__pycache__/
+.DS_Store
+Thumbs.db
