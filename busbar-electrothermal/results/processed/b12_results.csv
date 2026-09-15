@@ -1,0 +1,3 @@
+variant,current_A,I_iout_A,I_vin_A,current_imbalance_pct,V_drop_V,P_JdotE_W,P_IV_W,power_mismatch_pct,Q_side_conv_W,heat_balance_pct,Tmax_K,Tavg_K,gate_status
+v1_constant_properties,400.00,-400.000000,400.000000,0.000000,0.01008000,4.032000,4.032000,0.000000,4.005154,0.665822,307.9862,307.9847,PASSED
+v2_temperature_dependent_resistivity,400.00,-399.999651,399.999644,0.000002,0.01074654,4.298617,4.298617,0.000005,4.260932,0.876665,308.9338,308.9322,PASSED

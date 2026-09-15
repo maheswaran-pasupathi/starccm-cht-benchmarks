@@ -77,3 +77,27 @@
   (`VolumetricHeatSource`/`WallHeatFlux`); the real names
   (`UserSpecifiedEnergySource`/`BoundaryHeatFlux`) were found via a
   diagnostic dump and recorded in `starccm/field_functions.md`.
+
+## 2026-09-15 -- Fourth increment: B12 (coupled DC electro-thermal) -- B10-B12 complete
+
+- `starccm/macros/b12_coupled_electrothermal.java`: combines B10's
+  electrical setup with B11's thermal setup, adding `OhmicHeatingModel`
+  so `q''' = J.E` is a real, SOLVED source term. Two variants in one
+  macro: constant properties, and temperature-dependent resistivity
+  (clamped linear model, same fix as personal-mentor `hubbell_cae` Case 5).
+- **Both variants PASSED all three gates** (current balance, power vs
+  `I*V`, heat balance). v1 (constant): current 2.6e-12%, power 8.8e-14%,
+  heat 0.67%. v2 (T-dependent): current 1.8e-6%, power 4.9e-6%, heat 0.88%.
+- **Quantified the positive-feedback coupling** the roadmap explicitly
+  asks for ("do not only state it"): v2's voltage drop (0.01075V) and
+  Tmax (35.78C) are both ~6.6%/higher than v1's constant-property result
+  (0.01008V, 34.84C) at the identical 400A -- a real, measured effect of
+  resistivity rising with temperature.
+- Real issue found and documented: `Maximum Steps` is a CUMULATIVE,
+  whole-simulation iteration counter, not reset per `run()` call --
+  running variant 2 with the same relative step count as variant 1 did
+  almost nothing (already-satisfied stopping criterion). Fixed by using
+  an increasing absolute target per variant (3000, then 6000).
+- **B10-B12 (the roadmap's originally requested scope for this session)
+  are now all PASSED.** `docs/validation_matrix.md` is the authoritative
+  status table; B20 onward remain `PENDING`.

@@ -118,6 +118,28 @@ recording so they are not rediscovered on B11/B12.
   the Tavg gap is a genuine modeling-abstraction difference, not an error.
 - **Re-verification:** not applicable (no fix was needed).
 
+## 2026-09-15 -- B12: "Maximum Steps" is a cumulative, whole-simulation counter
+
+- **Symptom:** running two variants (two separate regions) in ONE
+  simulation via two sequential `sim.getSimulationIterator().run(3000)`
+  calls gave variant 1 a normal, well-converged solve, but variant 2
+  solved for exactly 1 iteration and produced a nonsensical result
+  (I_iout=0A, I_vin=0A, imbalance=NaN%, huge power/heat mismatches).
+- **Cause:** `Maximum Steps` is a whole-simulation, CUMULATIVE iteration
+  count, not reset or scoped per `run()` call or per region. After
+  variant 1 finished at iteration 3000, the stopping criterion was
+  already satisfied when variant 2's identical `run(3000)` call was
+  issued, so the solver did almost nothing.
+- **Resolution:** call `run()` with an INCREASING absolute target each
+  time a new variant/region is added to the same simulation (3000, then
+  6000, ...), not the same relative step count. Confirmed working:
+  variant 2 then genuinely solved from iteration 3000 to 6000.
+- **Carried forward:** any future case that runs multiple variants inside
+  one simulation (rather than one `-new` simulation per variant) must use
+  this pattern. Running each variant as a fully separate simulation
+  (`-new` per macro invocation) avoids the issue entirely and may be
+  preferable for future cases where iteration counts are less predictable.
+
 ## Template for future entries
 
 ```
