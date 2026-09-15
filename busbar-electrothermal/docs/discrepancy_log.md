@@ -237,6 +237,97 @@ recording so they are not rediscovered on B11/B12.
   refinement or is partly a meshing-resolution artifact at the sharp
   corner. Not yet done -- see `docs/limitations.md`.
 
+## 2026-09-15 -- B22: two-block overlap joint failed twice before the correct 4-block construction was found
+
+- **Symptom 1:** building the overlap joint as two blocks (bar A, bar B)
+  sharing a coincident face, then meshing both in ONE `AutoMeshOperation`,
+  gave a mesher error: `Surface intersects self`.
+- **Cause 1:** the two blocks share an exactly-coincident planar patch at
+  the overlap face with zero gap between them; a single combined
+  surface-remeshing pass cannot resolve this as two distinct surfaces.
+- **Resolution 1:** mesh each block in its OWN separate
+  `AutoMeshOperation` call. Confirmed working.
+- **Symptom 2:** after fixing (1), calling
+  `createDirectInterface(barA.fullTopFace, barB.fullBottomFace)` created
+  an `Interface` object, but `interface.getInterfaceBoundary0()`/`1()`
+  both reported `NaN` area.
+- **Cause 2:** bar A's full top face (spanning bar A's whole length) and
+  bar B's full bottom face (spanning bar B's whole, DIFFERENTLY-POSITIONED
+  length) only PARTIALLY geometrically coincide over the true overlap
+  region -- `createDirectInterface` requires the two given boundaries to
+  be (at least closely) coincident as WHOLE faces, not a partial-overlap
+  pair; passing mismatched full faces produces an invalid interface.
+- **Resolution 2:** restructured the geometry into FOUR blocks --
+  `barA_free`+`barA_overlap` (split at the overlap boundary) and
+  `barB_overlap`+`barB_free` -- so the two "overlap" blocks have an
+  EXACTLY matching `W x OVERLAP` footprint for the real `JointContact`
+  interface, with a separate PERFECT (zero-resistance) interface
+  stitching each bar's own free/overlap pair back into one electrically/
+  thermally continuous bar. Confirmed live: `JointContact` area = 8.0e-4
+  m^2 (exact design value), `A_internal`/`B_internal` areas = 2.0e-4 m^2
+  (exact `W*T`).
+- **Symptom 3 (minor, same diagnostic):** even with the correct 4-block
+  geometry, `getInterfaceBoundary0()/1()` area queries returned `NaN`
+  immediately after `createDirectInterface()`, for ALL THREE interfaces
+  including the exactly-matching ones.
+- **Cause 3:** an interface's geometric projection/intersection mapping
+  is resolved LAZILY, not at creation time -- no physics continuum was
+  even assigned yet in the diagnostic. Running a single solver iteration
+  (`run(1)`) after assigning a minimal physics continuum forced the
+  mapping to resolve; areas then read correctly.
+- **Carried forward:** the real B22 macro assigns full physics and runs a
+  normal multi-iteration solve, so symptom 3 does not recur there --
+  recorded so a future live-diagnostic macro (built before physics is
+  assigned) doesn't waste time on the same false alarm.
+
+## 2026-09-15 -- B22: V_drop_joint/T_jump reported NaN due to a stale Boundary reference after createDirectInterface()
+
+- **Symptom:** the real B22 run's first variant (perfect contact) PASSED
+  its current/power gates with correct `I_measured`, `P_bulk`, `Tmax`
+  (all physically sensible), but `V_drop_joint` and `T_jump` both read
+  `NaN` -- silently, no server error.
+- **Investigation:** a short (500-iteration) diagnostic
+  (`_diag_b22_nan_fix.java`, not committed -- throwaway) tested 3 ways of
+  getting the joint's two-sided field values: (1) the `aOvTop`/`bOvBot`
+  `Boundary` variables captured BEFORE `createDirectInterface()` was
+  called; (2) `jointIface.getInterfaceBoundary0()/1()` fetched freshly
+  AFTER interface creation; (3) iterating each region's boundaries by
+  type after the fact.
+- **Root cause:** `createDirectInterface()` does NOT mutate the two input
+  `Boundary` objects in place -- it creates genuinely NEW
+  `InterfaceBoundary` objects. Confirmed directly:
+  `side0 == aOvTop` evaluated to `false`. The stale pre-creation
+  reference remains valid enough for simple AREA queries (a fixed
+  geometric property, cached at creation) but returns `NaN` -- not an
+  exception -- for a live SOLVED field like `ElectricPotential` or
+  `Temperature`, because it is disconnected from the active solution
+  graph.
+- **Resolution:** re-point `aOvTop`/`bOvBot` to
+  `jointIface.getInterfaceBoundary0()/1()` immediately after creating the
+  interface, before using them in any later field report. Confirmed
+  working in the diagnostic: `V_drop_joint` for the nominal contact
+  resistance (1.6e-8 ohm.m^2) came back as 0.008 V, which EXACTLY matches
+  the analytical Ohm's-law prediction `I * R_contact / contact_area =
+  400 * 1.6e-8 / 8.0e-4 = 0.008 V` -- an independent confirmation that
+  both the interface resistance condition and the fix are correct.
+- **Not re-run this increment:** the real B22 macro (`b22_bolted_overlap_
+  joint.java`) has been fixed for future correctness, but the already-
+  in-progress 4-variant run (many hours of STAR-CCM+ compute) was NOT
+  restarted, since `V_drop_joint` can be computed exactly, analytically,
+  from data the buggy run DID report correctly:
+  `V_drop_joint = I_measured * R_contact_prescribed / CONTACT_AREA`
+  (arguably a more authoritative value anyway, since it is derived from
+  the same solved current combined with the exact prescribed boundary
+  condition, not a numerical area-average difference). This is computed
+  in `src/b22_postprocess.py` rather than by re-running STAR-CCM+.
+  `T_jump` is NOT recovered this way (it is not simply analytical) and is
+  reported as not measured this increment -- consistent with thermal
+  contact resistance itself being deferred (see
+  `data/source_traceability.csv`, `b22_thermal_contact_resistance` row):
+  with no thermal resistance modeled, the interface is perfect thermal
+  contact and `T_jump` is expected to be small/mesh-limited, not a focus
+  metric until a real thermal-Rc sweep is implemented.
+
 ## Template for future entries
 
 ```

@@ -1,5 +1,47 @@
 # Changelog
 
+## 2026-09-15 -- Seventh increment: B22 bolted overlap joint (electrical ladder)
+
+- `starccm/case_setup_checklists/b22_bolted_overlap_joint.md`,
+  `starccm/macros/b22_bolted_overlap_joint.java`: a generic two-bar lap
+  joint (0.040x0.005m cross-section, 0.020m overlap = 8.0e-4 m^2 contact
+  area) run through 4 variants in one macro invocation: perfect contact,
+  low (3uOhm, silver-plated, Storm Power Components), nominal (20uOhm,
+  PEM contact-enhanced), high (105uOhm, PEM traditional/untreated) --
+  all real published bolted-busbar-joint measurements, not invented
+  values, converted to this program's own contact area.
+- **All 4 variants PASSED** current-balance/power gates. **Interface
+  loss fraction rises from 0% (perfect) to 82.0% of total loss (high
+  contact resistance)** -- a real, physically consistent demonstration
+  of the roadmap's own point that contact quality matters. Total
+  resistance rises nearly 6x (22.9uOhm to 128uOhm) from perfect to
+  worst-case contact at the identical 400A.
+- Three real construction issues found and fixed, all documented in
+  `docs/discrepancy_log.md`: (1) a first two-block geometry attempt
+  failed meshing (`Surface intersects self`) then interface creation
+  (`NaN` area) -- fixed with a 4-block split so the true contact
+  interface has exactly-matching faces; (2) interface-level electrical/
+  thermal conditions only attach if physics is assigned to the connected
+  regions BEFORE the interface is created, not after; (3) `V_drop_joint`
+  and `T_jump` read `NaN` in the real run due to a stale `Boundary`
+  reference after `createDirectInterface()` (confirmed via `javap` +  a
+  live diagnostic: `createDirectInterface` returns NEW objects, does not
+  mutate its inputs in place). The macro is fixed for future re-runs;
+  this run's `V_drop_joint` was recovered ANALYTICALLY
+  (`src/b22_postprocess.py`, exact under Ohm's law, independently
+  confirmed against a live STAR-CCM+ report in the diagnostic) rather
+  than re-running the ~10+ hour 4-variant case.
+- Thermal contact resistance (item 3 of the roadmap's B22 model ladder)
+  is explicitly DEFERRED, not fabricated: the one detailed room-
+  temperature-adjacent source found (a bolted-copper-joint thermal
+  conductance study) is cryogenic (60mK-26K) and not applicable; no
+  credible room-temperature value was found within this search effort.
+  `T_jump` is reported as `NOT_MEASURED_THIS_INCREMENT`.
+- `data/source_traceability.csv`: 6 new rows (overlap length, 3 cited
+  electrical contact-resistance values with full citations, and the
+  thermal-Rc `MISSING` entry with its own citation-and-rejection
+  rationale).
+
 ## 2026-09-15 -- Sixth increment: B21 current-crowding geometry set (A-E)
 
 - `starccm/case_setup_checklists/b21_current_crowding_geometry_set.md`,
