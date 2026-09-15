@@ -173,6 +173,70 @@ recording so they are not rediscovered on B11/B12.
 - **Re-verification:** not applicable -- this is a source-provenance
   finding, not a solver bug; no STAR-CCM+ re-run required to resolve it.
 
+## 2026-09-15 -- B21-C: neck geometry needed more iterations than the other B21 variants
+
+- **Symptom:** first run at 3000 iterations (the same cap used for
+  B21-B/D/E, matching B12's convention) left B21-C's Energy residual at
+  ~0.076 -- roughly 3-4x higher than B21-B (hole), B21-D (sharp corner),
+  and B21-E (filleted corner) at the same 3000-iteration mark. Its current
+  and power gates still passed (imbalance ~0%, power mismatch 0.11%), but
+  the **heat balance gate FAILED at 5.03%** against the <2% gate.
+- **Investigation:** compared the four variants' Energy residual trends at
+  iteration 3000 -- B21-C was the clear outlier. The other three all
+  converged their heat-balance check comfortably inside the gate (B21-B:
+  1.23%, B21-D: 1.13%, B21-E: 1.13%) at the identical iteration count.
+- **Root cause:** the neck's abrupt step change in cross-section (0.040m
+  to 0.020m over a 0.040m segment) creates a stiffer, slower-converging
+  local solve than a smooth circular hole (B21-B) or a uniform-cross-
+  section bend (B21-D/E) -- consistent with this repository's own earlier
+  finding (B12 v2, temperature-dependent resistivity) that a more strongly
+  coupled/gradient-rich case needs materially more iterations at the same
+  mesh, not a mesh or setup error.
+- **Resolution:** raised B21-C's iteration cap from 3000 to 5500 (NOT by
+  loosening the 2% heat-balance gate itself). The original 3000-iteration
+  attempt's log and results are preserved as
+  `results/b21c_run_log_attempt1_3000iter_FAILED.txt` and
+  `results/processed/b21c_results_attempt1_3000iter_FAILED.csv` rather
+  than overwritten, so the before/after is auditable.
+- **Re-verification:** see `results/processed/b21c_results.csv` (the
+  5500-iteration re-run) for the corrected gate status.
+
+## 2026-09-15 -- B21-E vs B21-D: fillet lowers Jmax but raises J95/J99/Tmax vs the sharp corner
+
+- **Comparison:** B21-D (sharp 90-degree corner) vs B21-E (same geometry,
+  fillet radius = 1x bar width at the inner corner), same 400A current,
+  same cross-section, same physics chain.
+- **Expected (textbook intuition):** a fillet reduces stress/current
+  concentration at a corner, so ALL crowding metrics should improve.
+- **Actual result:** the fillet DID cut the singular `Jmax` by 44%
+  (6.09e6 A/m^2 sharp vs 3.40e6 A/m^2 filleted) -- but the population
+  metrics went the OTHER way: J95/Jnominal rose from 1.09x to 1.17x,
+  J99/Jnominal rose from 1.40x to 1.55x, and Tmax rose slightly (33.94C
+  sharp vs 34.55C filleted).
+- **Investigation:** checked the underlying cell counts and hotspot
+  fractions (`results/processed/b21_crowding_summary.csv`) -- the sharp
+  corner has a MORE localized elevated-current region (fewer cells very
+  far above nominal, concentrated right at the geometric singularity)
+  while the fillet's smoother redirection elevates current over a WIDER
+  arc of material (more cells moderately above nominal). A percentile
+  statistic is sensitive to how much of the POPULATION is elevated, not
+  just the single worst cell -- so a geometry that trades "one very hot
+  point" for "a broader moderately-hot region" can show a lower `Jmax`
+  but a higher `J95`/`J99` at the same time. This is plausible physics,
+  not obviously a bug, but has NOT been independently confirmed with a
+  mesh-refinement check or an analytical crowding-factor estimate.
+- **Resolution:** reported as-is, not forced to match the expected
+  direction. This is exactly the scenario the roadmap's B21 section
+  warns about ("never use a single-node or mathematically singular
+  maximum as the only metric") -- Jmax alone would have told a
+  misleadingly simple "fillet always wins" story.
+- **Left open, tracked as a follow-up:** a mesh-independence check on
+  B21-D/E specifically (the sharp corner's Jmax, being a near-singular
+  geometric feature, is the most mesh-sensitive value in this whole
+  case set) would help confirm whether this reversal survives mesh
+  refinement or is partly a meshing-resolution artifact at the sharp
+  corner. Not yet done -- see `docs/limitations.md`.
+
 ## Template for future entries
 
 ```

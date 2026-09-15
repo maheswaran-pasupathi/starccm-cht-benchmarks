@@ -1,0 +1,2 @@
+variant,current_A,I_iout_A,I_vin_A,current_imbalance_pct,V_drop_V,R_ohm,P_JdotE_W,P_IV_W,power_mismatch_pct,Q_sides_W,heat_balance_pct,Jmax_A_m2,Tmax_K,Tavg_K,gate_status
+b21e_filleted_corner,400.00,-400.000000,400.000000,0.000000,0.00935539,0.0000233885,3.741667,3.742157,0.013095,3.699499,1.126969,3401581.214,307.6973,307.6864,PASSED

@@ -1,0 +1,3713 @@
+Starting local server: starccm+.bat -server -power -new 
+Serial process 5360
+
+Simcenter STAR-CCM+ 2602.0001 Build 21.02.008 (win64/clang20.1vc14.2-r8)
+
+License build date: 29 Oct 2025
+This version of the code requires license version 2026.02 or greater.
+Checking license file: D:\Installations\Siemens\license.dat
+1 copy of ccmppower checked out from D:\Installations\Siemens\license.dat
+Feature ccmppower does not expire
+Tue Sep 15 19:46:53 2026
+
+Server::start -host Laskhmi-Laptop:47829
+Playing macro: D:\Claude\Github\starccm-cht-benchmarks\busbar-electrothermal\starccm\macros\b21c_neck.java
+starccm\macros\b21c_neck.java:220: warning: [deprecation] <T>createTable(java.lang.Class<T>) in star.common.TableManager has been deprecated
+        XyzInternalTable table = sim.getTableManager().createTable(XyzInternalTable.class);
+                                                      ^
+starccm\macros\b21c_neck.java:235: warning: [deprecation] newRegionsFromParts(java.util.Collection<star.common.GeometryPart>,java.lang.String,java.lang.String,java.lang.String,boolean) in star.common.RegionManager has been deprecated
+        sim.getRegionManager().newRegionsFromParts(
+                              ^
+Note: starccm\macros\b21c_neck.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+=== b21c_neck start ===
+Loading module: StarMeshing
+Loading module: StarTMTCommands
+Loading module: MeshingSurfaceRepair
+Started Parasolid modeler version 38.0.185
+Mesh Operation Subtract complete. CPU Time: 0.03, Wall Time: 0.03, Memory: 111.14 MB
+     part after subtract: bar_b21c_raw
+     part after subtract: notch_top
+     part after subtract: notch_bot
+     part after subtract: Subtract
+Part surface "bar_b21c_raw.Block Surface" was split into 8 part surfaces.
+Part surface "notch_top.Block Surface" was split into 3 part surfaces.
+Part surface "notch_bot.Block Surface" was split into 3 part surfaces.
+ Only 1 part was assigned to a region
+14 part surfaces were assigned to 14 boundaries
+No Interfaces were created
+Loading module: StarResurfacer
+Loading module: StarDualMesher
+----------------------------------------
+Executing Mesh Operation Automated Mesh
+----------------------------------------
+Mesh Generation is serial
+ Checking mesh-CAD association...done.  No problems found.
+----------------------------------------
+Preparing surface for surface meshing in Parts: 
+----------------------------------------
+
+----------------------------------------
+finished preparing surface for surface meshing CPU Time: 0.00, Wall Time: 0.00, Memory: 118.50 MB
+----------------------------------------
+----------------------------------------
+Executing Surface Remesher
+----------------------------------------
+ Growth rate for Triangle meshing with Default growth is 1.3
+ Project to CAD geometry
+
+ Tri Quality     Faces    Percent
+   < 0.001           0       0.0
+   < 0.01            4       5.3
+   < 0.05           16      21.1
+   < 0.1            20      26.3
+   < 0.2            28      36.8
+   < 0.3            40      52.6
+   < 0.4            42      55.3
+   < 0.5            52      68.4
+   < 0.6            64      84.2
+   < 0.7            64      84.2
+   < 0.8            64      84.2
+   < 0.9            76     100.0
+   < 1.0            76     100.0
+ Worst Tri quality is 0.008772
+
+ initial number of faces: 76
+
+ Phase 1: Apply Global Limits
+
+   Tri Quality     Faces    Percent
+     < 0.001           0       0.0
+     < 0.01            0       0.0
+     < 0.05            0       0.0
+     < 0.1             6       0.6
+     < 0.2            12       1.2
+     < 0.3            49       5.1
+     < 0.4            92       9.6
+     < 0.5           156      16.2
+     < 0.6           191      19.9
+     < 0.7           265      27.5
+     < 0.8           366      38.0
+     < 0.9           591      61.4
+     < 1.0           962     100.0
+   Worst Tri quality is 0.06905
+
+
+ Phase 2: Improve Grading
+
+   Tri Quality     Faces    Percent
+     < 0.001           0       0.0
+     < 0.01            0       0.0
+     < 0.05            0       0.0
+     < 0.1             0       0.0
+     < 0.2             0       0.0
+     < 0.3             0       0.0
+     < 0.4             0       0.0
+     < 0.5             7       0.0
+     < 0.6           113       0.8
+     < 0.7           324       2.2
+     < 0.8          1256       8.4
+     < 0.9          5588      37.5
+     < 1.0         14896     100.0
+   Worst Tri quality is 0.4183
+
+
+ Phase 3: Start Improve Quality
+
+   Phase 4: Improve Quality
+
+   Phase 5: Specialized Meshing
+
+   Phase 6: Final Improve Quality
+   Phase 7: Post-processing
+         No intersections found
+      0 faces with quality below 0.05
+
+ Tri Quality     Faces    Percent
+   < 0.001           0       0.0
+   < 0.01            0       0.0
+   < 0.05            0       0.0
+   < 0.1             0       0.0
+   < 0.2             0       0.0
+   < 0.3             0       0.0
+   < 0.4             0       0.0
+   < 0.5             0       0.0
+   < 0.6             0       0.0
+   < 0.7            41       0.3
+   < 0.8           505       3.2
+   < 0.9          4844      30.8
+   < 1.0         15728     100.0
+ Worst Tri quality is 0.6427
+
+ final number of faces: 15728
+                   |   Default Mesher | 
+           Patches |               14 | 
+         Triangles |            15728 | 
+ Aligned mesh not created for any patches.
+----------------------------------------
+Surface Remesher Completed: CPU Time: 1.76, Wall Time: 1.76, Memory: 125.71 MB
+----------------------------------------
+Surface Diagnostics: 
+Found 1 isolated surfaces from 1 parts.
+ Isolated surface index: 1, face count: 15728, area: 0.026, reference location: (0 -0.02 0)
+Total => Surfaces: 1, Faces: 15728, Area: 0.026
+
+Dihedral diagnostics is executed for edges of prism growing surfaces only. Special edges are not reported.
+ Dihedral Diagnostics:
+  There are no prism growing surfaces.
+done Surface diagnostics.CPU Time: 0.01, Wall Time: 0.01, Memory: 126.95 MB
+
+Surface is valid for volume meshing.CPU Time: 0.16, Wall Time: 0.16, Memory: 125.59 MB
+determineIfGenerationIsParallel, Memory: 62.46 MB
+ Mesh Generation is serial
+done, (determineIfGenerationIsParallel), CPU Time: 0.00, Wall Time: 0.00, Memory: 125.86 MB
+Associating celltypes with parts, Memory: 62.46 MB
+ Correcting missing facetypes, Memory: 62.46 MB
+ done, (Correcting missing facetypes), CPU Time: 0.00, Wall Time: 0.00, Memory: 126.02 MB
+done, (Associating celltypes with parts), CPU Time: 0.00, Wall Time: 0.00, Memory: 126.06 MB
+
+***************************************************************
+* Poly mesher is running in optimal domain decomposition mode *
+***************************************************************
+
+
+**************************************************************
+* Tet mesher is running in optimal domain decomposition mode *
+**************************************************************
+
+Preparing for octree generation...
+  done. CPU Time: 0.00, Wall Time: 0.00, Memory: 126.19 MB
+tet mesh cut (PIM) facetype = 0
+----------------------------------------
+Executing Tetrahedral Mesher
+----------------------------------------
+
+start Dt3Mesher, CPU Time: 0.00, Wall Time: 0.00, Memory: 128.09 MB
+
+Setting up surface...
+
+
+Generating mesh...
+
+Generating template mesh...
+Generating custom mesh
+   computing sizes at surface faces
+   incorporating sizes
+
+Global template octant count (Before incorporating PDF value) = 14876
+Incorporating PDF values...
+Refining Tet Octree...
+   Updating octant halo info and sidedness
+   done(Updating octant halo info and sidedness)
+   Incorporating max/min triangle size.
+   Split 0 octants.
+   Computing octant sidedness.
+   Iteration = 1:
+   Populating PDF value in octants.
+   Refining octants based on PDF criteria.
+   Split 0 octants.
+   Applying triangle size in pdf value..
+   done(Applying triangle size in pdf value), CPU Time: 0.01, Wall Time: 0.01, Memory: 135.85 MB
+   Smoothing mesh size.
+   Updating octant halo info and sidedness
+   done(Updating octant halo info and sidedness)
+  done, CPU Time: 0.30, Wall Time: 0.30, Memory: 134.97 MB
+Global template octant count (After incorporating PDF value) = 14876
+
+  done(Generating template mesh), CPU Time: 0.67, Wall Time: 0.67, Memory: 133.38 MB
+  Flagged 0 special Dt3 verts
+Checking the surface...
+  number of faces: 15728
+  done, CPU Time: 0.29, Wall Time: 0.29, Memory: 134.63 MB
+Generating initial tet mesh...
+Preparing mesh refinement...
+Preparing data for PDF interpolation...
+  done, CPU Time: 0.04, Wall Time: 0.04, Memory: 135.25 MB
+  Incorporating mesh controls...
+  Computing sidedness...
+  done (Preparing mesh refinement), CPU Time: 0.82, Wall Time: 0.82, Memory: 137.51 MB
+------------------------------------
+Estimated number of core poly cells: 10908
+------------------------------------
+Inserting boundary vertices...
+Inserting interior vertices...
+  Inserted 3042 interior vertices.
+  done, CPU Time: 2.42, Wall Time: 2.42, Memory: 139.92 MB
+Recovering boundary faces...
+  Recovering core boundary faces...
+  Recovering surface...
+    done (Recovering surface), CPU Time: 0.18, Wall Time: 0.18, Memory: 139.79 MB
+    done (Recovering core boundary faces), CPU Time: 0.40, Wall Time: 0.40, Memory: 136.20 MB
+
+  done (Recovering all boundary faces), CPU Time: 0.40, Wall Time: 0.40, Memory: 136.20 MB
+Optimizing mesh...
+  [Global] Cell count before optimization : 43583
+  done optimize, CPU Time: 0.39, Wall Time: 0.39, Memory: 137.14 MB
+  done optimize, CPU Time: 0.10, Wall Time: 0.10, Memory: 137.14 MB
+  done optimize, CPU Time: 1.52, Wall Time: 1.52, Memory: 137.55 MB
+  done (Optimizing mesh), CPU Time: 2.01, Wall Time: 2.01, Memory: 137.55 MB
+
+  final number of cells: 41270
+  done, CPU Time: 6.07, Wall Time: 6.07, Memory: 137.60 MB
+
+end of Dt3Mesher, CPU Time: 6.07, Wall Time: 6.07, Memory: 137.60 MB
+----------------------------------------
+Tetrahedral Mesher Completed: CPU Time: 6.07, Wall Time: 6.07, Memory: 137.60 MB
+----------------------------------------
+Enforcing tet mesh strict face orientation...
+Marking special entities on volume mesh
+Marking special edges
+Marking special vertices
+ Marked Special Edges : 772
+ Marked Special Verts : 24
+Building Dual Mesh, Memory: 75.55 MB
+Calling getTetMeshSpecialEdgesForDualizer() to set dual special edges
+ DualMesher - setPresetSharpEntities, Memory: 76.08 MB
+ done, (DualMesher - setPresetSharpEntities), CPU Time: 0.00, Wall Time: 0.00, Memory: 141.50 MB
+ Executing DualMesher::executeSpecific, Memory: 76.08 MB
+  Tet mesh contains 41270 cells
+  Enforce tet mesh strict face orientation --dualMesher, Memory: 76.08 MB
+  done, (Enforce tet mesh strict face orientation --dualMesher), CPU Time: 0.09, Wall Time: 0.09, Memory: 141.52 MB
+  Number of tet cells = 41270
+  Maximizing cell center quality, Memory: 76.08 MB
+   Initializing cell centers, Memory: 76.08 MB
+   done, (Initializing cell centers), CPU Time: 0.07, Wall Time: 0.07, Memory: 142.26 MB
+   Initializing face data, Memory: 76.77 MB
+   done, (Initializing face data), CPU Time: 0.07, Wall Time: 0.07, Memory: 145.04 MB
+   Solving constrained optimization for 41270 cells ...
+    Iteration 1    Total Normalized Displacement       1.00000    Constrained 0
+    Iteration 2    Total Normalized Displacement       0.09961    Constrained 0
+    Iteration 3    Total Normalized Displacement       0.00905    Constrained 0
+  done, (Maximizing cell center quality), CPU Time: 0.38, Wall Time: 0.38, Memory: 142.29 MB
+  Executing Dualizer, Memory: 77.47 MB
+   Number of core     cells in initial mesh : 41270
+   Number of boundary faces in initial mesh : 15728
+   Estimated number of core polyhedra       : 11193
+   presetSharpEdges            : 772
+   presetSharpCorners          : 0
+   presetIrregularSharpCorners : 0
+   Found 772 activeSharpEdges from preset edges 
+   Found 0 activeSharpEdges from irregular corners 
+   Found total 772 activeSharpEdges 
+   Generating Polyhedral Cells, Memory: 77.47 MB
+    Starting generation, Memory: 77.47 MB
+     Preparing dual mesh, Memory: 77.47 MB
+      Creating interior vertices, Memory: 78.45 MB
+      done, (Creating interior vertices), CPU Time: 0.09, Wall Time: 0.09, Memory: 145.14 MB
+      Initializing dual cells, Memory: 79.48 MB
+       Initializing counters, Memory: 79.48 MB
+       done, (Initializing counters), CPU Time: 0.06, Wall Time: 0.06, Memory: 145.17 MB
+       Primal mesh contains 10920 vertices
+      done, (Initializing dual cells), CPU Time: 0.07, Wall Time: 0.07, Memory: 145.98 MB
+     done, (Preparing dual mesh), CPU Time: 0.20, Wall Time: 0.20, Memory: 145.98 MB
+     Populating dual mesh, Memory: 80.24 MB
+      Creating sharp edges mid vertices on boundary, Memory: 80.24 MB
+       User defined sharp edges : 772
+      done, (Creating sharp edges mid vertices on boundary), CPU Time: 0.01, Wall Time: 0.00, Memory: 146.43 MB
+      Creating edge boundary faces, Memory: 80.80 MB
+       created 23592 dual edge boundary faces CPU Time: 0.10, Wall Time: 0.10, Memory: 146.95 MB
+      done, (Creating edge boundary faces), CPU Time: 0.10, Wall Time: 0.10, Memory: 146.95 MB
+      Creating interior faces, Memory: 81.32 MB
+       created 36461 dual faces CPU Time: 0.35, Wall Time: 0.35, Memory: 147.95 MB
+      done, (Creating interior faces), CPU Time: 0.35, Wall Time: 0.35, Memory: 147.95 MB
+      Creating boundary faces, Memory: 82.51 MB
+       created 7866 dual boundary faces CPU Time: 0.30, Wall Time: 0.30, Memory: 149.04 MB
+      done, (Creating boundary faces), CPU Time: 0.30, Wall Time: 0.30, Memory: 149.04 MB
+      Updating boundary faces, Memory: 83.84 MB
+      done, (Updating boundary faces), CPU Time: 0.03, Wall Time: 0.03, Memory: 149.09 MB
+     done, (Populating dual mesh), CPU Time: 0.78, Wall Time: 0.78, Memory: 149.10 MB
+     Dual Mesh contains 10920 cells
+     Checking mesh, Memory: 83.84 MB
+      Checking cell topology
+     done, (Checking mesh), CPU Time: 0.34, Wall Time: 0.34, Memory: 149.11 MB
+    done, (Starting generation), CPU Time: 1.33, Wall Time: 1.33, Memory: 149.11 MB
+   done, (Generating Polyhedral Cells), CPU Time: 1.33, Wall Time: 1.33, Memory: 149.11 MB
+   Splitting dual interior sharp faces, Memory: 83.84 MB
+    Candidate faces = 0
+    Split faces = 0
+   done, (Splitting dual interior sharp faces), CPU Time: 0.00, Wall Time: 0.00, Memory: 149.12 MB
+   Splitting dual boundary sharp cells, Memory: 83.84 MB
+    Tolerance = 3.09527e-05
+   done, (Splitting dual boundary sharp cells), CPU Time: 0.04, Wall Time: 0.05, Memory: 149.66 MB
+   No collapsible vertices.
+  done, (Executing Dualizer), CPU Time: 1.40, Wall Time: 1.40, Memory: 149.66 MB
+  Volume mesh partition contains 10920 polyhedral cells
+ done, (Executing DualMesher::executeSpecific), CPU Time: 1.89, Wall Time: 1.89, Memory: 146.75 MB
+done, (Building Dual Mesh), CPU Time: 1.97, Wall Time: 1.97, Memory: 146.76 MB
+
+Skipping conformality check for 0 interfaces in contact mode.
+   Final Summary      Total conformal interfaces: 0/0      Total NOT conformal interfaces: 0/0
+done, (Checking Interface Conformality), CPU Time: 0.02, Wall Time: 0.02, Memory: 137.62 MB
+Using machine tolerance for matching.
+Splitting concave cells, Memory: 72.60 MB
+ Found 16 cells to split
+ Executing Splitter..., Memory: 72.60 MB
+ done, (Executing Splitter...), CPU Time: 0.20, Wall Time: 0.20, Memory: 140.62 MB
+ after splitter.execute, CPU Time: 0.62, Wall Time: 0.62, Memory: 140.62 MB
+done, (Splitting concave cells), CPU Time: 0.62, Wall Time: 0.62, Memory: 140.62 MB
+Using machine tolerance for matching.
+Optimizing mesh quality, Memory: 74.09 MB
+ ParallelOptimizer<Quality>::execute, Memory: 74.09 MB
+  executing mesh optimizer in serial ...
+  Mesh Optimization, Memory: 74.09 MB
+   Tabu Search Optimizing, Memory: 74.09 MB
+    Computing cell volumes and centroids, Memory: 75.48 MB
+    done, (Computing cell volumes and centroids), CPU Time: 0.18, Wall Time: 0.18, Memory: 142.46 MB
+    Quality thresholds:
+    minFaceValidity   minCellQuality   minFacePlanarity   minVolumeChange   minSkewness
+          1.000000         0.000010           0.700000          0.011000      0.087156
+    Starting optimization on 10938 candidate cells
+    Start outer iteration #1
+    Minimum quality metrics before outer iteration #1:
+    minFaceValidity   minCellQuality   minFacePlanarity   minVolumeChange   minSkewness
+          1.000000         1.000000           1.000000          1.000000      1.000000
+    Found 0 cells that are below quality threshold
+    Found 0 cells that need optimization
+    Found 0 vertices that need optimization
+    After optimization, there are 0 cells that are below quality threshold
+    Final minimum quality metrics after optimization:
+    minFaceValidity   minCellQuality   minFacePlanarity   minVolumeChange   minSkewness
+          1.000000         1.000000           1.000000          1.000000      1.000000
+   done, (Tabu Search Optimizing), CPU Time: 1.56, Wall Time: 1.56, Memory: 142.58 MB
+  done, (Mesh Optimization), CPU Time: 1.57, Wall Time: 1.57, Memory: 142.59 MB
+ done, (ParallelOptimizer<Quality>::execute), CPU Time: 1.57, Wall Time: 1.57, Memory: 142.59 MB
+done, (Optimizing mesh quality), CPU Time: 1.57, Wall Time: 1.57, Memory: 142.59 MB
+Associating celltypes with parts, Memory: 76.62 MB
+ Correcting missing facetypes, Memory: 76.62 MB
+ done, (Correcting missing facetypes), CPU Time: 0.03, Wall Time: 0.03, Memory: 138.95 MB
+done, (Associating celltypes with parts), CPU Time: 0.08, Wall Time: 0.08, Memory: 138.96 MB
+Converting mesh into finite volume representation in Region bar_b21c
+   Converted mesh for bar_b21c CPU Time: 0.19, Wall Time: 0.20, Memory: 144.29 MB
+Mesh conversion completed, CPU Time: 0.26, Wall Time: 0.26, Memory: 137.85 MB
+Loading module: MotionModel
+Converting mesh into finite volume representation completed: CPU Time: 0.34, Wall Time: 0.33, Memory: 142.42 MB
+	Cells: 10938	Faces: 60115	Vertices: 57826
+----------------------------------------
+Mesh Operation Automated Mesh complete. CPU Time: 13.13, Wall Time: 13.13, Memory: 142.44 MB
+----------------------------------------
+Loading module: MaterialModel
+Reading material property database "D:\Installations\Siemens\21.02.008-R8\STAR-CCM+21.02.008-R8\star\data\props.mdb"...
+Loading module: SegregatedEnergyModel
+Loading module: Electromagnetism
+Reading material property database "D:\Installations\Siemens\21.02.008-R8\STAR-CCM+21.02.008-R8\star\data\Electromagnetic.mdb"...
+Loading module: Electricpotential
+Loading module: OhmicHeating
+Note: changing incompatible bar_b21c region type from star.common.FluidRegion to star.common.SolidRegion
+     Iteration ElectricPotential         Energy 
+             1      0.000000e+00   1.000000e+00 
+             2      1.000000e+00   1.000000e+00 
+             3      1.826663e-01   9.463838e-01 
+             4      3.777468e-02   9.313975e-01 
+             5      9.383053e-03   9.096402e-01 
+             6      2.337485e-03   8.885445e-01 
+             7      6.851292e-04   8.713993e-01 
+             8      2.110313e-04   8.575814e-01 
+             9      7.220399e-05   8.463033e-01 
+            10      2.485319e-05   8.369555e-01 
+     Iteration ElectricPotential         Energy 
+            11      9.162804e-06   8.290896e-01 
+            12      3.304696e-06   8.223772e-01 
+            13      1.255720e-06   8.165749e-01 
+            14      4.685465e-07   8.114999e-01 
+            15      1.810676e-07   8.070131e-01 
+            16      6.927322e-08   8.030073e-01 
+            17      2.712542e-08   8.034430e-01 
+            18      1.056314e-08   8.008618e-01 
+            19      4.177745e-09   7.984080e-01 
+            20      1.647264e-09   7.960663e-01 
+     Iteration ElectricPotential         Energy 
+            21      6.560788e-10   7.938370e-01 
+            22      2.609067e-10   7.917124e-01 
+            23      1.044102e-10   7.896845e-01 
+            24      4.175665e-11   7.877454e-01 
+            25      1.676432e-11   7.858880e-01 
+            26      6.731298e-12   7.841058e-01 
+            27      2.714358e-12   7.823930e-01 
+            28      1.107045e-12   7.807441e-01 
+            29      4.792790e-13   7.791544e-01 
+            30      2.642463e-13   7.776196e-01 
+     Iteration ElectricPotential         Energy 
+            31      2.132633e-13   7.761357e-01 
+            32      2.007283e-13   7.746992e-01 
+            33      1.996550e-13   7.733069e-01 
+            34      1.946168e-13   7.719558e-01 
+            35      1.993998e-13   7.706433e-01 
+            36      1.960939e-13   7.693669e-01 
+            37      1.991111e-13   7.681243e-01 
+            38      1.953018e-13   7.669136e-01 
+            39      1.978443e-13   7.657328e-01 
+            40      2.007037e-13   7.645802e-01 
+     Iteration ElectricPotential         Energy 
+            41      1.940184e-13   7.634542e-01 
+            42      1.977761e-13   7.623532e-01 
+            43      2.030686e-13   7.612759e-01 
+            44      2.014275e-13   7.602210e-01 
+            45      2.029347e-13   7.591873e-01 
+            46      2.016156e-13   7.581736e-01 
+            47      2.026859e-13   7.571790e-01 
+            48      1.944639e-13   7.562024e-01 
+            49      1.990446e-13   7.552430e-01 
+            50      1.986842e-13   7.542998e-01 
+     Iteration ElectricPotential         Energy 
+            51      1.973962e-13   7.533721e-01 
+            52      1.965306e-13   7.524591e-01 
+            53      1.975877e-13   7.515600e-01 
+            54      1.958554e-13   7.506743e-01 
+            55      1.971725e-13   7.498012e-01 
+            56      1.977823e-13   7.489402e-01 
+            57      1.996026e-13   7.480907e-01 
+            58      1.997104e-13   7.472522e-01 
+            59      1.993680e-13   7.464241e-01 
+            60      1.981667e-13   7.456060e-01 
+     Iteration ElectricPotential         Energy 
+            61      1.993793e-13   7.447974e-01 
+            62      1.990469e-13   7.439978e-01 
+            63      1.986875e-13   7.432070e-01 
+            64      1.969485e-13   7.424244e-01 
+            65      1.976648e-13   7.416497e-01 
+            66      1.991619e-13   7.408826e-01 
+            67      1.995667e-13   7.401227e-01 
+            68      1.955755e-13   7.393698e-01 
+            69      1.962130e-13   7.386234e-01 
+            70      1.984154e-13   7.378834e-01 
+     Iteration ElectricPotential         Energy 
+            71      1.955227e-13   7.371494e-01 
+            72      1.963326e-13   7.364211e-01 
+            73      1.990167e-13   7.356985e-01 
+            74      1.977611e-13   7.349811e-01 
+            75      1.942650e-13   7.342688e-01 
+            76      1.980344e-13   7.335614e-01 
+            77      1.991749e-13   7.328587e-01 
+            78      1.946813e-13   7.321604e-01 
+            79      1.942629e-13   7.314664e-01 
+            80      1.933264e-13   7.307766e-01 
+     Iteration ElectricPotential         Energy 
+            81      1.987407e-13   7.300907e-01 
+            82      2.023857e-13   7.294085e-01 
+            83      1.943576e-13   7.287300e-01 
+            84      1.943949e-13   7.280550e-01 
+            85      2.048757e-13   7.273834e-01 
+            86      1.991716e-13   7.267149e-01 
+            87      1.988964e-13   7.260496e-01 
+            88      1.991426e-13   7.253873e-01 
+            89      1.993535e-13   7.247278e-01 
+            90      1.972009e-13   7.240710e-01 
+     Iteration ElectricPotential         Energy 
+            91      1.934307e-13   7.234170e-01 
+            92      1.967278e-13   7.227654e-01 
+            93      1.976391e-13   7.221164e-01 
+            94      1.924879e-13   7.214697e-01 
+            95      1.960706e-13   7.208252e-01 
+            96      1.984127e-13   7.201830e-01 
+            97      1.955562e-13   7.195429e-01 
+            98      1.979183e-13   7.189049e-01 
+            99      1.985678e-13   7.182688e-01 
+           100      2.004943e-13   7.176347e-01 
+     Iteration ElectricPotential         Energy 
+           101      1.989184e-13   7.170024e-01 
+           102      1.947959e-13   7.163718e-01 
+           103      1.954169e-13   7.157430e-01 
+           104      1.973754e-13   7.151159e-01 
+           105      1.978016e-13   7.144904e-01 
+           106      1.964802e-13   7.138665e-01 
+           107      1.966018e-13   7.132440e-01 
+           108      1.946158e-13   7.126231e-01 
+           109      1.992166e-13   7.120036e-01 
+           110      1.965279e-13   7.113854e-01 
+     Iteration ElectricPotential         Energy 
+           111      1.977331e-13   7.107686e-01 
+           112      1.983221e-13   7.101531e-01 
+           113      2.022767e-13   7.095389e-01 
+           114      1.978525e-13   7.089259e-01 
+           115      1.991108e-13   7.083141e-01 
+           116      2.015374e-13   7.077035e-01 
+           117      1.994532e-13   7.070940e-01 
+           118      1.974441e-13   7.064857e-01 
+           119      1.981022e-13   7.058784e-01 
+           120      1.965616e-13   7.052721e-01 
+     Iteration ElectricPotential         Energy 
+           121      1.990233e-13   7.046669e-01 
+           122      1.970852e-13   7.040627e-01 
+           123      2.021362e-13   7.034595e-01 
+           124      1.962982e-13   7.028573e-01 
+           125      1.966573e-13   7.022559e-01 
+           126      1.980996e-13   7.016555e-01 
+           127      1.973565e-13   7.010560e-01 
+           128      1.957761e-13   7.004574e-01 
+           129      1.994059e-13   6.998597e-01 
+           130      1.975355e-13   6.992628e-01 
+     Iteration ElectricPotential         Energy 
+           131      1.979920e-13   6.986667e-01 
+           132      1.975740e-13   6.980714e-01 
+           133      1.965345e-13   6.974770e-01 
+           134      2.003350e-13   6.968833e-01 
+           135      1.988949e-13   6.962904e-01 
+           136      1.985513e-13   6.956982e-01 
+           137      1.954046e-13   6.951069e-01 
+           138      1.992925e-13   6.945162e-01 
+           139      1.985322e-13   6.939263e-01 
+           140      1.992605e-13   6.933371e-01 
+     Iteration ElectricPotential         Energy 
+           141      1.960640e-13   6.927486e-01 
+           142      1.982731e-13   6.921608e-01 
+           143      1.998485e-13   6.915736e-01 
+           144      1.991012e-13   6.909872e-01 
+           145      1.967970e-13   6.904014e-01 
+           146      1.981305e-13   6.898163e-01 
+           147      2.037343e-13   6.892318e-01 
+           148      2.002098e-13   6.886480e-01 
+           149      2.021271e-13   6.880648e-01 
+           150      1.954700e-13   6.874823e-01 
+     Iteration ElectricPotential         Energy 
+           151      1.958983e-13   6.869004e-01 
+           152      1.989479e-13   6.863191e-01 
+           153      1.996788e-13   6.857384e-01 
+           154      1.970479e-13   6.851583e-01 
+           155      1.957636e-13   6.845788e-01 
+           156      1.962090e-13   6.839999e-01 
+           157      1.955592e-13   6.834216e-01 
+           158      2.009721e-13   6.828439e-01 
+           159      1.968403e-13   6.822667e-01 
+           160      1.948549e-13   6.816902e-01 
+     Iteration ElectricPotential         Energy 
+           161      1.953887e-13   6.811142e-01 
+           162      1.960276e-13   6.805388e-01 
+           163      1.977110e-13   6.799639e-01 
+           164      1.980177e-13   6.793896e-01 
+           165      1.988166e-13   6.788159e-01 
+           166      1.992756e-13   6.782427e-01 
+           167      1.971647e-13   6.776701e-01 
+           168      1.994299e-13   6.770980e-01 
+           169      1.973896e-13   6.765265e-01 
+           170      1.986982e-13   6.759555e-01 
+     Iteration ElectricPotential         Energy 
+           171      1.978275e-13   6.753850e-01 
+           172      1.946445e-13   6.748151e-01 
+           173      1.946353e-13   6.742457e-01 
+           174      1.997159e-13   6.736768e-01 
+           175      1.978014e-13   6.731084e-01 
+           176      1.943522e-13   6.725406e-01 
+           177      2.003346e-13   6.719733e-01 
+           178      1.998024e-13   6.714065e-01 
+           179      1.976647e-13   6.708403e-01 
+           180      1.980081e-13   6.702745e-01 
+     Iteration ElectricPotential         Energy 
+           181      1.947834e-13   6.697093e-01 
+           182      2.023158e-13   6.691446e-01 
+           183      1.988940e-13   6.685804e-01 
+           184      2.003890e-13   6.680167e-01 
+           185      1.956090e-13   6.674535e-01 
+           186      1.990987e-13   6.668908e-01 
+           187      1.990172e-13   6.663286e-01 
+           188      1.959604e-13   6.657669e-01 
+           189      1.979013e-13   6.652057e-01 
+           190      1.981140e-13   6.646451e-01 
+     Iteration ElectricPotential         Energy 
+           191      2.020426e-13   6.640849e-01 
+           192      1.973416e-13   6.635252e-01 
+           193      1.984303e-13   6.629660e-01 
+           194      1.944688e-13   6.624073e-01 
+           195      1.994363e-13   6.618491e-01 
+           196      1.965991e-13   6.612913e-01 
+           197      2.014345e-13   6.607341e-01 
+           198      1.944493e-13   6.601773e-01 
+           199      1.998337e-13   6.596211e-01 
+           200      1.979568e-13   6.590653e-01 
+     Iteration ElectricPotential         Energy 
+           201      2.038853e-13   6.585100e-01 
+           202      1.949896e-13   6.579552e-01 
+           203      2.016633e-13   6.574009e-01 
+           204      1.982226e-13   6.568471e-01 
+           205      1.988336e-13   6.562937e-01 
+           206      1.989777e-13   6.557408e-01 
+           207      1.994176e-13   6.551884e-01 
+           208      1.985018e-13   6.546365e-01 
+           209      1.970697e-13   6.540850e-01 
+           210      1.925466e-13   6.535341e-01 
+     Iteration ElectricPotential         Energy 
+           211      1.963975e-13   6.529836e-01 
+           212      1.977869e-13   6.524336e-01 
+           213      1.977974e-13   6.518840e-01 
+           214      1.969272e-13   6.513349e-01 
+           215      1.978350e-13   6.507863e-01 
+           216      1.979730e-13   6.502382e-01 
+           217      1.993407e-13   6.496905e-01 
+           218      1.980138e-13   6.491434e-01 
+           219      1.956040e-13   6.485966e-01 
+           220      1.963312e-13   6.480504e-01 
+     Iteration ElectricPotential         Energy 
+           221      1.940517e-13   6.475046e-01 
+           222      1.981688e-13   6.469593e-01 
+           223      1.989685e-13   6.464144e-01 
+           224      2.002450e-13   6.458701e-01 
+           225      1.951216e-13   6.453261e-01 
+           226      1.981857e-13   6.447827e-01 
+           227      1.977172e-13   6.442397e-01 
+           228      1.959809e-13   6.436972e-01 
+           229      2.013918e-13   6.431551e-01 
+           230      1.944060e-13   6.426135e-01 
+     Iteration ElectricPotential         Energy 
+           231      1.984009e-13   6.420724e-01 
+           232      1.965159e-13   6.415317e-01 
+           233      1.974437e-13   6.409915e-01 
+           234      1.965012e-13   6.404517e-01 
+           235      1.966467e-13   6.399124e-01 
+           236      1.926459e-13   6.393736e-01 
+           237      1.971145e-13   6.388352e-01 
+           238      1.989636e-13   6.382973e-01 
+           239      1.985154e-13   6.377598e-01 
+           240      2.003127e-13   6.372228e-01 
+     Iteration ElectricPotential         Energy 
+           241      2.039819e-13   6.366863e-01 
+           242      1.956259e-13   6.361502e-01 
+           243      2.002809e-13   6.356145e-01 
+           244      1.977903e-13   6.350793e-01 
+           245      1.928888e-13   6.345446e-01 
+           246      1.972773e-13   6.340103e-01 
+           247      1.992448e-13   6.334765e-01 
+           248      1.973996e-13   6.329431e-01 
+           249      1.951736e-13   6.324102e-01 
+           250      1.959317e-13   6.318778e-01 
+     Iteration ElectricPotential         Energy 
+           251      1.975187e-13   6.313457e-01 
+           252      1.984056e-13   6.308142e-01 
+           253      1.968447e-13   6.302831e-01 
+           254      1.950893e-13   6.297524e-01 
+           255      1.999506e-13   6.292222e-01 
+           256      1.940927e-13   6.286924e-01 
+           257      1.975161e-13   6.281631e-01 
+           258      1.957491e-13   6.276342e-01 
+           259      1.955114e-13   6.271058e-01 
+           260      1.973516e-13   6.265778e-01 
+     Iteration ElectricPotential         Energy 
+           261      1.943889e-13   6.260503e-01 
+           262      1.949976e-13   6.255232e-01 
+           263      1.986862e-13   6.249966e-01 
+           264      1.988625e-13   6.244704e-01 
+           265      1.993778e-13   6.239446e-01 
+           266      1.927585e-13   6.234193e-01 
+           267      1.985495e-13   6.228945e-01 
+           268      1.947408e-13   6.223700e-01 
+           269      1.989963e-13   6.218461e-01 
+           270      1.954275e-13   6.213225e-01 
+     Iteration ElectricPotential         Energy 
+           271      1.957643e-13   6.207994e-01 
+           272      1.949117e-13   6.202768e-01 
+           273      1.974132e-13   6.197546e-01 
+           274      1.962507e-13   6.192328e-01 
+           275      2.015011e-13   6.187115e-01 
+           276      1.966667e-13   6.181906e-01 
+           277      1.994180e-13   6.176702e-01 
+           278      1.997962e-13   6.171502e-01 
+           279      1.936856e-13   6.166306e-01 
+           280      2.015900e-13   6.161115e-01 
+     Iteration ElectricPotential         Energy 
+           281      1.982675e-13   6.155928e-01 
+           282      2.009400e-13   6.150746e-01 
+           283      1.947967e-13   6.145568e-01 
+           284      2.028481e-13   6.140394e-01 
+           285      1.974487e-13   6.135224e-01 
+           286      1.981951e-13   6.130059e-01 
+           287      1.999014e-13   6.124899e-01 
+           288      1.949859e-13   6.119742e-01 
+           289      1.988880e-13   6.114591e-01 
+           290      1.959224e-13   6.109443e-01 
+     Iteration ElectricPotential         Energy 
+           291      1.993356e-13   6.104300e-01 
+           292      1.960237e-13   6.099161e-01 
+           293      1.976788e-13   6.094026e-01 
+           294      1.970795e-13   6.088896e-01 
+           295      1.991998e-13   6.083770e-01 
+           296      1.999374e-13   6.078648e-01 
+           297      1.958375e-13   6.073531e-01 
+           298      1.980017e-13   6.068418e-01 
+           299      2.022381e-13   6.063309e-01 
+           300      2.002997e-13   6.058205e-01 
+     Iteration ElectricPotential         Energy 
+           301      1.976353e-13   6.053105e-01 
+           302      1.950798e-13   6.048009e-01 
+           303      1.949170e-13   6.042918e-01 
+           304      1.952391e-13   6.037831e-01 
+           305      1.963293e-13   6.032748e-01 
+           306      2.002224e-13   6.027669e-01 
+           307      1.941546e-13   6.022595e-01 
+           308      1.975742e-13   6.017525e-01 
+           309      1.955934e-13   6.012459e-01 
+           310      1.975712e-13   6.007398e-01 
+     Iteration ElectricPotential         Energy 
+           311      2.017332e-13   6.002341e-01 
+           312      1.984198e-13   5.997288e-01 
+           313      1.966724e-13   5.992239e-01 
+           314      1.933726e-13   5.987194e-01 
+           315      2.024264e-13   5.982154e-01 
+           316      1.986235e-13   5.977118e-01 
+           317      1.970639e-13   5.972087e-01 
+           318      1.974328e-13   5.967059e-01 
+           319      1.995804e-13   5.962036e-01 
+           320      1.972358e-13   5.957017e-01 
+     Iteration ElectricPotential         Energy 
+           321      1.976898e-13   5.952002e-01 
+           322      1.979669e-13   5.946992e-01 
+           323      2.022204e-13   5.941985e-01 
+           324      1.994389e-13   5.936983e-01 
+           325      1.999994e-13   5.931985e-01 
+           326      1.971113e-13   5.926992e-01 
+           327      1.972689e-13   5.922002e-01 
+           328      1.947589e-13   5.917017e-01 
+           329      1.963830e-13   5.912036e-01 
+           330      1.993084e-13   5.907059e-01 
+     Iteration ElectricPotential         Energy 
+           331      1.951734e-13   5.902087e-01 
+           332      1.976494e-13   5.897118e-01 
+           333      1.932012e-13   5.892154e-01 
+           334      1.996824e-13   5.887194e-01 
+           335      1.976201e-13   5.882238e-01 
+           336      1.969327e-13   5.877286e-01 
+           337      1.971376e-13   5.872338e-01 
+           338      2.034554e-13   5.867395e-01 
+           339      1.994551e-13   5.862456e-01 
+           340      1.985034e-13   5.857521e-01 
+     Iteration ElectricPotential         Energy 
+           341      1.980055e-13   5.852590e-01 
+           342      2.017113e-13   5.847663e-01 
+           343      1.956287e-13   5.842740e-01 
+           344      1.924965e-13   5.837822e-01 
+           345      1.997424e-13   5.832908e-01 
+           346      1.953326e-13   5.827997e-01 
+           347      1.974567e-13   5.823091e-01 
+           348      1.976061e-13   5.818189e-01 
+           349      1.971824e-13   5.813292e-01 
+           350      1.973376e-13   5.808398e-01 
+     Iteration ElectricPotential         Energy 
+           351      1.996131e-13   5.803508e-01 
+           352      1.968558e-13   5.798623e-01 
+           353      1.966214e-13   5.793742e-01 
+           354      2.000154e-13   5.788864e-01 
+           355      1.956552e-13   5.783991e-01 
+           356      1.986687e-13   5.779122e-01 
+           357      1.977659e-13   5.774257e-01 
+           358      1.977560e-13   5.769397e-01 
+           359      1.967975e-13   5.764540e-01 
+           360      2.023707e-13   5.759687e-01 
+     Iteration ElectricPotential         Energy 
+           361      1.998784e-13   5.754839e-01 
+           362      1.990379e-13   5.749994e-01 
+           363      1.994832e-13   5.745154e-01 
+           364      1.995526e-13   5.740318e-01 
+           365      1.956702e-13   5.735486e-01 
+           366      1.982230e-13   5.730657e-01 
+           367      1.976943e-13   5.725833e-01 
+           368      2.051351e-13   5.721013e-01 
+           369      2.008074e-13   5.716197e-01 
+           370      1.979510e-13   5.711385e-01 
+     Iteration ElectricPotential         Energy 
+           371      1.987411e-13   5.706578e-01 
+           372      1.980463e-13   5.701774e-01 
+           373      1.971846e-13   5.696974e-01 
+           374      1.984670e-13   5.692178e-01 
+           375      1.963867e-13   5.687387e-01 
+           376      1.973905e-13   5.682599e-01 
+           377      1.991064e-13   5.677815e-01 
+           378      1.969181e-13   5.673036e-01 
+           379      1.982053e-13   5.668260e-01 
+           380      1.974248e-13   5.663489e-01 
+     Iteration ElectricPotential         Energy 
+           381      1.921706e-13   5.658721e-01 
+           382      1.990023e-13   5.653958e-01 
+           383      1.978914e-13   5.649198e-01 
+           384      1.954698e-13   5.644443e-01 
+           385      1.942525e-13   5.639691e-01 
+           386      1.970335e-13   5.634944e-01 
+           387      1.990647e-13   5.630200e-01 
+           388      1.975990e-13   5.625461e-01 
+           389      1.982971e-13   5.620725e-01 
+           390      2.050748e-13   5.615994e-01 
+     Iteration ElectricPotential         Energy 
+           391      1.959793e-13   5.611266e-01 
+           392      2.008476e-13   5.606543e-01 
+           393      2.001757e-13   5.601823e-01 
+           394      1.976009e-13   5.597107e-01 
+           395      1.965868e-13   5.592396e-01 
+           396      1.965342e-13   5.587688e-01 
+           397      1.950525e-13   5.582984e-01 
+           398      1.982274e-13   5.578285e-01 
+           399      2.006422e-13   5.573589e-01 
+           400      1.960720e-13   5.568897e-01 
+     Iteration ElectricPotential         Energy 
+           401      1.976948e-13   5.564209e-01 
+           402      1.992137e-13   5.559525e-01 
+           403      1.996893e-13   5.554845e-01 
+           404      2.004301e-13   5.550169e-01 
+           405      2.053869e-13   5.545497e-01 
+           406      1.995250e-13   5.540829e-01 
+           407      1.943299e-13   5.536165e-01 
+           408      1.942834e-13   5.531504e-01 
+           409      2.035223e-13   5.526848e-01 
+           410      1.968408e-13   5.522196e-01 
+     Iteration ElectricPotential         Energy 
+           411      1.937262e-13   5.517547e-01 
+           412      1.989959e-13   5.512902e-01 
+           413      1.974037e-13   5.508262e-01 
+           414      1.963655e-13   5.503625e-01 
+           415      1.990043e-13   5.498992e-01 
+           416      1.977532e-13   5.494363e-01 
+           417      1.986711e-13   5.489738e-01 
+           418      1.947415e-13   5.485116e-01 
+           419      1.950630e-13   5.480499e-01 
+           420      1.985504e-13   5.475886e-01 
+     Iteration ElectricPotential         Energy 
+           421      1.983371e-13   5.471276e-01 
+           422      1.966132e-13   5.466670e-01 
+           423      2.017770e-13   5.462069e-01 
+           424      1.946892e-13   5.457471e-01 
+           425      1.949677e-13   5.452877e-01 
+           426      2.003709e-13   5.448286e-01 
+           427      1.990152e-13   5.443700e-01 
+           428      2.006680e-13   5.439118e-01 
+           429      1.935174e-13   5.434539e-01 
+           430      2.018876e-13   5.429964e-01 
+     Iteration ElectricPotential         Energy 
+           431      1.973205e-13   5.425393e-01 
+           432      2.012895e-13   5.420826e-01 
+           433      1.987560e-13   5.416263e-01 
+           434      1.990851e-13   5.411704e-01 
+           435      1.976807e-13   5.407148e-01 
+           436      2.017868e-13   5.402596e-01 
+           437      1.938820e-13   5.398049e-01 
+           438      1.995341e-13   5.393505e-01 
+           439      1.958193e-13   5.388964e-01 
+           440      1.977180e-13   5.384428e-01 
+     Iteration ElectricPotential         Energy 
+           441      1.975580e-13   5.379895e-01 
+           442      2.010297e-13   5.375367e-01 
+           443      1.966646e-13   5.370842e-01 
+           444      1.974176e-13   5.366321e-01 
+           445      1.973172e-13   5.361803e-01 
+           446      1.957156e-13   5.357290e-01 
+           447      1.938276e-13   5.352780e-01 
+           448      2.000410e-13   5.348274e-01 
+           449      2.011892e-13   5.343772e-01 
+           450      1.968124e-13   5.339274e-01 
+     Iteration ElectricPotential         Energy 
+           451      1.984974e-13   5.334779e-01 
+           452      1.980186e-13   5.330288e-01 
+           453      1.984739e-13   5.325801e-01 
+           454      1.937667e-13   5.321318e-01 
+           455      2.003166e-13   5.316839e-01 
+           456      2.020204e-13   5.312363e-01 
+           457      1.992917e-13   5.307891e-01 
+           458      1.986982e-13   5.303423e-01 
+           459      1.964079e-13   5.298958e-01 
+           460      2.004889e-13   5.294498e-01 
+     Iteration ElectricPotential         Energy 
+           461      1.968183e-13   5.290041e-01 
+           462      1.974234e-13   5.285588e-01 
+           463      1.958696e-13   5.281139e-01 
+           464      1.964767e-13   5.276693e-01 
+           465      1.923479e-13   5.272251e-01 
+           466      1.981551e-13   5.267813e-01 
+           467      1.967675e-13   5.263379e-01 
+           468      1.982139e-13   5.258948e-01 
+           469      1.979561e-13   5.254521e-01 
+           470      1.969399e-13   5.250098e-01 
+     Iteration ElectricPotential         Energy 
+           471      1.985188e-13   5.245678e-01 
+           472      1.970527e-13   5.241262e-01 
+           473      1.967541e-13   5.236850e-01 
+           474      1.940686e-13   5.232442e-01 
+           475      1.964727e-13   5.228037e-01 
+           476      1.998738e-13   5.223637e-01 
+           477      1.988781e-13   5.219239e-01 
+           478      2.008683e-13   5.214846e-01 
+           479      1.983055e-13   5.210456e-01 
+           480      1.987149e-13   5.206070e-01 
+     Iteration ElectricPotential         Energy 
+           481      1.957369e-13   5.201687e-01 
+           482      2.008271e-13   5.197309e-01 
+           483      1.966708e-13   5.192934e-01 
+           484      1.949405e-13   5.188562e-01 
+           485      1.987813e-13   5.184195e-01 
+           486      1.972290e-13   5.179831e-01 
+           487      2.022155e-13   5.175470e-01 
+           488      1.990460e-13   5.171114e-01 
+           489      1.953008e-13   5.166761e-01 
+           490      1.977398e-13   5.162411e-01 
+     Iteration ElectricPotential         Energy 
+           491      1.973785e-13   5.158066e-01 
+           492      1.988634e-13   5.153724e-01 
+           493      1.976973e-13   5.149385e-01 
+           494      1.926651e-13   5.145051e-01 
+           495      1.955342e-13   5.140720e-01 
+           496      1.971873e-13   5.136392e-01 
+           497      2.018643e-13   5.132068e-01 
+           498      2.009429e-13   5.127748e-01 
+           499      2.000176e-13   5.123432e-01 
+           500      1.953992e-13   5.119119e-01 
+     Iteration ElectricPotential         Energy 
+           501      1.980790e-13   5.114810e-01 
+           502      1.966326e-13   5.110504e-01 
+           503      1.933387e-13   5.106202e-01 
+           504      1.979041e-13   5.101904e-01 
+           505      1.951138e-13   5.097609e-01 
+           506      1.918549e-13   5.093318e-01 
+           507      1.982690e-13   5.089030e-01 
+           508      2.000447e-13   5.084746e-01 
+           509      1.973951e-13   5.080466e-01 
+           510      1.975191e-13   5.076189e-01 
+     Iteration ElectricPotential         Energy 
+           511      2.020956e-13   5.071916e-01 
+           512      1.963292e-13   5.067647e-01 
+           513      2.007285e-13   5.063381e-01 
+           514      2.026724e-13   5.059119e-01 
+           515      1.933913e-13   5.054860e-01 
+           516      1.971943e-13   5.050605e-01 
+           517      1.981748e-13   5.046353e-01 
+           518      1.954820e-13   5.042105e-01 
+           519      1.974406e-13   5.037861e-01 
+           520      1.993436e-13   5.033620e-01 
+     Iteration ElectricPotential         Energy 
+           521      1.939918e-13   5.029383e-01 
+           522      2.009238e-13   5.025149e-01 
+           523      1.985630e-13   5.020919e-01 
+           524      1.978879e-13   5.016693e-01 
+           525      2.022383e-13   5.012470e-01 
+           526      1.994611e-13   5.008250e-01 
+           527      1.989464e-13   5.004034e-01 
+           528      1.971009e-13   4.999822e-01 
+           529      1.966024e-13   4.995613e-01 
+           530      1.962956e-13   4.991408e-01 
+     Iteration ElectricPotential         Energy 
+           531      1.936681e-13   4.987206e-01 
+           532      1.956970e-13   4.983008e-01 
+           533      1.968950e-13   4.978813e-01 
+           534      1.960623e-13   4.974622e-01 
+           535      1.966835e-13   4.970435e-01 
+           536      1.991155e-13   4.966250e-01 
+           537      1.992145e-13   4.962070e-01 
+           538      1.934033e-13   4.957893e-01 
+           539      1.972202e-13   4.953719e-01 
+           540      2.003959e-13   4.949549e-01 
+     Iteration ElectricPotential         Energy 
+           541      1.988228e-13   4.945383e-01 
+           542      1.926366e-13   4.941220e-01 
+           543      2.016087e-13   4.937061e-01 
+           544      1.987638e-13   4.932905e-01 
+           545      1.960185e-13   4.928752e-01 
+           546      1.933215e-13   4.924603e-01 
+           547      1.980457e-13   4.920458e-01 
+           548      1.983376e-13   4.916316e-01 
+           549      2.006525e-13   4.912177e-01 
+           550      1.969177e-13   4.908042e-01 
+     Iteration ElectricPotential         Energy 
+           551      1.973167e-13   4.903911e-01 
+           552      1.978845e-13   4.899783e-01 
+           553      2.009245e-13   4.895658e-01 
+           554      1.996969e-13   4.891537e-01 
+           555      2.014734e-13   4.887419e-01 
+           556      1.977729e-13   4.883305e-01 
+           557      1.991394e-13   4.879194e-01 
+           558      1.941319e-13   4.875087e-01 
+           559      1.966166e-13   4.870983e-01 
+           560      1.972075e-13   4.866883e-01 
+     Iteration ElectricPotential         Energy 
+           561      1.959867e-13   4.862786e-01 
+           562      1.983123e-13   4.858693e-01 
+           563      1.992239e-13   4.854603e-01 
+           564      1.965082e-13   4.850516e-01 
+           565      2.004396e-13   4.846433e-01 
+           566      1.962031e-13   4.842353e-01 
+           567      1.988586e-13   4.838277e-01 
+           568      1.980209e-13   4.834204e-01 
+           569      1.944521e-13   4.830135e-01 
+           570      2.033054e-13   4.826069e-01 
+     Iteration ElectricPotential         Energy 
+           571      1.958052e-13   4.822006e-01 
+           572      1.976245e-13   4.817947e-01 
+           573      1.942978e-13   4.813892e-01 
+           574      1.962637e-13   4.809839e-01 
+           575      1.990673e-13   4.805790e-01 
+           576      1.927847e-13   4.801745e-01 
+           577      1.965058e-13   4.797703e-01 
+           578      2.032320e-13   4.793664e-01 
+           579      1.974742e-13   4.789629e-01 
+           580      1.993073e-13   4.785597e-01 
+     Iteration ElectricPotential         Energy 
+           581      1.987928e-13   4.781569e-01 
+           582      2.008958e-13   4.777544e-01 
+           583      1.948985e-13   4.773522e-01 
+           584      1.975671e-13   4.769504e-01 
+           585      1.990338e-13   4.765489e-01 
+           586      1.939379e-13   4.761477e-01 
+           587      2.003461e-13   4.757469e-01 
+           588      2.021785e-13   4.753464e-01 
+           589      2.027716e-13   4.749463e-01 
+           590      1.959846e-13   4.745465e-01 
+     Iteration ElectricPotential         Energy 
+           591      1.997441e-13   4.741470e-01 
+           592      1.983376e-13   4.737479e-01 
+           593      1.988752e-13   4.733491e-01 
+           594      1.970431e-13   4.729506e-01 
+           595      2.048898e-13   4.725525e-01 
+           596      1.994184e-13   4.721547e-01 
+           597      1.955692e-13   4.717572e-01 
+           598      1.987566e-13   4.713601e-01 
+           599      1.949975e-13   4.709633e-01 
+           600      1.982426e-13   4.705669e-01 
+     Iteration ElectricPotential         Energy 
+           601      1.951825e-13   4.701708e-01 
+           602      1.985587e-13   4.697750e-01 
+           603      1.986908e-13   4.693795e-01 
+           604      1.997332e-13   4.689844e-01 
+           605      1.995832e-13   4.685896e-01 
+           606      1.999911e-13   4.681952e-01 
+           607      1.970927e-13   4.678011e-01 
+           608      1.945149e-13   4.674073e-01 
+           609      1.950629e-13   4.670138e-01 
+           610      2.059406e-13   4.666207e-01 
+     Iteration ElectricPotential         Energy 
+           611      1.971865e-13   4.662279e-01 
+           612      2.004007e-13   4.658354e-01 
+           613      1.986922e-13   4.654433e-01 
+           614      1.978351e-13   4.650515e-01 
+           615      1.940616e-13   4.646600e-01 
+           616      1.996952e-13   4.642689e-01 
+           617      1.966696e-13   4.638780e-01 
+           618      1.991511e-13   4.634876e-01 
+           619      1.977305e-13   4.630974e-01 
+           620      2.034528e-13   4.627076e-01 
+     Iteration ElectricPotential         Energy 
+           621      2.043794e-13   4.623181e-01 
+           622      2.001698e-13   4.619289e-01 
+           623      1.991053e-13   4.615400e-01 
+           624      1.938389e-13   4.611515e-01 
+           625      1.984533e-13   4.607633e-01 
+           626      2.016715e-13   4.603755e-01 
+           627      1.987125e-13   4.599879e-01 
+           628      1.972897e-13   4.596007e-01 
+           629      2.008441e-13   4.592138e-01 
+           630      1.973155e-13   4.588273e-01 
+     Iteration ElectricPotential         Energy 
+           631      1.935422e-13   4.584410e-01 
+           632      1.979320e-13   4.580551e-01 
+           633      1.966184e-13   4.576695e-01 
+           634      1.967914e-13   4.572843e-01 
+           635      1.975902e-13   4.568993e-01 
+           636      1.989740e-13   4.565147e-01 
+           637      2.004407e-13   4.561304e-01 
+           638      2.025432e-13   4.557465e-01 
+           639      1.925555e-13   4.553628e-01 
+           640      1.969914e-13   4.549795e-01 
+     Iteration ElectricPotential         Energy 
+           641      1.949910e-13   4.545965e-01 
+           642      1.948697e-13   4.542138e-01 
+           643      1.995189e-13   4.538315e-01 
+           644      1.978432e-13   4.534495e-01 
+           645      1.968260e-13   4.530677e-01 
+           646      2.019347e-13   4.526864e-01 
+           647      1.986323e-13   4.523053e-01 
+           648      2.005157e-13   4.519246e-01 
+           649      1.969922e-13   4.515441e-01 
+           650      1.940618e-13   4.511640e-01 
+     Iteration ElectricPotential         Energy 
+           651      1.989595e-13   4.507842e-01 
+           652      2.047504e-13   4.504048e-01 
+           653      1.999125e-13   4.500256e-01 
+           654      1.970816e-13   4.496468e-01 
+           655      1.975051e-13   4.492683e-01 
+           656      2.003703e-13   4.488901e-01 
+           657      1.992222e-13   4.485122e-01 
+           658      1.981428e-13   4.481347e-01 
+           659      1.975439e-13   4.477574e-01 
+           660      1.960428e-13   4.473805e-01 
+     Iteration ElectricPotential         Energy 
+           661      1.988619e-13   4.470039e-01 
+           662      1.971714e-13   4.466276e-01 
+           663      2.000726e-13   4.462517e-01 
+           664      1.964987e-13   4.458760e-01 
+           665      1.980517e-13   4.455007e-01 
+           666      1.999281e-13   4.451257e-01 
+           667      2.022494e-13   4.447510e-01 
+           668      1.999396e-13   4.443766e-01 
+           669      2.008304e-13   4.440025e-01 
+           670      1.982792e-13   4.436288e-01 
+     Iteration ElectricPotential         Energy 
+           671      1.972020e-13   4.432553e-01 
+           672      2.011514e-13   4.428822e-01 
+           673      1.964827e-13   4.425094e-01 
+           674      2.027083e-13   4.421369e-01 
+           675      2.000211e-13   4.417647e-01 
+           676      1.958948e-13   4.413928e-01 
+           677      1.979735e-13   4.410213e-01 
+           678      1.982638e-13   4.406500e-01 
+           679      1.922672e-13   4.402791e-01 
+           680      1.973014e-13   4.399085e-01 
+     Iteration ElectricPotential         Energy 
+           681      1.994529e-13   4.395382e-01 
+           682      1.976139e-13   4.391682e-01 
+           683      2.024457e-13   4.387985e-01 
+           684      1.958709e-13   4.384291e-01 
+           685      1.979813e-13   4.380600e-01 
+           686      1.937065e-13   4.376913e-01 
+           687      1.983994e-13   4.373228e-01 
+           688      1.979248e-13   4.369547e-01 
+           689      2.017147e-13   4.365869e-01 
+           690      1.981850e-13   4.362194e-01 
+     Iteration ElectricPotential         Energy 
+           691      1.990737e-13   4.358522e-01 
+           692      1.925041e-13   4.354853e-01 
+           693      2.000496e-13   4.351187e-01 
+           694      2.001040e-13   4.347524e-01 
+           695      1.988286e-13   4.343864e-01 
+           696      2.000281e-13   4.340208e-01 
+           697      1.965403e-13   4.336554e-01 
+           698      1.957569e-13   4.332904e-01 
+           699      1.972235e-13   4.329256e-01 
+           700      1.984540e-13   4.325612e-01 
+     Iteration ElectricPotential         Energy 
+           701      1.996513e-13   4.321971e-01 
+           702      1.970819e-13   4.318333e-01 
+           703      1.953241e-13   4.314697e-01 
+           704      1.958049e-13   4.311065e-01 
+           705      1.964589e-13   4.307436e-01 
+           706      1.956404e-13   4.303810e-01 
+           707      1.983450e-13   4.300188e-01 
+           708      1.990687e-13   4.296568e-01 
+           709      1.978024e-13   4.292951e-01 
+           710      1.967237e-13   4.289337e-01 
+     Iteration ElectricPotential         Energy 
+           711      1.976525e-13   4.285726e-01 
+           712      1.944052e-13   4.282119e-01 
+           713      1.952792e-13   4.278514e-01 
+           714      1.980830e-13   4.274912e-01 
+           715      1.985875e-13   4.271314e-01 
+           716      1.981669e-13   4.267718e-01 
+           717      1.984308e-13   4.264126e-01 
+           718      2.008443e-13   4.260536e-01 
+           719      1.991061e-13   4.256950e-01 
+           720      1.962456e-13   4.253366e-01 
+     Iteration ElectricPotential         Energy 
+           721      1.953194e-13   4.249786e-01 
+           722      1.974739e-13   4.246209e-01 
+           723      1.961349e-13   4.242634e-01 
+           724      2.015240e-13   4.239063e-01 
+           725      1.972013e-13   4.235494e-01 
+           726      2.033572e-13   4.231929e-01 
+           727      1.988416e-13   4.228367e-01 
+           728      1.959234e-13   4.224807e-01 
+           729      1.974576e-13   4.221251e-01 
+           730      1.991121e-13   4.217697e-01 
+     Iteration ElectricPotential         Energy 
+           731      1.995992e-13   4.214147e-01 
+           732      1.990510e-13   4.210600e-01 
+           733      1.973646e-13   4.207055e-01 
+           734      1.970843e-13   4.203514e-01 
+           735      1.989178e-13   4.199975e-01 
+           736      1.972522e-13   4.196440e-01 
+           737      2.039276e-13   4.192907e-01 
+           738      1.979186e-13   4.189378e-01 
+           739      1.982412e-13   4.185851e-01 
+           740      1.940955e-13   4.182328e-01 
+     Iteration ElectricPotential         Energy 
+           741      1.963163e-13   4.178807e-01 
+           742      1.991553e-13   4.175289e-01 
+           743      1.976553e-13   4.171775e-01 
+           744      1.936614e-13   4.168263e-01 
+           745      2.024006e-13   4.164754e-01 
+           746      1.968143e-13   4.161248e-01 
+           747      1.963197e-13   4.157745e-01 
+           748      1.971753e-13   4.154245e-01 
+           749      1.960231e-13   4.150748e-01 
+           750      1.984585e-13   4.147254e-01 
+     Iteration ElectricPotential         Energy 
+           751      2.036669e-13   4.143763e-01 
+           752      1.981030e-13   4.140275e-01 
+           753      1.963799e-13   4.136790e-01 
+           754      1.991045e-13   4.133307e-01 
+           755      1.990899e-13   4.129828e-01 
+           756      1.989232e-13   4.126352e-01 
+           757      1.993129e-13   4.122878e-01 
+           758      1.981921e-13   4.119408e-01 
+           759      1.984383e-13   4.115940e-01 
+           760      1.968302e-13   4.112475e-01 
+     Iteration ElectricPotential         Energy 
+           761      1.945416e-13   4.109013e-01 
+           762      1.967858e-13   4.105554e-01 
+           763      1.937367e-13   4.102098e-01 
+           764      1.978820e-13   4.098645e-01 
+           765      1.984542e-13   4.095195e-01 
+           766      1.958186e-13   4.091748e-01 
+           767      1.993261e-13   4.088303e-01 
+           768      2.008010e-13   4.084862e-01 
+           769      1.941061e-13   4.081423e-01 
+           770      2.007432e-13   4.077988e-01 
+     Iteration ElectricPotential         Energy 
+           771      1.980531e-13   4.074555e-01 
+           772      1.999840e-13   4.071125e-01 
+           773      1.970836e-13   4.067698e-01 
+           774      2.033092e-13   4.064274e-01 
+           775      1.990854e-13   4.060853e-01 
+           776      1.959302e-13   4.057434e-01 
+           777      1.992293e-13   4.054019e-01 
+           778      1.986362e-13   4.050606e-01 
+           779      2.020171e-13   4.047196e-01 
+           780      1.955576e-13   4.043789e-01 
+     Iteration ElectricPotential         Energy 
+           781      1.976312e-13   4.040385e-01 
+           782      1.984584e-13   4.036984e-01 
+           783      1.960476e-13   4.033586e-01 
+           784      1.976060e-13   4.030191e-01 
+           785      1.954328e-13   4.026798e-01 
+           786      1.967925e-13   4.023408e-01 
+           787      1.998398e-13   4.020021e-01 
+           788      2.013674e-13   4.016637e-01 
+           789      1.990467e-13   4.013256e-01 
+           790      1.990997e-13   4.009878e-01 
+     Iteration ElectricPotential         Energy 
+           791      1.933841e-13   4.006502e-01 
+           792      1.970439e-13   4.003130e-01 
+           793      1.984168e-13   3.999760e-01 
+           794      2.001793e-13   3.996393e-01 
+           795      1.985051e-13   3.993029e-01 
+           796      1.958547e-13   3.989668e-01 
+           797      1.999362e-13   3.986309e-01 
+           798      2.015857e-13   3.982954e-01 
+           799      1.969266e-13   3.979601e-01 
+           800      1.997344e-13   3.976251e-01 
+     Iteration ElectricPotential         Energy 
+           801      1.976158e-13   3.972904e-01 
+           802      2.054511e-13   3.969559e-01 
+           803      1.982182e-13   3.966218e-01 
+           804      1.954198e-13   3.962879e-01 
+           805      1.934402e-13   3.959543e-01 
+           806      2.005459e-13   3.956210e-01 
+           807      1.975870e-13   3.952880e-01 
+           808      1.980537e-13   3.949552e-01 
+           809      1.972765e-13   3.946228e-01 
+           810      1.942959e-13   3.942906e-01 
+     Iteration ElectricPotential         Energy 
+           811      1.978793e-13   3.939587e-01 
+           812      2.008603e-13   3.936270e-01 
+           813      1.985699e-13   3.932957e-01 
+           814      1.964803e-13   3.929646e-01 
+           815      1.960374e-13   3.926338e-01 
+           816      1.981709e-13   3.923033e-01 
+           817      1.971764e-13   3.919731e-01 
+           818      1.966836e-13   3.916431e-01 
+           819      1.976708e-13   3.913134e-01 
+           820      1.974529e-13   3.909840e-01 
+     Iteration ElectricPotential         Energy 
+           821      2.007555e-13   3.906549e-01 
+           822      1.964818e-13   3.903261e-01 
+           823      2.022888e-13   3.899975e-01 
+           824      1.997812e-13   3.896692e-01 
+           825      1.975203e-13   3.893412e-01 
+           826      2.012468e-13   3.890134e-01 
+           827      1.973708e-13   3.886860e-01 
+           828      1.999262e-13   3.883588e-01 
+           829      1.982290e-13   3.880318e-01 
+           830      1.945714e-13   3.877052e-01 
+     Iteration ElectricPotential         Energy 
+           831      1.964245e-13   3.873788e-01 
+           832      1.980962e-13   3.870528e-01 
+           833      1.972382e-13   3.867269e-01 
+           834      2.001546e-13   3.864014e-01 
+           835      1.948812e-13   3.860761e-01 
+           836      2.002973e-13   3.857511e-01 
+           837      1.996982e-13   3.854264e-01 
+           838      1.971349e-13   3.851020e-01 
+           839      1.982178e-13   3.847778e-01 
+           840      1.993950e-13   3.844539e-01 
+     Iteration ElectricPotential         Energy 
+           841      1.964156e-13   3.841303e-01 
+           842      1.965018e-13   3.838069e-01 
+           843      1.963996e-13   3.834838e-01 
+           844      1.996792e-13   3.831610e-01 
+           845      1.968133e-13   3.828385e-01 
+           846      1.986194e-13   3.825162e-01 
+           847      1.971366e-13   3.821942e-01 
+           848      1.986590e-13   3.818725e-01 
+           849      1.956333e-13   3.815510e-01 
+           850      1.966511e-13   3.812298e-01 
+     Iteration ElectricPotential         Energy 
+           851      1.981673e-13   3.809089e-01 
+           852      1.968195e-13   3.805883e-01 
+           853      1.996521e-13   3.802679e-01 
+           854      1.998366e-13   3.799478e-01 
+           855      1.966007e-13   3.796280e-01 
+           856      1.964178e-13   3.793084e-01 
+           857      1.988759e-13   3.789891e-01 
+           858      1.965379e-13   3.786701e-01 
+           859      1.976868e-13   3.783513e-01 
+           860      1.968357e-13   3.780328e-01 
+     Iteration ElectricPotential         Energy 
+           861      1.950802e-13   3.777146e-01 
+           862      1.970485e-13   3.773966e-01 
+           863      1.981169e-13   3.770789e-01 
+           864      1.985040e-13   3.767615e-01 
+           865      1.927087e-13   3.764444e-01 
+           866      1.979433e-13   3.761275e-01 
+           867      1.955320e-13   3.758109e-01 
+           868      1.969977e-13   3.754945e-01 
+           869      2.002218e-13   3.751784e-01 
+           870      1.958184e-13   3.748626e-01 
+     Iteration ElectricPotential         Energy 
+           871      1.953976e-13   3.745471e-01 
+           872      2.025018e-13   3.742318e-01 
+           873      1.971841e-13   3.739167e-01 
+           874      1.984969e-13   3.736020e-01 
+           875      1.968986e-13   3.732875e-01 
+           876      1.932268e-13   3.729733e-01 
+           877      1.978256e-13   3.726593e-01 
+           878      1.967632e-13   3.723456e-01 
+           879      1.927771e-13   3.720322e-01 
+           880      1.981269e-13   3.717190e-01 
+     Iteration ElectricPotential         Energy 
+           881      2.023990e-13   3.714061e-01 
+           882      1.977979e-13   3.710934e-01 
+           883      1.986934e-13   3.707811e-01 
+           884      1.973863e-13   3.704689e-01 
+           885      1.938293e-13   3.701571e-01 
+           886      1.978631e-13   3.698455e-01 
+           887      1.931342e-13   3.695342e-01 
+           888      1.984828e-13   3.692231e-01 
+           889      1.996778e-13   3.689123e-01 
+           890      1.956724e-13   3.686017e-01 
+     Iteration ElectricPotential         Energy 
+           891      1.979658e-13   3.682914e-01 
+           892      1.968335e-13   3.679814e-01 
+           893      1.969057e-13   3.676717e-01 
+           894      1.986021e-13   3.673622e-01 
+           895      1.986334e-13   3.670529e-01 
+           896      1.965902e-13   3.667439e-01 
+           897      1.982553e-13   3.664352e-01 
+           898      1.993594e-13   3.661268e-01 
+           899      1.963217e-13   3.658186e-01 
+           900      2.002005e-13   3.655106e-01 
+     Iteration ElectricPotential         Energy 
+           901      1.972921e-13   3.652029e-01 
+           902      1.988239e-13   3.648955e-01 
+           903      1.993099e-13   3.645883e-01 
+           904      1.976179e-13   3.642814e-01 
+           905      1.980056e-13   3.639748e-01 
+           906      1.963777e-13   3.636684e-01 
+           907      1.961239e-13   3.633623e-01 
+           908      1.961748e-13   3.630564e-01 
+           909      1.969811e-13   3.627508e-01 
+           910      1.966767e-13   3.624454e-01 
+     Iteration ElectricPotential         Energy 
+           911      1.953437e-13   3.621403e-01 
+           912      1.967199e-13   3.618355e-01 
+           913      1.997699e-13   3.615309e-01 
+           914      1.982473e-13   3.612266e-01 
+           915      1.953022e-13   3.609225e-01 
+           916      2.014162e-13   3.606187e-01 
+           917      1.979376e-13   3.603151e-01 
+           918      2.025799e-13   3.600118e-01 
+           919      1.942993e-13   3.597087e-01 
+           920      1.954036e-13   3.594059e-01 
+     Iteration ElectricPotential         Energy 
+           921      1.972816e-13   3.591034e-01 
+           922      2.016155e-13   3.588011e-01 
+           923      1.977771e-13   3.584991e-01 
+           924      1.981604e-13   3.581973e-01 
+           925      1.977396e-13   3.578958e-01 
+           926      1.972241e-13   3.575945e-01 
+           927      1.946177e-13   3.572935e-01 
+           928      2.000557e-13   3.569927e-01 
+           929      1.998681e-13   3.566922e-01 
+           930      1.985954e-13   3.563919e-01 
+     Iteration ElectricPotential         Energy 
+           931      1.994783e-13   3.560919e-01 
+           932      1.961371e-13   3.557922e-01 
+           933      2.000353e-13   3.554927e-01 
+           934      1.962884e-13   3.551934e-01 
+           935      2.023909e-13   3.548944e-01 
+           936      2.009259e-13   3.545957e-01 
+           937      2.032075e-13   3.542972e-01 
+           938      2.024803e-13   3.539989e-01 
+           939      2.030608e-13   3.537009e-01 
+           940      1.979306e-13   3.534032e-01 
+     Iteration ElectricPotential         Energy 
+           941      1.993085e-13   3.531057e-01 
+           942      1.992028e-13   3.528085e-01 
+           943      1.980044e-13   3.525115e-01 
+           944      1.980457e-13   3.522147e-01 
+           945      1.975659e-13   3.519183e-01 
+           946      2.033552e-13   3.516220e-01 
+           947      1.982771e-13   3.513260e-01 
+           948      1.978570e-13   3.510303e-01 
+           949      1.958399e-13   3.507348e-01 
+           950      1.995660e-13   3.504395e-01 
+     Iteration ElectricPotential         Energy 
+           951      2.016625e-13   3.501445e-01 
+           952      1.976289e-13   3.498498e-01 
+           953      1.993098e-13   3.495553e-01 
+           954      2.000078e-13   3.492610e-01 
+           955      1.988615e-13   3.489670e-01 
+           956      1.984859e-13   3.486733e-01 
+           957      1.976367e-13   3.483798e-01 
+           958      1.940032e-13   3.480865e-01 
+           959      2.009489e-13   3.477935e-01 
+           960      1.941506e-13   3.475007e-01 
+     Iteration ElectricPotential         Energy 
+           961      1.989393e-13   3.472082e-01 
+           962      1.963204e-13   3.469159e-01 
+           963      1.981410e-13   3.466239e-01 
+           964      1.985191e-13   3.463321e-01 
+           965      1.982043e-13   3.460406e-01 
+           966      1.985089e-13   3.457493e-01 
+           967      1.978291e-13   3.454582e-01 
+           968      1.977912e-13   3.451674e-01 
+           969      1.988814e-13   3.448769e-01 
+           970      1.989662e-13   3.445866e-01 
+     Iteration ElectricPotential         Energy 
+           971      1.965639e-13   3.442965e-01 
+           972      1.963891e-13   3.440067e-01 
+           973      1.957971e-13   3.437171e-01 
+           974      1.977584e-13   3.434278e-01 
+           975      1.990033e-13   3.431387e-01 
+           976      2.009622e-13   3.428498e-01 
+           977      1.958660e-13   3.425612e-01 
+           978      1.980679e-13   3.422728e-01 
+           979      2.031422e-13   3.419847e-01 
+           980      2.015382e-13   3.416968e-01 
+     Iteration ElectricPotential         Energy 
+           981      1.956197e-13   3.414092e-01 
+           982      1.987514e-13   3.411218e-01 
+           983      1.962703e-13   3.408347e-01 
+           984      1.990998e-13   3.405478e-01 
+           985      1.969633e-13   3.402611e-01 
+           986      1.983537e-13   3.399747e-01 
+           987      1.953803e-13   3.396885e-01 
+           988      1.976001e-13   3.394025e-01 
+           989      1.994051e-13   3.391168e-01 
+           990      1.990207e-13   3.388314e-01 
+     Iteration ElectricPotential         Energy 
+           991      1.978231e-13   3.385461e-01 
+           992      1.981399e-13   3.382611e-01 
+           993      1.974731e-13   3.379764e-01 
+           994      1.965375e-13   3.376919e-01 
+           995      1.973842e-13   3.374076e-01 
+           996      1.953269e-13   3.371236e-01 
+           997      1.980362e-13   3.368398e-01 
+           998      1.992872e-13   3.365563e-01 
+           999      1.962184e-13   3.362730e-01 
+          1000      2.009854e-13   3.359899e-01 
+     Iteration ElectricPotential         Energy 
+          1001      1.950688e-13   3.357071e-01 
+          1002      1.980749e-13   3.354245e-01 
+          1003      1.995754e-13   3.351421e-01 
+          1004      1.976528e-13   3.348600e-01 
+          1005      1.958002e-13   3.345781e-01 
+          1006      1.993158e-13   3.342965e-01 
+          1007      1.995837e-13   3.340151e-01 
+          1008      2.003193e-13   3.337339e-01 
+          1009      1.988228e-13   3.334530e-01 
+          1010      1.963840e-13   3.331723e-01 
+     Iteration ElectricPotential         Energy 
+          1011      1.961816e-13   3.328918e-01 
+          1012      1.939952e-13   3.326116e-01 
+          1013      2.014100e-13   3.323316e-01 
+          1014      1.938415e-13   3.320518e-01 
+          1015      1.996127e-13   3.317723e-01 
+          1016      1.971488e-13   3.314930e-01 
+          1017      1.959141e-13   3.312140e-01 
+          1018      1.966488e-13   3.309352e-01 
+          1019      1.991781e-13   3.306566e-01 
+          1020      1.975348e-13   3.303783e-01 
+     Iteration ElectricPotential         Energy 
+          1021      1.955470e-13   3.301002e-01 
+          1022      1.953774e-13   3.298223e-01 
+          1023      1.941665e-13   3.295446e-01 
+          1024      1.962432e-13   3.292672e-01 
+          1025      1.982210e-13   3.289901e-01 
+          1026      1.971459e-13   3.287131e-01 
+          1027      1.948894e-13   3.284364e-01 
+          1028      1.996038e-13   3.281599e-01 
+          1029      1.986827e-13   3.278837e-01 
+          1030      2.013546e-13   3.276077e-01 
+     Iteration ElectricPotential         Energy 
+          1031      1.966742e-13   3.273319e-01 
+          1032      1.928626e-13   3.270564e-01 
+          1033      1.965483e-13   3.267811e-01 
+          1034      1.977368e-13   3.265060e-01 
+          1035      1.977327e-13   3.262311e-01 
+          1036      1.974284e-13   3.259565e-01 
+          1037      1.966713e-13   3.256821e-01 
+          1038      1.973818e-13   3.254080e-01 
+          1039      1.973549e-13   3.251340e-01 
+          1040      1.989485e-13   3.248604e-01 
+     Iteration ElectricPotential         Energy 
+          1041      2.021765e-13   3.245869e-01 
+          1042      2.003226e-13   3.243137e-01 
+          1043      1.951328e-13   3.240407e-01 
+          1044      1.987121e-13   3.237679e-01 
+          1045      1.993537e-13   3.234953e-01 
+          1046      1.999983e-13   3.232230e-01 
+          1047      1.963501e-13   3.229509e-01 
+          1048      1.956768e-13   3.226791e-01 
+          1049      1.985489e-13   3.224075e-01 
+          1050      1.960107e-13   3.221361e-01 
+     Iteration ElectricPotential         Energy 
+          1051      1.968635e-13   3.218649e-01 
+          1052      1.980729e-13   3.215939e-01 
+          1053      1.983143e-13   3.213232e-01 
+          1054      1.935963e-13   3.210527e-01 
+          1055      1.973714e-13   3.207825e-01 
+          1056      1.945817e-13   3.205125e-01 
+          1057      1.926723e-13   3.202426e-01 
+          1058      1.989951e-13   3.199731e-01 
+          1059      1.965576e-13   3.197037e-01 
+          1060      1.951763e-13   3.194346e-01 
+     Iteration ElectricPotential         Energy 
+          1061      1.951035e-13   3.191657e-01 
+          1062      1.995040e-13   3.188970e-01 
+          1063      2.003278e-13   3.186286e-01 
+          1064      2.016645e-13   3.183604e-01 
+          1065      2.011556e-13   3.180924e-01 
+          1066      1.962942e-13   3.178246e-01 
+          1067      1.961936e-13   3.175571e-01 
+          1068      2.005959e-13   3.172898e-01 
+          1069      1.960015e-13   3.170227e-01 
+          1070      1.986674e-13   3.167558e-01 
+     Iteration ElectricPotential         Energy 
+          1071      1.967279e-13   3.164892e-01 
+          1072      1.980197e-13   3.162227e-01 
+          1073      1.986223e-13   3.159566e-01 
+          1074      2.000644e-13   3.156906e-01 
+          1075      1.980844e-13   3.154248e-01 
+          1076      1.947600e-13   3.151593e-01 
+          1077      1.992767e-13   3.148940e-01 
+          1078      2.055442e-13   3.146289e-01 
+          1079      2.015042e-13   3.143641e-01 
+          1080      1.996741e-13   3.140995e-01 
+     Iteration ElectricPotential         Energy 
+          1081      1.927165e-13   3.138351e-01 
+          1082      2.009323e-13   3.135709e-01 
+          1083      1.962393e-13   3.133069e-01 
+          1084      1.983112e-13   3.130432e-01 
+          1085      1.923160e-13   3.127797e-01 
+          1086      2.014921e-13   3.125164e-01 
+          1087      1.992830e-13   3.122533e-01 
+          1088      1.950503e-13   3.119905e-01 
+          1089      1.944762e-13   3.117278e-01 
+          1090      2.009256e-13   3.114654e-01 
+     Iteration ElectricPotential         Energy 
+          1091      1.980235e-13   3.112032e-01 
+          1092      1.968729e-13   3.109413e-01 
+          1093      1.957804e-13   3.106795e-01 
+          1094      1.925615e-13   3.104180e-01 
+          1095      1.956759e-13   3.101567e-01 
+          1096      1.975716e-13   3.098956e-01 
+          1097      1.952579e-13   3.096347e-01 
+          1098      1.971752e-13   3.093741e-01 
+          1099      1.929688e-13   3.091137e-01 
+          1100      1.989106e-13   3.088534e-01 
+     Iteration ElectricPotential         Energy 
+          1101      2.007576e-13   3.085935e-01 
+          1102      2.001823e-13   3.083337e-01 
+          1103      1.972899e-13   3.080741e-01 
+          1104      2.015604e-13   3.078148e-01 
+          1105      1.985829e-13   3.075557e-01 
+          1106      1.966405e-13   3.072968e-01 
+          1107      1.978923e-13   3.070381e-01 
+          1108      1.964645e-13   3.067796e-01 
+          1109      1.958904e-13   3.065214e-01 
+          1110      1.970740e-13   3.062634e-01 
+     Iteration ElectricPotential         Energy 
+          1111      1.995692e-13   3.060056e-01 
+          1112      1.973919e-13   3.057480e-01 
+          1113      1.974108e-13   3.054906e-01 
+          1114      1.953318e-13   3.052334e-01 
+          1115      1.971865e-13   3.049765e-01 
+          1116      1.948647e-13   3.047198e-01 
+          1117      1.949644e-13   3.044633e-01 
+          1118      1.987441e-13   3.042070e-01 
+          1119      1.916825e-13   3.039509e-01 
+          1120      1.977862e-13   3.036950e-01 
+     Iteration ElectricPotential         Energy 
+          1121      2.009040e-13   3.034394e-01 
+          1122      1.979305e-13   3.031840e-01 
+          1123      1.941640e-13   3.029287e-01 
+          1124      1.981872e-13   3.026737e-01 
+          1125      1.955918e-13   3.024190e-01 
+          1126      1.992960e-13   3.021644e-01 
+          1127      1.993960e-13   3.019100e-01 
+          1128      1.998394e-13   3.016559e-01 
+          1129      1.968499e-13   3.014019e-01 
+          1130      1.936861e-13   3.011482e-01 
+     Iteration ElectricPotential         Energy 
+          1131      1.965625e-13   3.008947e-01 
+          1132      1.978825e-13   3.006414e-01 
+          1133      1.970498e-13   3.003884e-01 
+          1134      2.031201e-13   3.001355e-01 
+          1135      1.965163e-13   2.998829e-01 
+          1136      1.961592e-13   2.996304e-01 
+          1137      1.978150e-13   2.993782e-01 
+          1138      2.009783e-13   2.991262e-01 
+          1139      1.980229e-13   2.988744e-01 
+          1140      1.939316e-13   2.986228e-01 
+     Iteration ElectricPotential         Energy 
+          1141      1.991052e-13   2.983714e-01 
+          1142      1.969308e-13   2.981202e-01 
+          1143      1.924765e-13   2.978693e-01 
+          1144      2.015877e-13   2.976185e-01 
+          1145      1.987173e-13   2.973680e-01 
+          1146      1.991265e-13   2.971177e-01 
+          1147      1.959336e-13   2.968676e-01 
+          1148      1.972773e-13   2.966177e-01 
+          1149      1.957762e-13   2.963680e-01 
+          1150      1.975751e-13   2.961185e-01 
+     Iteration ElectricPotential         Energy 
+          1151      1.973079e-13   2.958692e-01 
+          1152      1.983343e-13   2.956202e-01 
+          1153      2.004776e-13   2.953713e-01 
+          1154      1.995054e-13   2.951227e-01 
+          1155      1.965236e-13   2.948743e-01 
+          1156      1.970994e-13   2.946260e-01 
+          1157      1.990781e-13   2.943780e-01 
+          1158      1.954275e-13   2.941302e-01 
+          1159      2.026259e-13   2.938826e-01 
+          1160      1.960382e-13   2.936352e-01 
+     Iteration ElectricPotential         Energy 
+          1161      1.971850e-13   2.933881e-01 
+          1162      1.936779e-13   2.931411e-01 
+          1163      1.926568e-13   2.928943e-01 
+          1164      1.978883e-13   2.926478e-01 
+          1165      1.983020e-13   2.924014e-01 
+          1166      1.998404e-13   2.921553e-01 
+          1167      1.966081e-13   2.919094e-01 
+          1168      1.998425e-13   2.916636e-01 
+          1169      1.996412e-13   2.914181e-01 
+          1170      1.960713e-13   2.911728e-01 
+     Iteration ElectricPotential         Energy 
+          1171      1.972667e-13   2.909277e-01 
+          1172      1.978151e-13   2.906828e-01 
+          1173      1.982085e-13   2.904381e-01 
+          1174      2.002728e-13   2.901936e-01 
+          1175      1.930361e-13   2.899493e-01 
+          1176      1.984968e-13   2.897053e-01 
+          1177      2.002851e-13   2.894614e-01 
+          1178      1.992527e-13   2.892177e-01 
+          1179      1.940483e-13   2.889743e-01 
+          1180      1.998370e-13   2.887310e-01 
+     Iteration ElectricPotential         Energy 
+          1181      1.989165e-13   2.884880e-01 
+          1182      1.979975e-13   2.882451e-01 
+          1183      1.952117e-13   2.880025e-01 
+          1184      1.991389e-13   2.877600e-01 
+          1185      1.944174e-13   2.875178e-01 
+          1186      1.986598e-13   2.872758e-01 
+          1187      1.962337e-13   2.870340e-01 
+          1188      1.986815e-13   2.867923e-01 
+          1189      1.986167e-13   2.865509e-01 
+          1190      1.959914e-13   2.863097e-01 
+     Iteration ElectricPotential         Energy 
+          1191      1.970066e-13   2.860687e-01 
+          1192      1.985514e-13   2.858279e-01 
+          1193      2.005138e-13   2.855873e-01 
+          1194      2.016203e-13   2.853469e-01 
+          1195      2.034136e-13   2.851067e-01 
+          1196      1.998079e-13   2.848667e-01 
+          1197      1.985487e-13   2.846269e-01 
+          1198      1.963530e-13   2.843873e-01 
+          1199      2.018628e-13   2.841479e-01 
+          1200      1.984726e-13   2.839087e-01 
+     Iteration ElectricPotential         Energy 
+          1201      1.996672e-13   2.836697e-01 
+          1202      2.003425e-13   2.834309e-01 
+          1203      2.003629e-13   2.831923e-01 
+          1204      1.999250e-13   2.829539e-01 
+          1205      2.014012e-13   2.827157e-01 
+          1206      1.998672e-13   2.824778e-01 
+          1207      1.967888e-13   2.822400e-01 
+          1208      1.960305e-13   2.820024e-01 
+          1209      2.004760e-13   2.817650e-01 
+          1210      1.980337e-13   2.815278e-01 
+     Iteration ElectricPotential         Energy 
+          1211      1.981717e-13   2.812908e-01 
+          1212      1.978095e-13   2.810540e-01 
+          1213      1.942411e-13   2.808174e-01 
+          1214      1.945318e-13   2.805811e-01 
+          1215      1.972233e-13   2.803449e-01 
+          1216      1.985124e-13   2.801089e-01 
+          1217      1.956314e-13   2.798731e-01 
+          1218      1.962677e-13   2.796375e-01 
+          1219      1.968784e-13   2.794021e-01 
+          1220      1.956879e-13   2.791669e-01 
+     Iteration ElectricPotential         Energy 
+          1221      1.971130e-13   2.789319e-01 
+          1222      2.002794e-13   2.786971e-01 
+          1223      1.976427e-13   2.784625e-01 
+          1224      1.982653e-13   2.782281e-01 
+          1225      1.998450e-13   2.779939e-01 
+          1226      1.954111e-13   2.777599e-01 
+          1227      1.989808e-13   2.775261e-01 
+          1228      1.983472e-13   2.772924e-01 
+          1229      1.978508e-13   2.770590e-01 
+          1230      2.020396e-13   2.768258e-01 
+     Iteration ElectricPotential         Energy 
+          1231      1.986961e-13   2.765928e-01 
+          1232      1.986807e-13   2.763599e-01 
+          1233      1.918015e-13   2.761273e-01 
+          1234      1.979176e-13   2.758949e-01 
+          1235      1.950830e-13   2.756626e-01 
+          1236      1.950534e-13   2.754306e-01 
+          1237      1.926048e-13   2.751987e-01 
+          1238      1.938608e-13   2.749670e-01 
+          1239      1.962287e-13   2.747356e-01 
+          1240      2.021799e-13   2.745043e-01 
+     Iteration ElectricPotential         Energy 
+          1241      1.963116e-13   2.742732e-01 
+          1242      1.970637e-13   2.740424e-01 
+          1243      1.970401e-13   2.738117e-01 
+          1244      2.010749e-13   2.735812e-01 
+          1245      1.983771e-13   2.733509e-01 
+          1246      1.991622e-13   2.731208e-01 
+          1247      1.986655e-13   2.728909e-01 
+          1248      1.964188e-13   2.726612e-01 
+          1249      1.982866e-13   2.724316e-01 
+          1250      1.991541e-13   2.722023e-01 
+     Iteration ElectricPotential         Energy 
+          1251      1.985521e-13   2.719732e-01 
+          1252      1.979910e-13   2.717442e-01 
+          1253      1.997864e-13   2.715155e-01 
+          1254      1.951758e-13   2.712869e-01 
+          1255      2.000572e-13   2.710585e-01 
+          1256      1.995493e-13   2.708304e-01 
+          1257      1.978070e-13   2.706024e-01 
+          1258      1.977713e-13   2.703746e-01 
+          1259      1.979171e-13   2.701470e-01 
+          1260      1.976759e-13   2.699196e-01 
+     Iteration ElectricPotential         Energy 
+          1261      1.995247e-13   2.696924e-01 
+          1262      2.008637e-13   2.694654e-01 
+          1263      1.995151e-13   2.692385e-01 
+          1264      1.948575e-13   2.690119e-01 
+          1265      1.977976e-13   2.687854e-01 
+          1266      1.991966e-13   2.685592e-01 
+          1267      1.984168e-13   2.683331e-01 
+          1268      1.977404e-13   2.681072e-01 
+          1269      1.980492e-13   2.678815e-01 
+          1270      1.979092e-13   2.676560e-01 
+     Iteration ElectricPotential         Energy 
+          1271      1.927515e-13   2.674307e-01 
+          1272      2.001490e-13   2.672056e-01 
+          1273      1.993872e-13   2.669807e-01 
+          1274      1.969244e-13   2.667559e-01 
+          1275      1.979741e-13   2.665314e-01 
+          1276      1.964053e-13   2.663070e-01 
+          1277      1.969585e-13   2.660828e-01 
+          1278      1.953485e-13   2.658589e-01 
+          1279      2.032205e-13   2.656351e-01 
+          1280      2.002139e-13   2.654115e-01 
+     Iteration ElectricPotential         Energy 
+          1281      1.998963e-13   2.651880e-01 
+          1282      1.985627e-13   2.649648e-01 
+          1283      1.995872e-13   2.647418e-01 
+          1284      1.992368e-13   2.645189e-01 
+          1285      1.984555e-13   2.642962e-01 
+          1286      1.963517e-13   2.640738e-01 
+          1287      1.992968e-13   2.638515e-01 
+          1288      1.974098e-13   2.636294e-01 
+          1289      1.990627e-13   2.634074e-01 
+          1290      1.946276e-13   2.631857e-01 
+     Iteration ElectricPotential         Energy 
+          1291      1.992635e-13   2.629642e-01 
+          1292      2.012377e-13   2.627428e-01 
+          1293      2.003492e-13   2.625216e-01 
+          1294      1.947131e-13   2.623006e-01 
+          1295      2.004743e-13   2.620798e-01 
+          1296      1.981061e-13   2.618592e-01 
+          1297      1.946426e-13   2.616388e-01 
+          1298      1.939722e-13   2.614185e-01 
+          1299      1.989819e-13   2.611985e-01 
+          1300      1.935442e-13   2.609786e-01 
+     Iteration ElectricPotential         Energy 
+          1301      2.006795e-13   2.607589e-01 
+          1302      1.947980e-13   2.605394e-01 
+          1303      1.971095e-13   2.603201e-01 
+          1304      1.985251e-13   2.601010e-01 
+          1305      1.943235e-13   2.598820e-01 
+          1306      1.989441e-13   2.596632e-01 
+          1307      1.986482e-13   2.594447e-01 
+          1308      1.974236e-13   2.592263e-01 
+          1309      1.996712e-13   2.590081e-01 
+          1310      1.962151e-13   2.587900e-01 
+     Iteration ElectricPotential         Energy 
+          1311      2.011676e-13   2.585722e-01 
+          1312      1.995707e-13   2.583545e-01 
+          1313      1.958810e-13   2.581370e-01 
+          1314      1.917452e-13   2.579197e-01 
+          1315      1.977345e-13   2.577026e-01 
+          1316      1.950466e-13   2.574857e-01 
+          1317      2.020931e-13   2.572689e-01 
+          1318      1.981996e-13   2.570524e-01 
+          1319      1.951740e-13   2.568360e-01 
+          1320      1.998115e-13   2.566198e-01 
+     Iteration ElectricPotential         Energy 
+          1321      1.950674e-13   2.564038e-01 
+          1322      1.954822e-13   2.561879e-01 
+          1323      2.007325e-13   2.559723e-01 
+          1324      1.966487e-13   2.557568e-01 
+          1325      1.987593e-13   2.555415e-01 
+          1326      1.976552e-13   2.553264e-01 
+          1327      1.953182e-13   2.551115e-01 
+          1328      1.986773e-13   2.548967e-01 
+          1329      1.943775e-13   2.546822e-01 
+          1330      1.958344e-13   2.544678e-01 
+     Iteration ElectricPotential         Energy 
+          1331      1.990225e-13   2.542536e-01 
+          1332      1.975928e-13   2.540395e-01 
+          1333      1.970289e-13   2.538257e-01 
+          1334      1.983916e-13   2.536120e-01 
+          1335      1.975950e-13   2.533985e-01 
+          1336      1.984060e-13   2.531852e-01 
+          1337      1.969903e-13   2.529721e-01 
+          1338      1.987035e-13   2.527591e-01 
+          1339      1.970718e-13   2.525464e-01 
+          1340      2.014374e-13   2.523338e-01 
+     Iteration ElectricPotential         Energy 
+          1341      1.982907e-13   2.521214e-01 
+          1342      1.941907e-13   2.519091e-01 
+          1343      1.974043e-13   2.516971e-01 
+          1344      1.976944e-13   2.514852e-01 
+          1345      1.956108e-13   2.512735e-01 
+          1346      1.982894e-13   2.510620e-01 
+          1347      1.951110e-13   2.508507e-01 
+          1348      1.991249e-13   2.506395e-01 
+          1349      1.976077e-13   2.504285e-01 
+          1350      1.995271e-13   2.502177e-01 
+     Iteration ElectricPotential         Energy 
+          1351      1.965627e-13   2.500071e-01 
+          1352      1.984542e-13   2.497966e-01 
+          1353      1.962448e-13   2.495863e-01 
+          1354      1.975194e-13   2.493762e-01 
+          1355      1.959942e-13   2.491663e-01 
+          1356      2.010939e-13   2.489566e-01 
+          1357      2.034227e-13   2.487470e-01 
+          1358      2.034451e-13   2.485376e-01 
+          1359      1.962711e-13   2.483284e-01 
+          1360      1.990509e-13   2.481194e-01 
+     Iteration ElectricPotential         Energy 
+          1361      1.977425e-13   2.479105e-01 
+          1362      1.994130e-13   2.477018e-01 
+          1363      2.012823e-13   2.474933e-01 
+          1364      2.040239e-13   2.472850e-01 
+          1365      1.967878e-13   2.470768e-01 
+          1366      1.972796e-13   2.468688e-01 
+          1367      1.940469e-13   2.466610e-01 
+          1368      1.962454e-13   2.464534e-01 
+          1369      2.005850e-13   2.462459e-01 
+          1370      1.988585e-13   2.460386e-01 
+     Iteration ElectricPotential         Energy 
+          1371      1.969301e-13   2.458315e-01 
+          1372      2.001814e-13   2.456246e-01 
+          1373      1.953572e-13   2.454178e-01 
+          1374      1.936673e-13   2.452112e-01 
+          1375      1.944448e-13   2.450048e-01 
+          1376      1.991045e-13   2.447986e-01 
+          1377      2.039206e-13   2.445925e-01 
+          1378      1.971259e-13   2.443866e-01 
+          1379      1.988307e-13   2.441809e-01 
+          1380      1.943120e-13   2.439753e-01 
+     Iteration ElectricPotential         Energy 
+          1381      1.983247e-13   2.437699e-01 
+          1382      1.987358e-13   2.435647e-01 
+          1383      1.965150e-13   2.433597e-01 
+          1384      1.973167e-13   2.431549e-01 
+          1385      1.973037e-13   2.429502e-01 
+          1386      2.001105e-13   2.427457e-01 
+          1387      1.962277e-13   2.425413e-01 
+          1388      1.974688e-13   2.423372e-01 
+          1389      1.982248e-13   2.421332e-01 
+          1390      2.033752e-13   2.419293e-01 
+     Iteration ElectricPotential         Energy 
+          1391      1.976817e-13   2.417257e-01 
+          1392      1.996232e-13   2.415222e-01 
+          1393      1.967572e-13   2.413189e-01 
+          1394      2.022023e-13   2.411157e-01 
+          1395      1.988289e-13   2.409128e-01 
+          1396      1.956732e-13   2.407100e-01 
+          1397      1.979293e-13   2.405074e-01 
+          1398      1.980154e-13   2.403049e-01 
+          1399      1.964016e-13   2.401026e-01 
+          1400      1.965958e-13   2.399005e-01 
+     Iteration ElectricPotential         Energy 
+          1401      1.958065e-13   2.396986e-01 
+          1402      2.030253e-13   2.394968e-01 
+          1403      2.022257e-13   2.392952e-01 
+          1404      1.997806e-13   2.390937e-01 
+          1405      1.960515e-13   2.388925e-01 
+          1406      2.039205e-13   2.386914e-01 
+          1407      2.002483e-13   2.384904e-01 
+          1408      1.975417e-13   2.382897e-01 
+          1409      1.984513e-13   2.380891e-01 
+          1410      1.985410e-13   2.378887e-01 
+     Iteration ElectricPotential         Energy 
+          1411      1.988922e-13   2.376884e-01 
+          1412      1.964305e-13   2.374883e-01 
+          1413      1.986835e-13   2.372884e-01 
+          1414      1.976294e-13   2.370887e-01 
+          1415      2.044383e-13   2.368891e-01 
+          1416      1.975260e-13   2.366897e-01 
+          1417      2.011629e-13   2.364904e-01 
+          1418      1.935904e-13   2.362914e-01 
+          1419      1.971077e-13   2.360925e-01 
+          1420      1.984547e-13   2.358937e-01 
+     Iteration ElectricPotential         Energy 
+          1421      1.988702e-13   2.356952e-01 
+          1422      1.978960e-13   2.354968e-01 
+          1423      1.946463e-13   2.352985e-01 
+          1424      1.932410e-13   2.351004e-01 
+          1425      1.979759e-13   2.349025e-01 
+          1426      1.983516e-13   2.347048e-01 
+          1427      1.984120e-13   2.345072e-01 
+          1428      1.988200e-13   2.343098e-01 
+          1429      1.969328e-13   2.341126e-01 
+          1430      2.027195e-13   2.339155e-01 
+     Iteration ElectricPotential         Energy 
+          1431      1.989413e-13   2.337186e-01 
+          1432      1.959190e-13   2.335219e-01 
+          1433      1.968208e-13   2.333253e-01 
+          1434      1.961675e-13   2.331289e-01 
+          1435      1.974183e-13   2.329326e-01 
+          1436      1.967870e-13   2.327365e-01 
+          1437      1.968672e-13   2.325406e-01 
+          1438      1.988843e-13   2.323449e-01 
+          1439      1.960802e-13   2.321493e-01 
+          1440      2.005011e-13   2.319539e-01 
+     Iteration ElectricPotential         Energy 
+          1441      1.982469e-13   2.317586e-01 
+          1442      2.012019e-13   2.315635e-01 
+          1443      1.991244e-13   2.313686e-01 
+          1444      1.922387e-13   2.311738e-01 
+          1445      1.935624e-13   2.309792e-01 
+          1446      1.974833e-13   2.307848e-01 
+          1447      1.949240e-13   2.305905e-01 
+          1448      2.021342e-13   2.303964e-01 
+          1449      1.978216e-13   2.302025e-01 
+          1450      1.982139e-13   2.300087e-01 
+     Iteration ElectricPotential         Energy 
+          1451      1.951761e-13   2.298151e-01 
+          1452      1.976786e-13   2.296216e-01 
+          1453      1.991949e-13   2.294283e-01 
+          1454      1.983153e-13   2.292352e-01 
+          1455      1.931645e-13   2.290422e-01 
+          1456      1.963467e-13   2.288494e-01 
+          1457      1.998200e-13   2.286568e-01 
+          1458      1.953783e-13   2.284643e-01 
+          1459      1.999057e-13   2.282720e-01 
+          1460      2.012085e-13   2.280798e-01 
+     Iteration ElectricPotential         Energy 
+          1461      1.955073e-13   2.278878e-01 
+          1462      1.980584e-13   2.276960e-01 
+          1463      1.999144e-13   2.275043e-01 
+          1464      1.989941e-13   2.273128e-01 
+          1465      1.993557e-13   2.271215e-01 
+          1466      1.979995e-13   2.269303e-01 
+          1467      2.010106e-13   2.267393e-01 
+          1468      1.965799e-13   2.265484e-01 
+          1469      1.970597e-13   2.263577e-01 
+          1470      1.998054e-13   2.261671e-01 
+     Iteration ElectricPotential         Energy 
+          1471      2.003441e-13   2.259768e-01 
+          1472      1.957537e-13   2.257865e-01 
+          1473      1.979502e-13   2.255965e-01 
+          1474      1.983541e-13   2.254066e-01 
+          1475      1.993959e-13   2.252168e-01 
+          1476      1.964000e-13   2.250272e-01 
+          1477      1.936375e-13   2.248378e-01 
+          1478      1.971648e-13   2.246485e-01 
+          1479      2.029715e-13   2.244594e-01 
+          1480      2.048020e-13   2.242705e-01 
+     Iteration ElectricPotential         Energy 
+          1481      1.954938e-13   2.240817e-01 
+          1482      1.987517e-13   2.238931e-01 
+          1483      1.977042e-13   2.237046e-01 
+          1484      1.911731e-13   2.235163e-01 
+          1485      1.971077e-13   2.233281e-01 
+          1486      1.928300e-13   2.231401e-01 
+          1487      1.973327e-13   2.229523e-01 
+          1488      1.990341e-13   2.227646e-01 
+          1489      1.952859e-13   2.225771e-01 
+          1490      1.998415e-13   2.223897e-01 
+     Iteration ElectricPotential         Energy 
+          1491      1.980551e-13   2.222025e-01 
+          1492      1.970287e-13   2.220155e-01 
+          1493      1.985773e-13   2.218286e-01 
+          1494      1.958235e-13   2.216419e-01 
+          1495      1.964277e-13   2.214553e-01 
+          1496      1.992694e-13   2.212689e-01 
+          1497      1.969007e-13   2.210826e-01 
+          1498      1.992698e-13   2.208965e-01 
+          1499      1.961641e-13   2.207106e-01 
+          1500      1.975818e-13   2.205248e-01 
+     Iteration ElectricPotential         Energy 
+          1501      1.967565e-13   2.203391e-01 
+          1502      1.937808e-13   2.201537e-01 
+          1503      1.930293e-13   2.199683e-01 
+          1504      1.992108e-13   2.197832e-01 
+          1505      1.968823e-13   2.195982e-01 
+          1506      1.942544e-13   2.194133e-01 
+          1507      1.966432e-13   2.192286e-01 
+          1508      1.976690e-13   2.190441e-01 
+          1509      2.016726e-13   2.188597e-01 
+          1510      2.006462e-13   2.186754e-01 
+     Iteration ElectricPotential         Energy 
+          1511      1.983011e-13   2.184914e-01 
+          1512      1.942318e-13   2.183074e-01 
+          1513      1.963484e-13   2.181237e-01 
+          1514      1.977848e-13   2.179401e-01 
+          1515      1.981416e-13   2.177566e-01 
+          1516      2.025135e-13   2.175733e-01 
+          1517      2.000119e-13   2.173901e-01 
+          1518      1.943019e-13   2.172071e-01 
+          1519      1.977989e-13   2.170243e-01 
+          1520      1.979750e-13   2.168416e-01 
+     Iteration ElectricPotential         Energy 
+          1521      1.958581e-13   2.166591e-01 
+          1522      1.989783e-13   2.164767e-01 
+          1523      1.986511e-13   2.162945e-01 
+          1524      1.997866e-13   2.161124e-01 
+          1525      1.949753e-13   2.159305e-01 
+          1526      1.991841e-13   2.157487e-01 
+          1527      2.012382e-13   2.155671e-01 
+          1528      1.976939e-13   2.153856e-01 
+          1529      1.976077e-13   2.152043e-01 
+          1530      1.984915e-13   2.150232e-01 
+     Iteration ElectricPotential         Energy 
+          1531      1.925398e-13   2.148422e-01 
+          1532      1.946602e-13   2.146613e-01 
+          1533      1.965042e-13   2.144806e-01 
+          1534      1.990129e-13   2.143001e-01 
+          1535      2.029187e-13   2.141197e-01 
+          1536      2.010149e-13   2.139394e-01 
+          1537      1.984358e-13   2.137593e-01 
+          1538      2.020291e-13   2.135794e-01 
+          1539      1.931839e-13   2.133996e-01 
+          1540      1.996562e-13   2.132200e-01 
+     Iteration ElectricPotential         Energy 
+          1541      1.981083e-13   2.130405e-01 
+          1542      1.969871e-13   2.128611e-01 
+          1543      1.985944e-13   2.126820e-01 
+          1544      1.981524e-13   2.125029e-01 
+          1545      1.976344e-13   2.123240e-01 
+          1546      1.969846e-13   2.121453e-01 
+          1547      1.936155e-13   2.119667e-01 
+          1548      1.995408e-13   2.117883e-01 
+          1549      1.985903e-13   2.116100e-01 
+          1550      1.968583e-13   2.114319e-01 
+     Iteration ElectricPotential         Energy 
+          1551      1.984480e-13   2.112539e-01 
+          1552      1.983050e-13   2.110761e-01 
+          1553      1.951991e-13   2.108984e-01 
+          1554      1.947967e-13   2.107209e-01 
+          1555      1.993466e-13   2.105435e-01 
+          1556      1.964961e-13   2.103663e-01 
+          1557      1.975622e-13   2.101892e-01 
+          1558      1.994607e-13   2.100122e-01 
+          1559      1.982634e-13   2.098354e-01 
+          1560      2.002255e-13   2.096588e-01 
+     Iteration ElectricPotential         Energy 
+          1561      2.061275e-13   2.094823e-01 
+          1562      2.003003e-13   2.093060e-01 
+          1563      1.970973e-13   2.091298e-01 
+          1564      1.961485e-13   2.089538e-01 
+          1565      1.968238e-13   2.087779e-01 
+          1566      1.974065e-13   2.086021e-01 
+          1567      1.963995e-13   2.084265e-01 
+          1568      1.982641e-13   2.082511e-01 
+          1569      1.952364e-13   2.080758e-01 
+          1570      1.975255e-13   2.079006e-01 
+     Iteration ElectricPotential         Energy 
+          1571      1.964768e-13   2.077256e-01 
+          1572      1.989271e-13   2.075507e-01 
+          1573      1.968471e-13   2.073760e-01 
+          1574      1.969536e-13   2.072015e-01 
+          1575      1.961736e-13   2.070270e-01 
+          1576      2.022033e-13   2.068528e-01 
+          1577      1.938785e-13   2.066786e-01 
+          1578      1.975228e-13   2.065047e-01 
+          1579      2.024689e-13   2.063308e-01 
+          1580      1.993535e-13   2.061571e-01 
+     Iteration ElectricPotential         Energy 
+          1581      1.937873e-13   2.059836e-01 
+          1582      1.982654e-13   2.058102e-01 
+          1583      1.927931e-13   2.056370e-01 
+          1584      1.974512e-13   2.054638e-01 
+          1585      1.953515e-13   2.052909e-01 
+          1586      1.972578e-13   2.051181e-01 
+          1587      1.936653e-13   2.049454e-01 
+          1588      1.982735e-13   2.047729e-01 
+          1589      1.999085e-13   2.046005e-01 
+          1590      2.001684e-13   2.044283e-01 
+     Iteration ElectricPotential         Energy 
+          1591      1.990938e-13   2.042562e-01 
+          1592      1.998316e-13   2.040843e-01 
+          1593      1.978968e-13   2.039125e-01 
+          1594      1.976567e-13   2.037408e-01 
+          1595      1.954304e-13   2.035693e-01 
+          1596      1.969881e-13   2.033979e-01 
+          1597      1.999876e-13   2.032267e-01 
+          1598      1.985476e-13   2.030557e-01 
+          1599      1.995210e-13   2.028847e-01 
+          1600      1.952967e-13   2.027139e-01 
+     Iteration ElectricPotential         Energy 
+          1601      1.940486e-13   2.025433e-01 
+          1602      1.999474e-13   2.023728e-01 
+          1603      1.990614e-13   2.022024e-01 
+          1604      1.956863e-13   2.020322e-01 
+          1605      2.007398e-13   2.018622e-01 
+          1606      1.944160e-13   2.016922e-01 
+          1607      1.940545e-13   2.015225e-01 
+          1608      1.993550e-13   2.013528e-01 
+          1609      1.993319e-13   2.011833e-01 
+          1610      2.042950e-13   2.010140e-01 
+     Iteration ElectricPotential         Energy 
+          1611      1.957809e-13   2.008448e-01 
+          1612      1.997408e-13   2.006757e-01 
+          1613      1.939895e-13   2.005068e-01 
+          1614      1.978253e-13   2.003380e-01 
+          1615      1.955505e-13   2.001693e-01 
+          1616      1.941443e-13   2.000008e-01 
+          1617      1.973890e-13   1.998325e-01 
+          1618      1.982265e-13   1.996643e-01 
+          1619      2.006194e-13   1.994962e-01 
+          1620      1.984488e-13   1.993283e-01 
+     Iteration ElectricPotential         Energy 
+          1621      1.950838e-13   1.991605e-01 
+          1622      1.971621e-13   1.989928e-01 
+          1623      2.002390e-13   1.988253e-01 
+          1624      1.957174e-13   1.986579e-01 
+          1625      1.977161e-13   1.984907e-01 
+          1626      1.994655e-13   1.983236e-01 
+          1627      1.954340e-13   1.981567e-01 
+          1628      1.969376e-13   1.979899e-01 
+          1629      1.976261e-13   1.978232e-01 
+          1630      1.985985e-13   1.976567e-01 
+     Iteration ElectricPotential         Energy 
+          1631      1.984049e-13   1.974903e-01 
+          1632      1.988344e-13   1.973240e-01 
+          1633      1.994050e-13   1.971579e-01 
+          1634      1.938277e-13   1.969920e-01 
+          1635      1.963305e-13   1.968261e-01 
+          1636      1.980091e-13   1.966605e-01 
+          1637      1.969161e-13   1.964949e-01 
+          1638      1.980552e-13   1.963295e-01 
+          1639      2.020292e-13   1.961642e-01 
+          1640      1.990794e-13   1.959991e-01 
+     Iteration ElectricPotential         Energy 
+          1641      1.967363e-13   1.958341e-01 
+          1642      1.966876e-13   1.956693e-01 
+          1643      1.980868e-13   1.955046e-01 
+          1644      1.964323e-13   1.953400e-01 
+          1645      1.982797e-13   1.951756e-01 
+          1646      1.977680e-13   1.950113e-01 
+          1647      2.010394e-13   1.948471e-01 
+          1648      1.955428e-13   1.946831e-01 
+          1649      1.959741e-13   1.945192e-01 
+          1650      1.981416e-13   1.943555e-01 
+     Iteration ElectricPotential         Energy 
+          1651      1.986487e-13   1.941918e-01 
+          1652      1.990969e-13   1.940284e-01 
+          1653      1.969675e-13   1.938650e-01 
+          1654      1.931633e-13   1.937019e-01 
+          1655      1.972256e-13   1.935388e-01 
+          1656      1.960405e-13   1.933759e-01 
+          1657      1.980020e-13   1.932131e-01 
+          1658      1.987592e-13   1.930505e-01 
+          1659      1.986943e-13   1.928879e-01 
+          1660      1.980285e-13   1.927256e-01 
+     Iteration ElectricPotential         Energy 
+          1661      1.958172e-13   1.925633e-01 
+          1662      1.926497e-13   1.924012e-01 
+          1663      1.950490e-13   1.922393e-01 
+          1664      1.991827e-13   1.920775e-01 
+          1665      1.977992e-13   1.919158e-01 
+          1666      2.001262e-13   1.917542e-01 
+          1667      1.936153e-13   1.915928e-01 
+          1668      1.996408e-13   1.914315e-01 
+          1669      1.972197e-13   1.912704e-01 
+          1670      1.998137e-13   1.911094e-01 
+     Iteration ElectricPotential         Energy 
+          1671      1.976685e-13   1.909485e-01 
+          1672      2.007643e-13   1.907878e-01 
+          1673      1.962875e-13   1.906272e-01 
+          1674      2.002396e-13   1.904667e-01 
+          1675      1.967588e-13   1.903064e-01 
+          1676      2.014859e-13   1.901462e-01 
+          1677      1.952989e-13   1.899861e-01 
+          1678      1.999009e-13   1.898262e-01 
+          1679      1.988541e-13   1.896664e-01 
+          1680      1.951702e-13   1.895067e-01 
+     Iteration ElectricPotential         Energy 
+          1681      1.978178e-13   1.893472e-01 
+          1682      1.968209e-13   1.891878e-01 
+          1683      1.975323e-13   1.890285e-01 
+          1684      1.954409e-13   1.888694e-01 
+          1685      1.970842e-13   1.887104e-01 
+          1686      2.025774e-13   1.885516e-01 
+          1687      1.940390e-13   1.883929e-01 
+          1688      1.946544e-13   1.882343e-01 
+          1689      1.923327e-13   1.880758e-01 
+          1690      1.968884e-13   1.879175e-01 
+     Iteration ElectricPotential         Energy 
+          1691      2.005264e-13   1.877593e-01 
+          1692      1.971281e-13   1.876013e-01 
+          1693      1.965081e-13   1.874433e-01 
+          1694      1.977456e-13   1.872856e-01 
+          1695      1.980463e-13   1.871279e-01 
+          1696      1.945255e-13   1.869704e-01 
+          1697      2.031111e-13   1.868130e-01 
+          1698      2.034800e-13   1.866557e-01 
+          1699      1.998290e-13   1.864986e-01 
+          1700      1.995166e-13   1.863416e-01 
+     Iteration ElectricPotential         Energy 
+          1701      2.000065e-13   1.861848e-01 
+          1702      1.982848e-13   1.860280e-01 
+          1703      1.981320e-13   1.858714e-01 
+          1704      1.966558e-13   1.857150e-01 
+          1705      1.980865e-13   1.855586e-01 
+          1706      1.985114e-13   1.854024e-01 
+          1707      2.005058e-13   1.852464e-01 
+          1708      1.913948e-13   1.850904e-01 
+          1709      1.993332e-13   1.849346e-01 
+          1710      1.957356e-13   1.847789e-01 
+     Iteration ElectricPotential         Energy 
+          1711      1.986137e-13   1.846234e-01 
+          1712      1.950535e-13   1.844680e-01 
+          1713      1.950972e-13   1.843127e-01 
+          1714      1.953942e-13   1.841575e-01 
+          1715      2.003008e-13   1.840025e-01 
+          1716      1.992754e-13   1.838476e-01 
+          1717      1.986301e-13   1.836929e-01 
+          1718      1.951618e-13   1.835382e-01 
+          1719      1.981938e-13   1.833837e-01 
+          1720      2.037545e-13   1.832294e-01 
+     Iteration ElectricPotential         Energy 
+          1721      1.974198e-13   1.830751e-01 
+          1722      1.977995e-13   1.829210e-01 
+          1723      1.991558e-13   1.827670e-01 
+          1724      1.981967e-13   1.826132e-01 
+          1725      1.983408e-13   1.824595e-01 
+          1726      2.000924e-13   1.823059e-01 
+          1727      1.997646e-13   1.821524e-01 
+          1728      1.981190e-13   1.819991e-01 
+          1729      1.989207e-13   1.818459e-01 
+          1730      1.989513e-13   1.816928e-01 
+     Iteration ElectricPotential         Energy 
+          1731      1.982448e-13   1.815399e-01 
+          1732      1.934601e-13   1.813870e-01 
+          1733      1.972008e-13   1.812343e-01 
+          1734      1.979915e-13   1.810818e-01 
+          1735      1.975638e-13   1.809294e-01 
+          1736      1.991705e-13   1.807770e-01 
+          1737      1.992475e-13   1.806249e-01 
+          1738      2.007947e-13   1.804728e-01 
+          1739      1.993628e-13   1.803209e-01 
+          1740      1.972594e-13   1.801691e-01 
+     Iteration ElectricPotential         Energy 
+          1741      2.002678e-13   1.800175e-01 
+          1742      2.028421e-13   1.798659e-01 
+          1743      2.012318e-13   1.797145e-01 
+          1744      2.016800e-13   1.795632e-01 
+          1745      1.949840e-13   1.794121e-01 
+          1746      2.003433e-13   1.792610e-01 
+          1747      1.974997e-13   1.791101e-01 
+          1748      1.977549e-13   1.789594e-01 
+          1749      2.000792e-13   1.788087e-01 
+          1750      1.992795e-13   1.786582e-01 
+     Iteration ElectricPotential         Energy 
+          1751      1.947394e-13   1.785078e-01 
+          1752      1.977145e-13   1.783575e-01 
+          1753      1.958170e-13   1.782074e-01 
+          1754      1.920147e-13   1.780574e-01 
+          1755      2.015201e-13   1.779075e-01 
+          1756      1.978687e-13   1.777577e-01 
+          1757      1.978712e-13   1.776081e-01 
+          1758      1.973093e-13   1.774586e-01 
+          1759      1.969133e-13   1.773092e-01 
+          1760      1.981448e-13   1.771600e-01 
+     Iteration ElectricPotential         Energy 
+          1761      1.988763e-13   1.770108e-01 
+          1762      1.927633e-13   1.768618e-01 
+          1763      1.956485e-13   1.767130e-01 
+          1764      2.025095e-13   1.765642e-01 
+          1765      1.953130e-13   1.764156e-01 
+          1766      1.980832e-13   1.762671e-01 
+          1767      1.988704e-13   1.761187e-01 
+          1768      1.967377e-13   1.759704e-01 
+          1769      1.950249e-13   1.758223e-01 
+          1770      1.956492e-13   1.756743e-01 
+     Iteration ElectricPotential         Energy 
+          1771      1.983346e-13   1.755264e-01 
+          1772      1.992998e-13   1.753787e-01 
+          1773      1.992420e-13   1.752310e-01 
+          1774      1.975572e-13   1.750835e-01 
+          1775      1.956162e-13   1.749361e-01 
+          1776      1.995658e-13   1.747889e-01 
+          1777      1.994485e-13   1.746417e-01 
+          1778      1.980891e-13   1.744947e-01 
+          1779      2.027627e-13   1.743478e-01 
+          1780      2.000269e-13   1.742011e-01 
+     Iteration ElectricPotential         Energy 
+          1781      1.958683e-13   1.740544e-01 
+          1782      1.950378e-13   1.739079e-01 
+          1783      1.937135e-13   1.737615e-01 
+          1784      1.987805e-13   1.736153e-01 
+          1785      2.001026e-13   1.734691e-01 
+          1786      1.946428e-13   1.733231e-01 
+          1787      1.958313e-13   1.731772e-01 
+          1788      1.969152e-13   1.730314e-01 
+          1789      1.968983e-13   1.728857e-01 
+          1790      1.987587e-13   1.727402e-01 
+     Iteration ElectricPotential         Energy 
+          1791      1.969700e-13   1.725948e-01 
+          1792      1.946558e-13   1.724495e-01 
+          1793      1.979571e-13   1.723044e-01 
+          1794      1.941412e-13   1.721593e-01 
+          1795      1.981371e-13   1.720144e-01 
+          1796      1.992126e-13   1.718696e-01 
+          1797      1.979786e-13   1.717249e-01 
+          1798      1.973749e-13   1.715804e-01 
+          1799      1.982104e-13   1.714359e-01 
+          1800      1.993677e-13   1.712916e-01 
+     Iteration ElectricPotential         Energy 
+          1801      1.986564e-13   1.711474e-01 
+          1802      1.964522e-13   1.710033e-01 
+          1803      1.988117e-13   1.708594e-01 
+          1804      1.962511e-13   1.707156e-01 
+          1805      1.981980e-13   1.705719e-01 
+          1806      1.989844e-13   1.704283e-01 
+          1807      1.985609e-13   1.702848e-01 
+          1808      1.991638e-13   1.701415e-01 
+          1809      2.018685e-13   1.699982e-01 
+          1810      1.953313e-13   1.698551e-01 
+     Iteration ElectricPotential         Energy 
+          1811      1.984000e-13   1.697122e-01 
+          1812      1.970902e-13   1.695693e-01 
+          1813      1.961245e-13   1.694266e-01 
+          1814      1.976841e-13   1.692839e-01 
+          1815      1.984993e-13   1.691414e-01 
+          1816      1.993411e-13   1.689991e-01 
+          1817      2.014989e-13   1.688568e-01 
+          1818      1.993391e-13   1.687147e-01 
+          1819      1.985772e-13   1.685726e-01 
+          1820      1.936414e-13   1.684307e-01 
+     Iteration ElectricPotential         Energy 
+          1821      1.988460e-13   1.682889e-01 
+          1822      1.951170e-13   1.681473e-01 
+          1823      1.958958e-13   1.680057e-01 
+          1824      1.998965e-13   1.678643e-01 
+          1825      1.988990e-13   1.677230e-01 
+          1826      1.997958e-13   1.675818e-01 
+          1827      1.974374e-13   1.674408e-01 
+          1828      1.970733e-13   1.672998e-01 
+          1829      1.971217e-13   1.671590e-01 
+          1830      1.959501e-13   1.670183e-01 
+     Iteration ElectricPotential         Energy 
+          1831      2.053030e-13   1.668777e-01 
+          1832      2.049423e-13   1.667372e-01 
+          1833      1.984178e-13   1.665968e-01 
+          1834      1.966377e-13   1.664566e-01 
+          1835      1.982712e-13   1.663165e-01 
+          1836      2.025376e-13   1.661765e-01 
+          1837      1.990079e-13   1.660366e-01 
+          1838      1.985437e-13   1.658968e-01 
+          1839      2.012693e-13   1.657572e-01 
+          1840      1.975797e-13   1.656176e-01 
+     Iteration ElectricPotential         Energy 
+          1841      2.000597e-13   1.654782e-01 
+          1842      1.974633e-13   1.653389e-01 
+          1843      1.975188e-13   1.651997e-01 
+          1844      1.973828e-13   1.650607e-01 
+          1845      1.994986e-13   1.649217e-01 
+          1846      1.992685e-13   1.647829e-01 
+          1847      1.985926e-13   1.646442e-01 
+          1848      1.929093e-13   1.645056e-01 
+          1849      1.978621e-13   1.643671e-01 
+          1850      1.981745e-13   1.642288e-01 
+     Iteration ElectricPotential         Energy 
+          1851      2.012851e-13   1.640905e-01 
+          1852      2.006015e-13   1.639524e-01 
+          1853      1.985432e-13   1.638144e-01 
+          1854      1.976688e-13   1.636765e-01 
+          1855      2.011582e-13   1.635387e-01 
+          1856      2.019085e-13   1.634010e-01 
+          1857      1.934063e-13   1.632635e-01 
+          1858      1.939766e-13   1.631260e-01 
+          1859      1.979903e-13   1.629887e-01 
+          1860      2.006277e-13   1.628515e-01 
+     Iteration ElectricPotential         Energy 
+          1861      1.997176e-13   1.627144e-01 
+          1862      1.997336e-13   1.625775e-01 
+          1863      1.972509e-13   1.624406e-01 
+          1864      1.979748e-13   1.623039e-01 
+          1865      1.944078e-13   1.621672e-01 
+          1866      1.975881e-13   1.620307e-01 
+          1867      1.977630e-13   1.618943e-01 
+          1868      1.973849e-13   1.617581e-01 
+          1869      1.964303e-13   1.616219e-01 
+          1870      1.972723e-13   1.614858e-01 
+     Iteration ElectricPotential         Energy 
+          1871      1.936289e-13   1.613499e-01 
+          1872      1.997591e-13   1.612141e-01 
+          1873      1.982100e-13   1.610784e-01 
+          1874      2.032542e-13   1.609428e-01 
+          1875      1.994006e-13   1.608073e-01 
+          1876      2.006405e-13   1.606719e-01 
+          1877      1.962054e-13   1.605367e-01 
+          1878      1.954598e-13   1.604015e-01 
+          1879      2.024571e-13   1.602665e-01 
+          1880      1.960026e-13   1.601316e-01 
+     Iteration ElectricPotential         Energy 
+          1881      2.028095e-13   1.599968e-01 
+          1882      1.981582e-13   1.598621e-01 
+          1883      2.015827e-13   1.597276e-01 
+          1884      1.982981e-13   1.595931e-01 
+          1885      1.938109e-13   1.594588e-01 
+          1886      1.970215e-13   1.593245e-01 
+          1887      1.965396e-13   1.591904e-01 
+          1888      1.963835e-13   1.590564e-01 
+          1889      1.935754e-13   1.589225e-01 
+          1890      1.991548e-13   1.587887e-01 
+     Iteration ElectricPotential         Energy 
+          1891      1.943049e-13   1.586551e-01 
+          1892      1.952886e-13   1.585215e-01 
+          1893      2.016945e-13   1.583881e-01 
+          1894      1.943498e-13   1.582547e-01 
+          1895      1.970931e-13   1.581215e-01 
+          1896      1.981641e-13   1.579884e-01 
+          1897      1.990002e-13   1.578554e-01 
+          1898      1.990165e-13   1.577226e-01 
+          1899      1.981498e-13   1.575898e-01 
+          1900      2.055796e-13   1.574571e-01 
+     Iteration ElectricPotential         Energy 
+          1901      1.962643e-13   1.573246e-01 
+          1902      1.980877e-13   1.571921e-01 
+          1903      1.972469e-13   1.570598e-01 
+          1904      1.959907e-13   1.569276e-01 
+          1905      1.961957e-13   1.567955e-01 
+          1906      1.987284e-13   1.566635e-01 
+          1907      1.966162e-13   1.565316e-01 
+          1908      2.022218e-13   1.563999e-01 
+          1909      1.958816e-13   1.562682e-01 
+          1910      1.975737e-13   1.561367e-01 
+     Iteration ElectricPotential         Energy 
+          1911      1.943799e-13   1.560052e-01 
+          1912      2.006087e-13   1.558739e-01 
+          1913      1.982825e-13   1.557427e-01 
+          1914      2.003904e-13   1.556116e-01 
+          1915      1.970778e-13   1.554806e-01 
+          1916      1.982312e-13   1.553497e-01 
+          1917      2.002989e-13   1.552190e-01 
+          1918      1.952377e-13   1.550883e-01 
+          1919      1.992634e-13   1.549578e-01 
+          1920      1.954291e-13   1.548273e-01 
+     Iteration ElectricPotential         Energy 
+          1921      1.986805e-13   1.546970e-01 
+          1922      1.991245e-13   1.545668e-01 
+          1923      1.949711e-13   1.544366e-01 
+          1924      1.971045e-13   1.543066e-01 
+          1925      1.998630e-13   1.541767e-01 
+          1926      2.001099e-13   1.540470e-01 
+          1927      1.961386e-13   1.539173e-01 
+          1928      1.981410e-13   1.537877e-01 
+          1929      1.933045e-13   1.536583e-01 
+          1930      1.995972e-13   1.535289e-01 
+     Iteration ElectricPotential         Energy 
+          1931      1.997399e-13   1.533997e-01 
+          1932      1.930652e-13   1.532705e-01 
+          1933      1.979491e-13   1.531415e-01 
+          1934      2.013497e-13   1.530126e-01 
+          1935      2.003982e-13   1.528838e-01 
+          1936      1.996280e-13   1.527551e-01 
+          1937      1.961829e-13   1.526265e-01 
+          1938      1.995891e-13   1.524980e-01 
+          1939      1.975411e-13   1.523697e-01 
+          1940      2.014325e-13   1.522414e-01 
+     Iteration ElectricPotential         Energy 
+          1941      1.946252e-13   1.521133e-01 
+          1942      1.986442e-13   1.519852e-01 
+          1943      1.967294e-13   1.518573e-01 
+          1944      1.982517e-13   1.517294e-01 
+          1945      2.021002e-13   1.516017e-01 
+          1946      1.974615e-13   1.514741e-01 
+          1947      1.939759e-13   1.513466e-01 
+          1948      2.025076e-13   1.512192e-01 
+          1949      1.981925e-13   1.510919e-01 
+          1950      1.979841e-13   1.509647e-01 
+     Iteration ElectricPotential         Energy 
+          1951      1.985460e-13   1.508376e-01 
+          1952      1.987652e-13   1.507107e-01 
+          1953      1.961383e-13   1.505838e-01 
+          1954      1.962664e-13   1.504570e-01 
+          1955      1.958349e-13   1.503304e-01 
+          1956      1.940813e-13   1.502038e-01 
+          1957      1.990491e-13   1.500774e-01 
+          1958      1.985054e-13   1.499511e-01 
+          1959      1.999050e-13   1.498248e-01 
+          1960      1.999122e-13   1.496987e-01 
+     Iteration ElectricPotential         Energy 
+          1961      1.987929e-13   1.495727e-01 
+          1962      1.960866e-13   1.494468e-01 
+          1963      1.999234e-13   1.493210e-01 
+          1964      1.961240e-13   1.491953e-01 
+          1965      2.000594e-13   1.490697e-01 
+          1966      1.979324e-13   1.489442e-01 
+          1967      1.965970e-13   1.488188e-01 
+          1968      1.982573e-13   1.486936e-01 
+          1969      1.993308e-13   1.485684e-01 
+          1970      1.977415e-13   1.484433e-01 
+     Iteration ElectricPotential         Energy 
+          1971      1.962163e-13   1.483184e-01 
+          1972      1.936417e-13   1.481935e-01 
+          1973      1.970943e-13   1.480688e-01 
+          1974      1.999950e-13   1.479441e-01 
+          1975      1.975748e-13   1.478196e-01 
+          1976      1.987508e-13   1.476952e-01 
+          1977      1.935790e-13   1.475708e-01 
+          1978      1.952929e-13   1.474466e-01 
+          1979      1.957879e-13   1.473225e-01 
+          1980      1.993569e-13   1.471985e-01 
+     Iteration ElectricPotential         Energy 
+          1981      1.987947e-13   1.470746e-01 
+          1982      1.985143e-13   1.469508e-01 
+          1983      1.952430e-13   1.468271e-01 
+          1984      1.997974e-13   1.467035e-01 
+          1985      1.984330e-13   1.465800e-01 
+          1986      1.962278e-13   1.464566e-01 
+          1987      1.996260e-13   1.463333e-01 
+          1988      1.966029e-13   1.462101e-01 
+          1989      2.003118e-13   1.460870e-01 
+          1990      1.978129e-13   1.459641e-01 
+     Iteration ElectricPotential         Energy 
+          1991      2.001839e-13   1.458412e-01 
+          1992      2.001831e-13   1.457184e-01 
+          1993      1.970808e-13   1.455958e-01 
+          1994      2.008456e-13   1.454732e-01 
+          1995      1.946962e-13   1.453507e-01 
+          1996      1.928215e-13   1.452284e-01 
+          1997      1.989584e-13   1.451061e-01 
+          1998      1.974849e-13   1.449840e-01 
+          1999      1.951043e-13   1.448619e-01 
+          2000      1.964503e-13   1.447400e-01 
+     Iteration ElectricPotential         Energy 
+          2001      1.989736e-13   1.446182e-01 
+          2002      1.976075e-13   1.444964e-01 
+          2003      1.935470e-13   1.443748e-01 
+          2004      1.949042e-13   1.442532e-01 
+          2005      2.020990e-13   1.441318e-01 
+          2006      1.945030e-13   1.440105e-01 
+          2007      1.996229e-13   1.438893e-01 
+          2008      2.001020e-13   1.437681e-01 
+          2009      1.920984e-13   1.436471e-01 
+          2010      1.982035e-13   1.435262e-01 
+     Iteration ElectricPotential         Energy 
+          2011      1.950764e-13   1.434054e-01 
+          2012      1.972750e-13   1.432847e-01 
+          2013      1.934469e-13   1.431640e-01 
+          2014      1.998384e-13   1.430435e-01 
+          2015      1.975977e-13   1.429231e-01 
+          2016      2.009831e-13   1.428028e-01 
+          2017      1.976949e-13   1.426826e-01 
+          2018      2.006145e-13   1.425625e-01 
+          2019      1.966905e-13   1.424425e-01 
+          2020      1.952334e-13   1.423226e-01 
+     Iteration ElectricPotential         Energy 
+          2021      1.975042e-13   1.422028e-01 
+          2022      1.973007e-13   1.420831e-01 
+          2023      1.987012e-13   1.419635e-01 
+          2024      1.934914e-13   1.418440e-01 
+          2025      1.981302e-13   1.417246e-01 
+          2026      2.040830e-13   1.416053e-01 
+          2027      1.985836e-13   1.414861e-01 
+          2028      2.014263e-13   1.413670e-01 
+          2029      1.994713e-13   1.412480e-01 
+          2030      1.975050e-13   1.411291e-01 
+     Iteration ElectricPotential         Energy 
+          2031      1.987288e-13   1.410103e-01 
+          2032      1.999193e-13   1.408916e-01 
+          2033      2.030348e-13   1.407729e-01 
+          2034      2.018053e-13   1.406544e-01 
+          2035      1.990072e-13   1.405360e-01 
+          2036      1.996609e-13   1.404177e-01 
+          2037      1.983488e-13   1.402995e-01 
+          2038      2.010277e-13   1.401814e-01 
+          2039      2.042869e-13   1.400634e-01 
+          2040      1.976843e-13   1.399455e-01 
+     Iteration ElectricPotential         Energy 
+          2041      1.937537e-13   1.398277e-01 
+          2042      1.989608e-13   1.397100e-01 
+          2043      1.977984e-13   1.395924e-01 
+          2044      1.981433e-13   1.394749e-01 
+          2045      1.989909e-13   1.393575e-01 
+          2046      1.982266e-13   1.392402e-01 
+          2047      2.012445e-13   1.391230e-01 
+          2048      1.982329e-13   1.390059e-01 
+          2049      1.929155e-13   1.388889e-01 
+          2050      1.955399e-13   1.387719e-01 
+     Iteration ElectricPotential         Energy 
+          2051      2.033917e-13   1.386551e-01 
+          2052      2.014951e-13   1.385384e-01 
+          2053      1.980081e-13   1.384218e-01 
+          2054      1.934897e-13   1.383053e-01 
+          2055      1.968794e-13   1.381888e-01 
+          2056      1.942876e-13   1.380725e-01 
+          2057      1.983712e-13   1.379563e-01 
+          2058      1.974924e-13   1.378402e-01 
+          2059      1.980635e-13   1.377241e-01 
+          2060      1.943457e-13   1.376082e-01 
+     Iteration ElectricPotential         Energy 
+          2061      1.970550e-13   1.374924e-01 
+          2062      1.998575e-13   1.373766e-01 
+          2063      1.991729e-13   1.372610e-01 
+          2064      1.990188e-13   1.371454e-01 
+          2065      1.962629e-13   1.370300e-01 
+          2066      1.941570e-13   1.369146e-01 
+          2067      1.979464e-13   1.367994e-01 
+          2068      1.940088e-13   1.366842e-01 
+          2069      1.945013e-13   1.365692e-01 
+          2070      1.984298e-13   1.364542e-01 
+     Iteration ElectricPotential         Energy 
+          2071      1.955249e-13   1.363393e-01 
+          2072      1.970477e-13   1.362246e-01 
+          2073      1.955772e-13   1.361099e-01 
+          2074      2.027323e-13   1.359953e-01 
+          2075      1.970898e-13   1.358808e-01 
+          2076      1.992968e-13   1.357665e-01 
+          2077      1.998796e-13   1.356522e-01 
+          2078      1.982150e-13   1.355380e-01 
+          2079      1.949289e-13   1.354239e-01 
+          2080      2.000125e-13   1.353099e-01 
+     Iteration ElectricPotential         Energy 
+          2081      1.985439e-13   1.351960e-01 
+          2082      2.026226e-13   1.350822e-01 
+          2083      1.923064e-13   1.349685e-01 
+          2084      1.943897e-13   1.348549e-01 
+          2085      1.992265e-13   1.347413e-01 
+          2086      1.947048e-13   1.346279e-01 
+          2087      1.989331e-13   1.345146e-01 
+          2088      1.981749e-13   1.344014e-01 
+          2089      1.981253e-13   1.342882e-01 
+          2090      2.036094e-13   1.341752e-01 
+     Iteration ElectricPotential         Energy 
+          2091      1.965635e-13   1.340622e-01 
+          2092      1.981795e-13   1.339494e-01 
+          2093      1.970015e-13   1.338366e-01 
+          2094      1.984971e-13   1.337240e-01 
+          2095      2.016814e-13   1.336114e-01 
+          2096      2.030049e-13   1.334989e-01 
+          2097      1.976935e-13   1.333865e-01 
+          2098      1.951960e-13   1.332743e-01 
+          2099      1.984847e-13   1.331621e-01 
+          2100      1.994335e-13   1.330500e-01 
+     Iteration ElectricPotential         Energy 
+          2101      1.984467e-13   1.329380e-01 
+          2102      1.978427e-13   1.328261e-01 
+          2103      1.921634e-13   1.327143e-01 
+          2104      1.982755e-13   1.326025e-01 
+          2105      2.000553e-13   1.324909e-01 
+          2106      1.983709e-13   1.323794e-01 
+          2107      2.023316e-13   1.322680e-01 
+          2108      1.970508e-13   1.321566e-01 
+          2109      1.933670e-13   1.320454e-01 
+          2110      1.974361e-13   1.319342e-01 
+     Iteration ElectricPotential         Energy 
+          2111      1.964050e-13   1.318231e-01 
+          2112      1.948506e-13   1.317122e-01 
+          2113      2.016091e-13   1.316013e-01 
+          2114      1.977115e-13   1.314905e-01 
+          2115      1.982774e-13   1.313798e-01 
+          2116      1.991051e-13   1.312692e-01 
+          2117      1.979562e-13   1.311587e-01 
+          2118      1.995147e-13   1.310483e-01 
+          2119      1.973991e-13   1.309380e-01 
+          2120      1.998493e-13   1.308278e-01 
+     Iteration ElectricPotential         Energy 
+          2121      1.973240e-13   1.307177e-01 
+          2122      1.977628e-13   1.306076e-01 
+          2123      1.931672e-13   1.304977e-01 
+          2124      1.975506e-13   1.303878e-01 
+          2125      1.953379e-13   1.302781e-01 
+          2126      1.949236e-13   1.301684e-01 
+          2127      1.998675e-13   1.300588e-01 
+          2128      1.966671e-13   1.299494e-01 
+          2129      1.981784e-13   1.298400e-01 
+          2130      2.018072e-13   1.297307e-01 
+     Iteration ElectricPotential         Energy 
+          2131      1.975746e-13   1.296215e-01 
+          2132      1.946194e-13   1.295123e-01 
+          2133      2.006458e-13   1.294033e-01 
+          2134      1.988861e-13   1.292944e-01 
+          2135      1.965869e-13   1.291856e-01 
+          2136      1.991952e-13   1.290768e-01 
+          2137      1.964158e-13   1.289682e-01 
+          2138      1.999915e-13   1.288596e-01 
+          2139      1.956982e-13   1.287511e-01 
+          2140      1.959175e-13   1.286427e-01 
+     Iteration ElectricPotential         Energy 
+          2141      1.965378e-13   1.285344e-01 
+          2142      1.982597e-13   1.284263e-01 
+          2143      1.990129e-13   1.283181e-01 
+          2144      1.964752e-13   1.282101e-01 
+          2145      1.971851e-13   1.281022e-01 
+          2146      1.983430e-13   1.279944e-01 
+          2147      2.009338e-13   1.278866e-01 
+          2148      1.982347e-13   1.277790e-01 
+          2149      1.979067e-13   1.276714e-01 
+          2150      1.982782e-13   1.275639e-01 
+     Iteration ElectricPotential         Energy 
+          2151      2.013729e-13   1.274566e-01 
+          2152      2.016858e-13   1.273493e-01 
+          2153      1.976221e-13   1.272421e-01 
+          2154      1.968978e-13   1.271349e-01 
+          2155      1.971331e-13   1.270279e-01 
+          2156      1.972653e-13   1.269210e-01 
+          2157      1.994043e-13   1.268142e-01 
+          2158      1.973276e-13   1.267074e-01 
+          2159      1.961484e-13   1.266007e-01 
+          2160      1.998697e-13   1.264942e-01 
+     Iteration ElectricPotential         Energy 
+          2161      1.983088e-13   1.263877e-01 
+          2162      1.971491e-13   1.262813e-01 
+          2163      1.947083e-13   1.261750e-01 
+          2164      1.997570e-13   1.260688e-01 
+          2165      1.942185e-13   1.259627e-01 
+          2166      1.945730e-13   1.258566e-01 
+          2167      1.979922e-13   1.257507e-01 
+          2168      1.971310e-13   1.256448e-01 
+          2169      1.979032e-13   1.255391e-01 
+          2170      1.983504e-13   1.254334e-01 
+     Iteration ElectricPotential         Energy 
+          2171      1.950781e-13   1.253278e-01 
+          2172      2.004337e-13   1.252223e-01 
+          2173      1.961997e-13   1.251169e-01 
+          2174      1.975496e-13   1.250116e-01 
+          2175      1.947712e-13   1.249063e-01 
+          2176      1.996866e-13   1.248012e-01 
+          2177      1.979848e-13   1.246961e-01 
+          2178      1.955436e-13   1.245912e-01 
+          2179      1.941940e-13   1.244863e-01 
+          2180      1.989814e-13   1.243815e-01 
+     Iteration ElectricPotential         Energy 
+          2181      1.963032e-13   1.242768e-01 
+          2182      2.025604e-13   1.241722e-01 
+          2183      2.004078e-13   1.240677e-01 
+          2184      1.968403e-13   1.239632e-01 
+          2185      1.977990e-13   1.238589e-01 
+          2186      1.984359e-13   1.237546e-01 
+          2187      1.982949e-13   1.236504e-01 
+          2188      1.983966e-13   1.235463e-01 
+          2189      1.978857e-13   1.234423e-01 
+          2190      1.977954e-13   1.233384e-01 
+     Iteration ElectricPotential         Energy 
+          2191      1.982734e-13   1.232346e-01 
+          2192      1.975359e-13   1.231309e-01 
+          2193      2.036518e-13   1.230272e-01 
+          2194      1.937855e-13   1.229237e-01 
+          2195      1.935383e-13   1.228202e-01 
+          2196      2.020080e-13   1.227168e-01 
+          2197      1.952189e-13   1.226135e-01 
+          2198      2.000145e-13   1.225103e-01 
+          2199      1.933332e-13   1.224071e-01 
+          2200      1.941534e-13   1.223041e-01 
+     Iteration ElectricPotential         Energy 
+          2201      1.989236e-13   1.222011e-01 
+          2202      1.970693e-13   1.220983e-01 
+          2203      1.957773e-13   1.219955e-01 
+          2204      1.994610e-13   1.218928e-01 
+          2205      1.958710e-13   1.217902e-01 
+          2206      1.960894e-13   1.216877e-01 
+          2207      2.005547e-13   1.215852e-01 
+          2208      1.998871e-13   1.214829e-01 
+          2209      1.989937e-13   1.213806e-01 
+          2210      1.983567e-13   1.212785e-01 
+     Iteration ElectricPotential         Energy 
+          2211      1.986953e-13   1.211764e-01 
+          2212      1.932875e-13   1.210744e-01 
+          2213      2.012623e-13   1.209724e-01 
+          2214      2.010607e-13   1.208706e-01 
+          2215      1.987835e-13   1.207689e-01 
+          2216      2.030291e-13   1.206672e-01 
+          2217      2.004047e-13   1.205656e-01 
+          2218      2.061019e-13   1.204641e-01 
+          2219      1.970260e-13   1.203627e-01 
+          2220      1.976494e-13   1.202614e-01 
+     Iteration ElectricPotential         Energy 
+          2221      2.018672e-13   1.201602e-01 
+          2222      1.969267e-13   1.200590e-01 
+          2223      1.917746e-13   1.199580e-01 
+          2224      1.979269e-13   1.198570e-01 
+          2225      1.954382e-13   1.197561e-01 
+          2226      1.996646e-13   1.196553e-01 
+          2227      1.987699e-13   1.195545e-01 
+          2228      1.969664e-13   1.194539e-01 
+          2229      1.968396e-13   1.193534e-01 
+          2230      1.966441e-13   1.192529e-01 
+     Iteration ElectricPotential         Energy 
+          2231      1.977443e-13   1.191525e-01 
+          2232      1.975299e-13   1.190522e-01 
+          2233      1.992287e-13   1.189520e-01 
+          2234      1.930161e-13   1.188518e-01 
+          2235      1.971025e-13   1.187518e-01 
+          2236      2.018046e-13   1.186518e-01 
+          2237      1.932072e-13   1.185520e-01 
+          2238      1.961944e-13   1.184522e-01 
+          2239      1.991112e-13   1.183525e-01 
+          2240      1.976997e-13   1.182528e-01 
+     Iteration ElectricPotential         Energy 
+          2241      1.974445e-13   1.181533e-01 
+          2242      2.040964e-13   1.180538e-01 
+          2243      2.036206e-13   1.179544e-01 
+          2244      1.959448e-13   1.178551e-01 
+          2245      2.003779e-13   1.177559e-01 
+          2246      1.954834e-13   1.176568e-01 
+          2247      2.001366e-13   1.175578e-01 
+          2248      1.975352e-13   1.174588e-01 
+          2249      1.997387e-13   1.173599e-01 
+          2250      1.964385e-13   1.172611e-01 
+     Iteration ElectricPotential         Energy 
+          2251      1.970458e-13   1.171624e-01 
+          2252      1.988624e-13   1.170638e-01 
+          2253      1.979188e-13   1.169653e-01 
+          2254      2.005343e-13   1.168668e-01 
+          2255      1.981597e-13   1.167684e-01 
+          2256      2.009838e-13   1.166701e-01 
+          2257      1.965174e-13   1.165719e-01 
+          2258      1.998398e-13   1.164738e-01 
+          2259      1.929144e-13   1.163758e-01 
+          2260      1.979851e-13   1.162778e-01 
+     Iteration ElectricPotential         Energy 
+          2261      1.981633e-13   1.161799e-01 
+          2262      1.972677e-13   1.160821e-01 
+          2263      1.937087e-13   1.159844e-01 
+          2264      1.984939e-13   1.158868e-01 
+          2265      1.960084e-13   1.157892e-01 
+          2266      1.988116e-13   1.156917e-01 
+          2267      1.950628e-13   1.155943e-01 
+          2268      1.980095e-13   1.154970e-01 
+          2269      1.969495e-13   1.153998e-01 
+          2270      1.981687e-13   1.153027e-01 
+     Iteration ElectricPotential         Energy 
+          2271      2.004946e-13   1.152056e-01 
+          2272      1.981093e-13   1.151086e-01 
+          2273      1.975045e-13   1.150117e-01 
+          2274      1.946682e-13   1.149149e-01 
+          2275      1.949806e-13   1.148182e-01 
+          2276      1.979854e-13   1.147215e-01 
+          2277      1.974915e-13   1.146250e-01 
+          2278      1.969937e-13   1.145285e-01 
+          2279      1.977282e-13   1.144321e-01 
+          2280      1.971085e-13   1.143357e-01 
+     Iteration ElectricPotential         Energy 
+          2281      1.974381e-13   1.142395e-01 
+          2282      1.986312e-13   1.141433e-01 
+          2283      1.977292e-13   1.140472e-01 
+          2284      1.981364e-13   1.139512e-01 
+          2285      2.014168e-13   1.138553e-01 
+          2286      1.980024e-13   1.137595e-01 
+          2287      1.978133e-13   1.136637e-01 
+          2288      1.990906e-13   1.135680e-01 
+          2289      1.981138e-13   1.134724e-01 
+          2290      1.978428e-13   1.133769e-01 
+     Iteration ElectricPotential         Energy 
+          2291      1.990379e-13   1.132815e-01 
+          2292      1.970454e-13   1.131861e-01 
+          2293      2.007663e-13   1.130908e-01 
+          2294      1.995809e-13   1.129956e-01 
+          2295      1.968352e-13   1.129005e-01 
+          2296      1.978009e-13   1.128055e-01 
+          2297      1.981835e-13   1.127105e-01 
+          2298      2.018478e-13   1.126156e-01 
+          2299      1.984433e-13   1.125208e-01 
+          2300      1.965937e-13   1.124261e-01 
+     Iteration ElectricPotential         Energy 
+          2301      2.003985e-13   1.123315e-01 
+          2302      1.973352e-13   1.122369e-01 
+          2303      1.978716e-13   1.121425e-01 
+          2304      1.983182e-13   1.120481e-01 
+          2305      1.925901e-13   1.119537e-01 
+          2306      1.949637e-13   1.118595e-01 
+          2307      1.958801e-13   1.117653e-01 
+          2308      2.022086e-13   1.116712e-01 
+          2309      1.972027e-13   1.115772e-01 
+          2310      1.988584e-13   1.114833e-01 
+     Iteration ElectricPotential         Energy 
+          2311      1.956069e-13   1.113895e-01 
+          2312      1.981806e-13   1.112957e-01 
+          2313      2.000378e-13   1.112020e-01 
+          2314      2.031841e-13   1.111084e-01 
+          2315      1.998505e-13   1.110149e-01 
+          2316      1.966486e-13   1.109214e-01 
+          2317      1.930815e-13   1.108281e-01 
+          2318      1.985767e-13   1.107348e-01 
+          2319      1.985672e-13   1.106415e-01 
+          2320      2.020081e-13   1.105484e-01 
+     Iteration ElectricPotential         Energy 
+          2321      1.990449e-13   1.104554e-01 
+          2322      1.925435e-13   1.103624e-01 
+          2323      1.981297e-13   1.102695e-01 
+          2324      2.001052e-13   1.101766e-01 
+          2325      1.974148e-13   1.100839e-01 
+          2326      1.971775e-13   1.099912e-01 
+          2327      1.984111e-13   1.098986e-01 
+          2328      1.991894e-13   1.098061e-01 
+          2329      1.975272e-13   1.097137e-01 
+          2330      1.986256e-13   1.096213e-01 
+     Iteration ElectricPotential         Energy 
+          2331      1.975213e-13   1.095291e-01 
+          2332      1.969997e-13   1.094369e-01 
+          2333      1.956828e-13   1.093447e-01 
+          2334      1.953448e-13   1.092527e-01 
+          2335      1.977742e-13   1.091607e-01 
+          2336      2.004385e-13   1.090688e-01 
+          2337      1.983215e-13   1.089770e-01 
+          2338      1.996266e-13   1.088853e-01 
+          2339      1.977416e-13   1.087936e-01 
+          2340      1.989422e-13   1.087021e-01 
+     Iteration ElectricPotential         Energy 
+          2341      1.976886e-13   1.086105e-01 
+          2342      1.991696e-13   1.085191e-01 
+          2343      1.991404e-13   1.084278e-01 
+          2344      1.985557e-13   1.083365e-01 
+          2345      1.975365e-13   1.082453e-01 
+          2346      1.942661e-13   1.081542e-01 
+          2347      1.964653e-13   1.080631e-01 
+          2348      2.012109e-13   1.079722e-01 
+          2349      1.992749e-13   1.078813e-01 
+          2350      1.953517e-13   1.077905e-01 
+     Iteration ElectricPotential         Energy 
+          2351      1.975490e-13   1.076997e-01 
+          2352      1.989739e-13   1.076091e-01 
+          2353      1.962586e-13   1.075185e-01 
+          2354      1.986518e-13   1.074280e-01 
+          2355      2.025353e-13   1.073376e-01 
+          2356      1.930973e-13   1.072472e-01 
+          2357      1.956273e-13   1.071569e-01 
+          2358      1.994519e-13   1.070667e-01 
+          2359      1.991913e-13   1.069766e-01 
+          2360      1.987611e-13   1.068865e-01 
+     Iteration ElectricPotential         Energy 
+          2361      1.987917e-13   1.067966e-01 
+          2362      1.997404e-13   1.067067e-01 
+          2363      2.007095e-13   1.066168e-01 
+          2364      2.013968e-13   1.065271e-01 
+          2365      1.965194e-13   1.064374e-01 
+          2366      1.987313e-13   1.063478e-01 
+          2367      1.939900e-13   1.062583e-01 
+          2368      1.977753e-13   1.061688e-01 
+          2369      2.041809e-13   1.060795e-01 
+          2370      1.988649e-13   1.059902e-01 
+     Iteration ElectricPotential         Energy 
+          2371      1.944693e-13   1.059010e-01 
+          2372      2.017466e-13   1.058118e-01 
+          2373      1.964005e-13   1.057227e-01 
+          2374      1.993262e-13   1.056337e-01 
+          2375      1.962559e-13   1.055448e-01 
+          2376      1.984112e-13   1.054560e-01 
+          2377      1.954736e-13   1.053672e-01 
+          2378      1.989257e-13   1.052785e-01 
+          2379      1.979443e-13   1.051899e-01 
+          2380      1.962578e-13   1.051013e-01 
+     Iteration ElectricPotential         Energy 
+          2381      2.004620e-13   1.050129e-01 
+          2382      2.007438e-13   1.049245e-01 
+          2383      1.999397e-13   1.048361e-01 
+          2384      1.965291e-13   1.047479e-01 
+          2385      1.949279e-13   1.046597e-01 
+          2386      1.994129e-13   1.045716e-01 
+          2387      1.968623e-13   1.044836e-01 
+          2388      1.997749e-13   1.043956e-01 
+          2389      1.980480e-13   1.043078e-01 
+          2390      1.928296e-13   1.042200e-01 
+     Iteration ElectricPotential         Energy 
+          2391      1.977100e-13   1.041322e-01 
+          2392      1.939467e-13   1.040446e-01 
+          2393      1.967739e-13   1.039570e-01 
+          2394      1.960930e-13   1.038695e-01 
+          2395      2.037681e-13   1.037820e-01 
+          2396      2.031049e-13   1.036947e-01 
+          2397      1.956701e-13   1.036074e-01 
+          2398      1.981460e-13   1.035202e-01 
+          2399      1.971951e-13   1.034330e-01 
+          2400      1.986846e-13   1.033460e-01 
+     Iteration ElectricPotential         Energy 
+          2401      1.973839e-13   1.032590e-01 
+          2402      1.972217e-13   1.031720e-01 
+          2403      1.962998e-13   1.030852e-01 
+          2404      1.979689e-13   1.029984e-01 
+          2405      1.980968e-13   1.029117e-01 
+          2406      1.987932e-13   1.028251e-01 
+          2407      1.935447e-13   1.027385e-01 
+          2408      1.954017e-13   1.026520e-01 
+          2409      1.973794e-13   1.025656e-01 
+          2410      1.960156e-13   1.024793e-01 
+     Iteration ElectricPotential         Energy 
+          2411      1.980882e-13   1.023930e-01 
+          2412      1.983817e-13   1.023068e-01 
+          2413      1.970204e-13   1.022207e-01 
+          2414      1.938657e-13   1.021347e-01 
+          2415      1.992207e-13   1.020487e-01 
+          2416      1.987833e-13   1.019628e-01 
+          2417      2.012650e-13   1.018770e-01 
+          2418      1.953107e-13   1.017912e-01 
+          2419      2.017592e-13   1.017055e-01 
+          2420      1.983709e-13   1.016199e-01 
+     Iteration ElectricPotential         Energy 
+          2421      1.993891e-13   1.015344e-01 
+          2422      2.009144e-13   1.014489e-01 
+          2423      1.959621e-13   1.013635e-01 
+          2424      1.963084e-13   1.012782e-01 
+          2425      1.967889e-13   1.011929e-01 
+          2426      1.990230e-13   1.011077e-01 
+          2427      1.982405e-13   1.010226e-01 
+          2428      1.974309e-13   1.009376e-01 
+          2429      1.972952e-13   1.008526e-01 
+          2430      1.985788e-13   1.007677e-01 
+     Iteration ElectricPotential         Energy 
+          2431      2.006434e-13   1.006829e-01 
+          2432      1.929329e-13   1.005981e-01 
+          2433      1.996322e-13   1.005134e-01 
+          2434      2.021252e-13   1.004288e-01 
+          2435      2.061002e-13   1.003443e-01 
+          2436      1.957851e-13   1.002598e-01 
+          2437      2.012458e-13   1.001754e-01 
+          2438      1.988960e-13   1.000911e-01 
+          2439      1.974869e-13   1.000068e-01 
+          2440      1.980935e-13   9.992266e-02 
+     Iteration ElectricPotential         Energy 
+          2441      1.974037e-13   9.983855e-02 
+          2442      1.945678e-13   9.975450e-02 
+          2443      1.967333e-13   9.967053e-02 
+          2444      2.054218e-13   9.958663e-02 
+          2445      1.987464e-13   9.950280e-02 
+          2446      1.966263e-13   9.941904e-02 
+          2447      1.968663e-13   9.933535e-02 
+          2448      1.962543e-13   9.925173e-02 
+          2449      1.985220e-13   9.916818e-02 
+          2450      2.023673e-13   9.908470e-02 
+     Iteration ElectricPotential         Energy 
+          2451      1.977504e-13   9.900129e-02 
+          2452      1.969497e-13   9.891796e-02 
+          2453      1.952439e-13   9.883469e-02 
+          2454      1.948178e-13   9.875149e-02 
+          2455      1.979072e-13   9.866836e-02 
+          2456      1.978402e-13   9.858530e-02 
+          2457      1.973409e-13   9.850232e-02 
+          2458      2.035404e-13   9.841940e-02 
+          2459      1.987230e-13   9.833655e-02 
+          2460      1.996442e-13   9.825377e-02 
+     Iteration ElectricPotential         Energy 
+          2461      1.954815e-13   9.817106e-02 
+          2462      1.977054e-13   9.808842e-02 
+          2463      1.978804e-13   9.800585e-02 
+          2464      1.956261e-13   9.792335e-02 
+          2465      1.994736e-13   9.784092e-02 
+          2466      1.974317e-13   9.775856e-02 
+          2467      1.984732e-13   9.767627e-02 
+          2468      1.967058e-13   9.759405e-02 
+          2469      1.960062e-13   9.751189e-02 
+          2470      1.968973e-13   9.742981e-02 
+     Iteration ElectricPotential         Energy 
+          2471      1.959759e-13   9.734779e-02 
+          2472      1.961664e-13   9.726585e-02 
+          2473      1.959782e-13   9.718397e-02 
+          2474      1.992682e-13   9.710216e-02 
+          2475      1.994836e-13   9.702042e-02 
+          2476      1.991325e-13   9.693875e-02 
+          2477      1.968597e-13   9.685715e-02 
+          2478      1.980756e-13   9.677562e-02 
+          2479      1.954581e-13   9.669415e-02 
+          2480      1.980115e-13   9.661276e-02 
+     Iteration ElectricPotential         Energy 
+          2481      1.957660e-13   9.653143e-02 
+          2482      1.933514e-13   9.645017e-02 
+          2483      1.998164e-13   9.636898e-02 
+          2484      1.962874e-13   9.628786e-02 
+          2485      1.976140e-13   9.620680e-02 
+          2486      1.956897e-13   9.612582e-02 
+          2487      1.955922e-13   9.604490e-02 
+          2488      1.990463e-13   9.596405e-02 
+          2489      1.995198e-13   9.588327e-02 
+          2490      1.951804e-13   9.580256e-02 
+     Iteration ElectricPotential         Energy 
+          2491      2.014054e-13   9.572191e-02 
+          2492      1.974431e-13   9.564133e-02 
+          2493      1.971180e-13   9.556082e-02 
+          2494      1.966241e-13   9.548038e-02 
+          2495      1.985248e-13   9.540001e-02 
+          2496      1.966205e-13   9.531970e-02 
+          2497      2.005986e-13   9.523946e-02 
+          2498      1.988181e-13   9.515929e-02 
+          2499      2.008409e-13   9.507919e-02 
+          2500      1.949526e-13   9.499915e-02 
+     Iteration ElectricPotential         Energy 
+          2501      2.005762e-13   9.491918e-02 
+          2502      1.980565e-13   9.483928e-02 
+          2503      1.984729e-13   9.475945e-02 
+          2504      1.993143e-13   9.467968e-02 
+          2505      1.931249e-13   9.459998e-02 
+          2506      1.980514e-13   9.452035e-02 
+          2507      1.976467e-13   9.444078e-02 
+          2508      1.988270e-13   9.436128e-02 
+          2509      1.994980e-13   9.428185e-02 
+          2510      1.953326e-13   9.420248e-02 
+     Iteration ElectricPotential         Energy 
+          2511      1.968265e-13   9.412318e-02 
+          2512      1.934982e-13   9.404395e-02 
+          2513      1.978808e-13   9.396479e-02 
+          2514      1.926231e-13   9.388569e-02 
+          2515      1.959102e-13   9.380666e-02 
+          2516      1.990101e-13   9.372769e-02 
+          2517      1.934144e-13   9.364879e-02 
+          2518      1.959980e-13   9.356996e-02 
+          2519      1.986965e-13   9.349119e-02 
+          2520      1.921998e-13   9.341249e-02 
+     Iteration ElectricPotential         Energy 
+          2521      1.971995e-13   9.333386e-02 
+          2522      1.988961e-13   9.325529e-02 
+          2523      1.983987e-13   9.317679e-02 
+          2524      2.016723e-13   9.309836e-02 
+          2525      2.034290e-13   9.301999e-02 
+          2526      1.985522e-13   9.294169e-02 
+          2527      1.972113e-13   9.286345e-02 
+          2528      1.981336e-13   9.278528e-02 
+          2529      2.015181e-13   9.270717e-02 
+          2530      1.989736e-13   9.262913e-02 
+     Iteration ElectricPotential         Energy 
+          2531      1.983716e-13   9.255116e-02 
+          2532      1.961914e-13   9.247325e-02 
+          2533      1.971735e-13   9.239541e-02 
+          2534      1.982318e-13   9.231763e-02 
+          2535      1.927622e-13   9.223992e-02 
+          2536      1.976447e-13   9.216227e-02 
+          2537      1.966487e-13   9.208469e-02 
+          2538      1.922957e-13   9.200717e-02 
+          2539      1.964066e-13   9.192972e-02 
+          2540      1.973515e-13   9.185234e-02 
+     Iteration ElectricPotential         Energy 
+          2541      1.998079e-13   9.177502e-02 
+          2542      1.978434e-13   9.169776e-02 
+          2543      1.989346e-13   9.162057e-02 
+          2544      1.985051e-13   9.154345e-02 
+          2545      1.982002e-13   9.146639e-02 
+          2546      1.976838e-13   9.138939e-02 
+          2547      1.977157e-13   9.131246e-02 
+          2548      1.941673e-13   9.123560e-02 
+          2549      1.974108e-13   9.115880e-02 
+          2550      1.936746e-13   9.108206e-02 
+     Iteration ElectricPotential         Energy 
+          2551      1.991969e-13   9.100539e-02 
+          2552      2.000319e-13   9.092878e-02 
+          2553      1.993131e-13   9.085224e-02 
+          2554      1.960576e-13   9.077576e-02 
+          2555      2.031038e-13   9.069935e-02 
+          2556      1.994475e-13   9.062300e-02 
+          2557      1.996194e-13   9.054671e-02 
+          2558      1.980083e-13   9.047049e-02 
+          2559      2.002616e-13   9.039433e-02 
+          2560      1.975069e-13   9.031824e-02 
+     Iteration ElectricPotential         Energy 
+          2561      2.016134e-13   9.024221e-02 
+          2562      1.960611e-13   9.016625e-02 
+          2563      2.000337e-13   9.009035e-02 
+          2564      1.963815e-13   9.001451e-02 
+          2565      1.982624e-13   8.993874e-02 
+          2566      1.986602e-13   8.986303e-02 
+          2567      1.944424e-13   8.978738e-02 
+          2568      1.979335e-13   8.971180e-02 
+          2569      1.988725e-13   8.963628e-02 
+          2570      1.982399e-13   8.956083e-02 
+     Iteration ElectricPotential         Energy 
+          2571      2.024359e-13   8.948543e-02 
+          2572      2.007543e-13   8.941011e-02 
+          2573      1.995639e-13   8.933484e-02 
+          2574      1.993657e-13   8.925964e-02 
+          2575      1.944983e-13   8.918450e-02 
+          2576      1.968102e-13   8.910943e-02 
+          2577      1.975728e-13   8.903442e-02 
+          2578      1.989974e-13   8.895947e-02 
+          2579      1.943807e-13   8.888459e-02 
+          2580      1.981408e-13   8.880976e-02 
+     Iteration ElectricPotential         Energy 
+          2581      1.945327e-13   8.873500e-02 
+          2582      1.972697e-13   8.866031e-02 
+          2583      1.954416e-13   8.858568e-02 
+          2584      1.969804e-13   8.851110e-02 
+          2585      1.944088e-13   8.843660e-02 
+          2586      1.958779e-13   8.836215e-02 
+          2587      1.965654e-13   8.828777e-02 
+          2588      2.005297e-13   8.821345e-02 
+          2589      1.969273e-13   8.813919e-02 
+          2590      1.991500e-13   8.806500e-02 
+     Iteration ElectricPotential         Energy 
+          2591      1.964492e-13   8.799087e-02 
+          2592      1.978962e-13   8.791680e-02 
+          2593      1.965020e-13   8.784279e-02 
+          2594      1.989040e-13   8.776885e-02 
+          2595      1.973127e-13   8.769496e-02 
+          2596      1.986341e-13   8.762114e-02 
+          2597      1.986086e-13   8.754738e-02 
+          2598      1.988898e-13   8.747369e-02 
+          2599      1.964458e-13   8.740005e-02 
+          2600      1.949072e-13   8.732648e-02 
+     Iteration ElectricPotential         Energy 
+          2601      1.967893e-13   8.725297e-02 
+          2602      1.966016e-13   8.717952e-02 
+          2603      1.987833e-13   8.710614e-02 
+          2604      1.989782e-13   8.703281e-02 
+          2605      1.970371e-13   8.695955e-02 
+          2606      1.968007e-13   8.688635e-02 
+          2607      2.022685e-13   8.681321e-02 
+          2608      1.967659e-13   8.674013e-02 
+          2609      2.000931e-13   8.666711e-02 
+          2610      2.009212e-13   8.659416e-02 
+     Iteration ElectricPotential         Energy 
+          2611      1.942713e-13   8.652126e-02 
+          2612      1.991657e-13   8.644843e-02 
+          2613      1.989563e-13   8.637566e-02 
+          2614      1.972881e-13   8.630295e-02 
+          2615      1.962587e-13   8.623030e-02 
+          2616      1.972311e-13   8.615771e-02 
+          2617      1.968374e-13   8.608519e-02 
+          2618      1.953379e-13   8.601272e-02 
+          2619      1.997104e-13   8.594032e-02 
+          2620      2.005332e-13   8.586797e-02 
+     Iteration ElectricPotential         Energy 
+          2621      1.981048e-13   8.579569e-02 
+          2622      1.974883e-13   8.572347e-02 
+          2623      1.975239e-13   8.565131e-02 
+          2624      1.957906e-13   8.557921e-02 
+          2625      1.986567e-13   8.550717e-02 
+          2626      1.930406e-13   8.543519e-02 
+          2627      1.948833e-13   8.536327e-02 
+          2628      1.929020e-13   8.529141e-02 
+          2629      1.978325e-13   8.521961e-02 
+          2630      1.978982e-13   8.514788e-02 
+     Iteration ElectricPotential         Energy 
+          2631      1.971066e-13   8.507620e-02 
+          2632      1.990035e-13   8.500459e-02 
+          2633      1.965009e-13   8.493303e-02 
+          2634      1.960219e-13   8.486153e-02 
+          2635      1.969366e-13   8.479010e-02 
+          2636      1.973131e-13   8.471872e-02 
+          2637      1.951194e-13   8.464741e-02 
+          2638      1.963241e-13   8.457615e-02 
+          2639      1.997455e-13   8.450496e-02 
+          2640      1.974180e-13   8.443382e-02 
+     Iteration ElectricPotential         Energy 
+          2641      1.989172e-13   8.436275e-02 
+          2642      1.991281e-13   8.429173e-02 
+          2643      1.935286e-13   8.422078e-02 
+          2644      1.973462e-13   8.414988e-02 
+          2645      1.990825e-13   8.407904e-02 
+          2646      1.932099e-13   8.400827e-02 
+          2647      1.957263e-13   8.393755e-02 
+          2648      1.993170e-13   8.386689e-02 
+          2649      1.947943e-13   8.379629e-02 
+          2650      1.982368e-13   8.372576e-02 
+     Iteration ElectricPotential         Energy 
+          2651      1.983833e-13   8.365528e-02 
+          2652      2.023544e-13   8.358486e-02 
+          2653      1.982380e-13   8.351450e-02 
+          2654      1.944085e-13   8.344419e-02 
+          2655      1.991653e-13   8.337395e-02 
+          2656      1.977810e-13   8.330377e-02 
+          2657      1.989260e-13   8.323364e-02 
+          2658      1.981218e-13   8.316358e-02 
+          2659      1.997836e-13   8.309357e-02 
+          2660      1.965886e-13   8.302363e-02 
+     Iteration ElectricPotential         Energy 
+          2661      1.975750e-13   8.295374e-02 
+          2662      1.975062e-13   8.288391e-02 
+          2663      2.039704e-13   8.281414e-02 
+          2664      1.924118e-13   8.274443e-02 
+          2665      1.990298e-13   8.267477e-02 
+          2666      2.014588e-13   8.260518e-02 
+          2667      2.007890e-13   8.253564e-02 
+          2668      1.962390e-13   8.246617e-02 
+          2669      1.998098e-13   8.239675e-02 
+          2670      1.993766e-13   8.232739e-02 
+     Iteration ElectricPotential         Energy 
+          2671      1.984614e-13   8.225808e-02 
+          2672      1.954890e-13   8.218884e-02 
+          2673      2.026760e-13   8.211965e-02 
+          2674      1.980562e-13   8.205053e-02 
+          2675      1.953087e-13   8.198146e-02 
+          2676      1.988245e-13   8.191245e-02 
+          2677      1.988213e-13   8.184349e-02 
+          2678      2.007988e-13   8.177460e-02 
+          2679      1.939269e-13   8.170576e-02 
+          2680      1.998964e-13   8.163698e-02 
+     Iteration ElectricPotential         Energy 
+          2681      1.966096e-13   8.156826e-02 
+          2682      1.970561e-13   8.149960e-02 
+          2683      2.011510e-13   8.143099e-02 
+          2684      1.974390e-13   8.136245e-02 
+          2685      1.991509e-13   8.129396e-02 
+          2686      1.968282e-13   8.122552e-02 
+          2687      1.990881e-13   8.115715e-02 
+          2688      1.967061e-13   8.108883e-02 
+          2689      2.018185e-13   8.102057e-02 
+          2690      1.970116e-13   8.095237e-02 
+     Iteration ElectricPotential         Energy 
+          2691      1.960805e-13   8.088423e-02 
+          2692      2.006213e-13   8.081614e-02 
+          2693      1.973050e-13   8.074811e-02 
+          2694      1.995030e-13   8.068014e-02 
+          2695      1.959655e-13   8.061222e-02 
+          2696      1.972063e-13   8.054436e-02 
+          2697      2.021294e-13   8.047656e-02 
+          2698      1.946835e-13   8.040882e-02 
+          2699      1.989278e-13   8.034113e-02 
+          2700      1.980344e-13   8.027350e-02 
+     Iteration ElectricPotential         Energy 
+          2701      1.978069e-13   8.020593e-02 
+          2702      1.979640e-13   8.013841e-02 
+          2703      1.979343e-13   8.007095e-02 
+          2704      1.985850e-13   8.000355e-02 
+          2705      1.969473e-13   7.993620e-02 
+          2706      1.972084e-13   7.986891e-02 
+          2707      1.972630e-13   7.980168e-02 
+          2708      1.946888e-13   7.973450e-02 
+          2709      1.976754e-13   7.966738e-02 
+          2710      2.030013e-13   7.960032e-02 
+     Iteration ElectricPotential         Energy 
+          2711      1.988765e-13   7.953331e-02 
+          2712      1.978702e-13   7.946636e-02 
+          2713      1.975707e-13   7.939947e-02 
+          2714      2.072894e-13   7.933263e-02 
+          2715      2.033338e-13   7.926585e-02 
+          2716      1.979636e-13   7.919913e-02 
+          2717      1.978447e-13   7.913246e-02 
+          2718      1.931196e-13   7.906584e-02 
+          2719      2.011131e-13   7.899929e-02 
+          2720      2.003574e-13   7.893279e-02 
+     Iteration ElectricPotential         Energy 
+          2721      1.975195e-13   7.886634e-02 
+          2722      1.996069e-13   7.879995e-02 
+          2723      1.995835e-13   7.873362e-02 
+          2724      1.963603e-13   7.866734e-02 
+          2725      1.966987e-13   7.860112e-02 
+          2726      2.007973e-13   7.853496e-02 
+          2727      1.963688e-13   7.846885e-02 
+          2728      1.975139e-13   7.840279e-02 
+          2729      2.001794e-13   7.833680e-02 
+          2730      1.980094e-13   7.827085e-02 
+     Iteration ElectricPotential         Energy 
+          2731      1.989588e-13   7.820497e-02 
+          2732      1.973863e-13   7.813913e-02 
+          2733      1.914674e-13   7.807336e-02 
+          2734      1.995777e-13   7.800764e-02 
+          2735      1.982160e-13   7.794197e-02 
+          2736      1.956311e-13   7.787636e-02 
+          2737      1.956971e-13   7.781080e-02 
+          2738      1.982293e-13   7.774530e-02 
+          2739      1.951415e-13   7.767986e-02 
+          2740      2.002517e-13   7.761447e-02 
+     Iteration ElectricPotential         Energy 
+          2741      1.952909e-13   7.754913e-02 
+          2742      1.938803e-13   7.748385e-02 
+          2743      1.966286e-13   7.741863e-02 
+          2744      1.968067e-13   7.735346e-02 
+          2745      1.946926e-13   7.728834e-02 
+          2746      1.960175e-13   7.722328e-02 
+          2747      1.976852e-13   7.715828e-02 
+          2748      2.027171e-13   7.709333e-02 
+          2749      1.982740e-13   7.702843e-02 
+          2750      2.019415e-13   7.696359e-02 
+     Iteration ElectricPotential         Energy 
+          2751      1.937543e-13   7.689880e-02 
+          2752      1.983472e-13   7.683407e-02 
+          2753      1.987425e-13   7.676939e-02 
+          2754      2.041065e-13   7.670477e-02 
+          2755      1.944480e-13   7.664020e-02 
+          2756      1.966777e-13   7.657568e-02 
+          2757      1.987387e-13   7.651122e-02 
+          2758      1.947787e-13   7.644682e-02 
+          2759      1.977508e-13   7.638247e-02 
+          2760      2.007898e-13   7.631817e-02 
+     Iteration ElectricPotential         Energy 
+          2761      2.000102e-13   7.625392e-02 
+          2762      2.003213e-13   7.618973e-02 
+          2763      1.950210e-13   7.612560e-02 
+          2764      1.971602e-13   7.606152e-02 
+          2765      1.967772e-13   7.599749e-02 
+          2766      1.951487e-13   7.593352e-02 
+          2767      1.973237e-13   7.586960e-02 
+          2768      1.991723e-13   7.580573e-02 
+          2769      1.981768e-13   7.574192e-02 
+          2770      2.000341e-13   7.567816e-02 
+     Iteration ElectricPotential         Energy 
+          2771      1.982925e-13   7.561445e-02 
+          2772      1.959309e-13   7.555080e-02 
+          2773      1.972801e-13   7.548720e-02 
+          2774      1.941068e-13   7.542366e-02 
+          2775      1.974224e-13   7.536017e-02 
+          2776      1.944688e-13   7.529673e-02 
+          2777      1.958794e-13   7.523335e-02 
+          2778      2.020629e-13   7.517002e-02 
+          2779      1.948089e-13   7.510674e-02 
+          2780      1.982780e-13   7.504352e-02 
+     Iteration ElectricPotential         Energy 
+          2781      1.936562e-13   7.498035e-02 
+          2782      1.969702e-13   7.491723e-02 
+          2783      1.965064e-13   7.485416e-02 
+          2784      1.992308e-13   7.479115e-02 
+          2785      1.938863e-13   7.472820e-02 
+          2786      2.001256e-13   7.466529e-02 
+          2787      1.913665e-13   7.460244e-02 
+          2788      1.979217e-13   7.453964e-02 
+          2789      1.935573e-13   7.447689e-02 
+          2790      1.954987e-13   7.441420e-02 
+     Iteration ElectricPotential         Energy 
+          2791      1.967833e-13   7.435156e-02 
+          2792      1.980717e-13   7.428897e-02 
+          2793      1.994266e-13   7.422643e-02 
+          2794      1.950129e-13   7.416395e-02 
+          2795      1.973165e-13   7.410152e-02 
+          2796      1.923514e-13   7.403914e-02 
+          2797      1.986846e-13   7.397682e-02 
+          2798      1.968778e-13   7.391454e-02 
+          2799      2.026252e-13   7.385232e-02 
+          2800      1.977497e-13   7.379016e-02 
+     Iteration ElectricPotential         Energy 
+          2801      1.963945e-13   7.372804e-02 
+          2802      1.970938e-13   7.366598e-02 
+          2803      1.946283e-13   7.360397e-02 
+          2804      1.966708e-13   7.354201e-02 
+          2805      2.009308e-13   7.348010e-02 
+          2806      1.978626e-13   7.341825e-02 
+          2807      1.994454e-13   7.335644e-02 
+          2808      1.974694e-13   7.329469e-02 
+          2809      1.955775e-13   7.323299e-02 
+          2810      1.958318e-13   7.317135e-02 
+     Iteration ElectricPotential         Energy 
+          2811      1.973022e-13   7.310975e-02 
+          2812      1.938610e-13   7.304821e-02 
+          2813      1.977430e-13   7.298672e-02 
+          2814      2.007083e-13   7.292528e-02 
+          2815      1.960987e-13   7.286389e-02 
+          2816      1.984343e-13   7.280256e-02 
+          2817      1.992600e-13   7.274127e-02 
+          2818      1.948310e-13   7.268004e-02 
+          2819      1.968045e-13   7.261886e-02 
+          2820      1.978703e-13   7.255773e-02 
+     Iteration ElectricPotential         Energy 
+          2821      2.011024e-13   7.249665e-02 
+          2822      1.965157e-13   7.243562e-02 
+          2823      2.012879e-13   7.237465e-02 
+          2824      1.985082e-13   7.231372e-02 
+          2825      1.971187e-13   7.225285e-02 
+          2826      1.983346e-13   7.219203e-02 
+          2827      1.962167e-13   7.213126e-02 
+          2828      1.935867e-13   7.207054e-02 
+          2829      1.940412e-13   7.200987e-02 
+          2830      1.985522e-13   7.194925e-02 
+     Iteration ElectricPotential         Energy 
+          2831      1.993062e-13   7.188869e-02 
+          2832      1.972786e-13   7.182817e-02 
+          2833      1.971874e-13   7.176771e-02 
+          2834      1.984015e-13   7.170730e-02 
+          2835      1.968671e-13   7.164693e-02 
+          2836      1.999337e-13   7.158662e-02 
+          2837      1.984497e-13   7.152636e-02 
+          2838      1.986371e-13   7.146615e-02 
+          2839      1.992826e-13   7.140599e-02 
+          2840      1.961444e-13   7.134588e-02 
+     Iteration ElectricPotential         Energy 
+          2841      1.964659e-13   7.128583e-02 
+          2842      1.996708e-13   7.122582e-02 
+          2843      2.003213e-13   7.116586e-02 
+          2844      1.960211e-13   7.110595e-02 
+          2845      1.981695e-13   7.104610e-02 
+          2846      1.959309e-13   7.098629e-02 
+          2847      1.988049e-13   7.092654e-02 
+          2848      1.927831e-13   7.086683e-02 
+          2849      1.959252e-13   7.080718e-02 
+          2850      1.962271e-13   7.074757e-02 
+     Iteration ElectricPotential         Energy 
+          2851      1.936132e-13   7.068802e-02 
+          2852      1.970787e-13   7.062851e-02 
+          2853      2.029828e-13   7.056906e-02 
+          2854      1.964104e-13   7.050966e-02 
+          2855      1.978383e-13   7.045030e-02 
+          2856      1.966070e-13   7.039100e-02 
+          2857      1.962868e-13   7.033174e-02 
+          2858      1.941656e-13   7.027254e-02 
+          2859      1.956876e-13   7.021338e-02 
+          2860      2.031687e-13   7.015428e-02 
+     Iteration ElectricPotential         Energy 
+          2861      1.930350e-13   7.009522e-02 
+          2862      1.976941e-13   7.003622e-02 
+          2863      1.987649e-13   6.997726e-02 
+          2864      1.982873e-13   6.991836e-02 
+          2865      1.956958e-13   6.985950e-02 
+          2866      1.919804e-13   6.980069e-02 
+          2867      1.968619e-13   6.974194e-02 
+          2868      1.964864e-13   6.968323e-02 
+          2869      1.948326e-13   6.962457e-02 
+          2870      1.987155e-13   6.956596e-02 
+     Iteration ElectricPotential         Energy 
+          2871      1.951265e-13   6.950740e-02 
+          2872      1.934037e-13   6.944889e-02 
+          2873      1.979698e-13   6.939043e-02 
+          2874      1.988180e-13   6.933202e-02 
+          2875      1.972125e-13   6.927366e-02 
+          2876      1.969771e-13   6.921534e-02 
+          2877      1.980576e-13   6.915708e-02 
+          2878      1.951644e-13   6.909886e-02 
+          2879      1.986021e-13   6.904069e-02 
+          2880      1.971203e-13   6.898258e-02 
+     Iteration ElectricPotential         Energy 
+          2881      1.945163e-13   6.892451e-02 
+          2882      1.964428e-13   6.886649e-02 
+          2883      1.946014e-13   6.880852e-02 
+          2884      1.965221e-13   6.875060e-02 
+          2885      1.961188e-13   6.869272e-02 
+          2886      1.969102e-13   6.863490e-02 
+          2887      1.993381e-13   6.857712e-02 
+          2888      1.966014e-13   6.851939e-02 
+          2889      1.963073e-13   6.846172e-02 
+          2890      2.038076e-13   6.840409e-02 
+     Iteration ElectricPotential         Energy 
+          2891      1.937318e-13   6.834650e-02 
+          2892      1.983409e-13   6.828897e-02 
+          2893      1.998123e-13   6.823149e-02 
+          2894      1.989445e-13   6.817405e-02 
+          2895      1.960031e-13   6.811666e-02 
+          2896      1.956629e-13   6.805932e-02 
+          2897      2.031211e-13   6.800203e-02 
+          2898      1.999540e-13   6.794479e-02 
+          2899      1.967903e-13   6.788759e-02 
+          2900      1.976099e-13   6.783044e-02 
+     Iteration ElectricPotential         Energy 
+          2901      1.990341e-13   6.777335e-02 
+          2902      1.970056e-13   6.771629e-02 
+          2903      2.001936e-13   6.765929e-02 
+          2904      1.960141e-13   6.760234e-02 
+          2905      1.992345e-13   6.754543e-02 
+          2906      1.939475e-13   6.748857e-02 
+          2907      1.954703e-13   6.743176e-02 
+          2908      1.939353e-13   6.737500e-02 
+          2909      1.975250e-13   6.731828e-02 
+          2910      1.978605e-13   6.726161e-02 
+     Iteration ElectricPotential         Energy 
+          2911      1.979690e-13   6.720499e-02 
+          2912      1.966774e-13   6.714842e-02 
+          2913      1.985651e-13   6.709190e-02 
+          2914      1.990454e-13   6.703542e-02 
+          2915      1.961098e-13   6.697899e-02 
+          2916      1.974415e-13   6.692261e-02 
+          2917      1.982698e-13   6.686627e-02 
+          2918      2.010059e-13   6.680999e-02 
+          2919      1.972826e-13   6.675375e-02 
+          2920      1.974837e-13   6.669755e-02 
+     Iteration ElectricPotential         Energy 
+          2921      1.995001e-13   6.664141e-02 
+          2922      1.981017e-13   6.658531e-02 
+          2923      1.970879e-13   6.652926e-02 
+          2924      1.962243e-13   6.647326e-02 
+          2925      1.960502e-13   6.641730e-02 
+          2926      1.971340e-13   6.636139e-02 
+          2927      1.996804e-13   6.630553e-02 
+          2928      2.006357e-13   6.624971e-02 
+          2929      2.006301e-13   6.619395e-02 
+          2930      1.982259e-13   6.613822e-02 
+     Iteration ElectricPotential         Energy 
+          2931      1.969465e-13   6.608255e-02 
+          2932      1.985574e-13   6.602692e-02 
+          2933      1.980580e-13   6.597134e-02 
+          2934      1.998154e-13   6.591581e-02 
+          2935      1.970254e-13   6.586032e-02 
+          2936      1.978707e-13   6.580488e-02 
+          2937      1.981578e-13   6.574949e-02 
+          2938      1.979979e-13   6.569414e-02 
+          2939      1.974421e-13   6.563884e-02 
+          2940      1.955333e-13   6.558359e-02 
+     Iteration ElectricPotential         Energy 
+          2941      2.006840e-13   6.552838e-02 
+          2942      1.969122e-13   6.547322e-02 
+          2943      1.980453e-13   6.541810e-02 
+          2944      1.928483e-13   6.536303e-02 
+          2945      1.983152e-13   6.530801e-02 
+          2946      1.956465e-13   6.525304e-02 
+          2947      1.983487e-13   6.519811e-02 
+          2948      2.013210e-13   6.514322e-02 
+          2949      1.970434e-13   6.508839e-02 
+          2950      1.991959e-13   6.503360e-02 
+     Iteration ElectricPotential         Energy 
+          2951      2.011244e-13   6.497885e-02 
+          2952      1.995771e-13   6.492415e-02 
+          2953      1.967599e-13   6.486950e-02 
+          2954      1.989236e-13   6.481490e-02 
+          2955      1.929550e-13   6.476034e-02 
+          2956      1.944718e-13   6.470582e-02 
+          2957      1.985694e-13   6.465135e-02 
+          2958      1.921672e-13   6.459693e-02 
+          2959      1.988948e-13   6.454255e-02 
+          2960      1.928658e-13   6.448822e-02 
+     Iteration ElectricPotential         Energy 
+          2961      1.957789e-13   6.443394e-02 
+          2962      1.988975e-13   6.437970e-02 
+          2963      1.932658e-13   6.432550e-02 
+          2964      1.997862e-13   6.427135e-02 
+          2965      2.000526e-13   6.421725e-02 
+          2966      1.993057e-13   6.416319e-02 
+          2967      1.983029e-13   6.410918e-02 
+          2968      1.993421e-13   6.405522e-02 
+          2969      1.975452e-13   6.400130e-02 
+          2970      1.991544e-13   6.394742e-02 
+     Iteration ElectricPotential         Energy 
+          2971      1.967564e-13   6.389359e-02 
+          2972      1.994433e-13   6.383980e-02 
+          2973      1.992213e-13   6.378607e-02 
+          2974      2.048467e-13   6.373237e-02 
+          2975      1.983127e-13   6.367872e-02 
+          2976      1.996283e-13   6.362512e-02 
+          2977      1.973774e-13   6.357156e-02 
+          2978      1.965755e-13   6.351805e-02 
+          2979      1.981085e-13   6.346458e-02 
+          2980      1.920819e-13   6.341115e-02 
+     Iteration ElectricPotential         Energy 
+          2981      1.999350e-13   6.335777e-02 
+          2982      1.984930e-13   6.330444e-02 
+          2983      2.029058e-13   6.325115e-02 
+          2984      1.947392e-13   6.319791e-02 
+          2985      1.951955e-13   6.314471e-02 
+          2986      1.993589e-13   6.309155e-02 
+          2987      1.982116e-13   6.303844e-02 
+          2988      1.966657e-13   6.298538e-02 
+          2989      1.981178e-13   6.293236e-02 
+          2990      1.988767e-13   6.287938e-02 
+     Iteration ElectricPotential         Energy 
+          2991      1.962369e-13   6.282645e-02 
+          2992      1.977043e-13   6.277357e-02 
+          2993      1.979627e-13   6.272072e-02 
+          2994      1.972885e-13   6.266793e-02 
+          2995      1.980270e-13   6.261517e-02 
+          2996      1.998707e-13   6.256246e-02 
+          2997      2.014150e-13   6.250980e-02 
+          2998      1.942472e-13   6.245718e-02 
+          2999      1.952507e-13   6.240460e-02 
+          3000      1.972117e-13   6.235207e-02 
+>> iters 3000
+
+=== B21-C RESULTS ===
+I_iout=-400.0000000000051 I_vin=400.0000000000002 imbalance=1.2221335055073568E-12%
+V_drop=0.011769854060689493 V, R=2.942463515172373E-5 ohm
+P_JdotE=4.702713924682384 W, P_IV=4.707941624275797 W, mismatch=0.11104002578233382%
+Q_sides=4.466377784652798 W, heat balance vs P_JdotE=5.025526617495613%
+Jmax=6941555.194637741 A/m^2
+Tmax=310.90101010742575 K (37.75101010742577 C), Tavg=310.5951704218472 K
+GATE current(<0.5%)=true power(<1%)=true heat(<2%)=false -> FAILED
+>> wrote results/processed/b21c_results.csv
+>> exported field table to results/processed/b21c_field_export.csv
+=== b21c_neck done ===
+Auto save: star@03000.sim
+Saving: star@03000.sim... complete (9.3884MB in 0.459s).
+Design Simcenter STAR-CCM+ simulation completed
+Server process exited with code : 0

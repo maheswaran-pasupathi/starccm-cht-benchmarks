@@ -32,6 +32,31 @@ boundary.
   busbar stock. Commercial copper/aluminium purity and alloy affect
   resistivity and conductivity by several percent.
 
+## B21 (current-crowding geometry set)
+
+- **J95/J99 and the hotspot-zone fraction are CELL-COUNT-weighted, not
+  volume-integrated.** `src/b21_postprocess.py`'s per-cell field export
+  (`XyzInternalTable`) does not include a cell-volume column in this pass,
+  so a percentile computed from it treats every exported cell equally
+  regardless of its actual volume. The one number that IS a true STAR-CCM+
+  volume integral is each variant's `P_JdotE_W` (total Joule loss),
+  reported alongside in `results/processed/b21{b,c,d,e}_results.csv` for
+  the actual conservation checks. A future increment could add a `Volume`
+  field function to the export and redo the percentiles as volume-weighted
+  if the distinction turns out to matter for the DOE work in B50.
+- **The terminal-exclusion zone (0.5x bar width) and hotspot threshold
+  (1.5x nominal J) are both `ASSUMED`, stated in `src/b21_postprocess.py`,
+  not derived from a mesh-convergence or entrance-effect-decay study.** A
+  follow-up could check sensitivity of J95/J99 to this exclusion distance.
+- **B21-E's fillet radius (1x bar width) is a rule-of-thumb, not a cited
+  manufacturer bend-radius standard** for 0.005m copper sheet stock.
+- **No mesh-independence check was run for B21-D/B21-E.** The sharp
+  corner's `Jmax` is a near-singular geometric feature and is the most
+  mesh-sensitive value in the whole B21 set. The counter-intuitive
+  finding that the fillet lowers `Jmax` but raises `J95`/`J99`/`Tmax`
+  (see `docs/discrepancy_log.md`) is reported as-is but has not been
+  confirmed to survive mesh refinement.
+
 ## Known risk carried from a related (but separate) project
 
 The personal-mentor `hubbell_cae` project found that an area-normalized

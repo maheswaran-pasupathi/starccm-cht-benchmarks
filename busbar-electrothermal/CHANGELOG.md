@@ -1,5 +1,47 @@
 # Changelog
 
+## 2026-09-15 -- Sixth increment: B21 current-crowding geometry set (A-E)
+
+- `starccm/case_setup_checklists/b21_current_crowding_geometry_set.md`,
+  `starccm/macros/b21{b,c,d,e}_*.java`: 4 new 3D STAR-CCM+ cases (B21-A
+  reused directly from B12's already-passed v1_constant_properties case,
+  not re-run), all at 400A / 0.040x0.005m cross-section for direct
+  comparability:
+  - **B21-B (central hole):** SimpleCylinderPart + SubtractPartsOperation.
+  - **B21-C (narrowed neck):** two symmetric SimpleBlockPart notches +
+    SubtractPartsOperation.
+  - **B21-D (sharp 90-degree corner):** 3D-CAD Sketch + SweepMerge (reused
+    technique from personal-mentor `hubbell_cae` Case 3).
+  - **B21-E (filleted 90-degree corner):** same as D plus
+    `Sketch.createSketchFillet` -- found via `javap` against
+    `cadmodeler.jar` after a first guessed method name
+    (`createFilletBetweenLines`) failed to compile.
+- **All 5 variants PASSED** their current-balance/power/heat-balance
+  gates. B21-C needed a real fix: FAILED heat balance at 5.03% at the
+  standard 3000 iterations (Energy residual 3-4x higher than the other
+  variants at the same count -- the neck's abrupt cross-section step is
+  stiffer to converge), PASSED at 0.61% after raising to 5500 iterations.
+  The original failed attempt's log/CSV are preserved
+  (`*_attempt1_3000iter_FAILED`), not overwritten.
+- `src/b21_postprocess.py`: computes `J95`/`J99` (95th/99th percentile
+  current density, excluding a stated exclusion zone near each terminal)
+  and a hotspot-cell fraction from each macro's per-cell `XyzInternalTable`
+  field export -- no direct percentile report was found in this STAR-CCM+
+  version's report catalog, checked and documented rather than assumed
+  absent. `results/processed/b21_crowding_summary.csv`.
+- **Result: B21-C (neck) is the worst current-crowding case by every
+  metric** (J95/Jnominal=2.00x, J99/Jnominal=2.09x, 11.7% of cells in the
+  hotspot zone, Tmax=38.56C -- all the highest of the 5 variants).
+- **Counter-intuitive, honestly-reported finding:** B21-E's fillet cuts
+  the sharp corner's singular `Jmax` by 44% but RAISES both `J95`/`J99`
+  and `Tmax` slightly vs the unfilleted B21-D -- exactly the scenario the
+  roadmap's B21 section warns about ("never use a singular maximum as the
+  only metric"). Flagged as unconfirmed against mesh refinement, not
+  forced to match textbook intuition (`docs/discrepancy_log.md`).
+- `data/source_traceability.csv`, `docs/limitations.md` updated with the
+  new geometry `ASSUMED` values and the exclusion-distance/hotspot-
+  threshold/no-mesh-independence-check limitations.
+
 ## 2026-09-15 -- First increment: B00-B03 analytical/1D benchmarks
 
 - Repository scaffold created under `busbar-electrothermal/`.

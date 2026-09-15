@@ -1,0 +1,2 @@
+variant,current_A,I_iout_A,I_vin_A,current_imbalance_pct,V_drop_V,R_ohm,P_JdotE_W,P_IV_W,power_mismatch_pct,Q_sides_W,heat_balance_pct,Jmax_A_m2,Tmax_K,Tavg_K,gate_status
+b21c_neck,400.00,-400.000000,400.000000,0.000000,0.01176985,0.0000294246,4.702714,4.707942,0.111040,4.466378,5.025527,6941555.195,310.9010,310.5952,FAILED

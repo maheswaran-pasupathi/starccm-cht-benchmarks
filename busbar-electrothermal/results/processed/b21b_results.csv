@@ -1,0 +1,2 @@
+variant,current_A,I_iout_A,I_vin_A,current_imbalance_pct,V_drop_V,R_ohm,P_JdotE_W,P_IV_W,power_mismatch_pct,Q_sides_W,heat_balance_pct,Jmax_A_m2,Tmax_K,Tavg_K,gate_status
+b21b_hole,400.00,-400.000000,400.000000,0.000000,0.01046552,0.0000261638,4.184384,4.186209,0.043593,4.132973,1.228639,4375244.062,308.5946,308.5398,PASSED
