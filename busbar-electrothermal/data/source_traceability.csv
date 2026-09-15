@@ -1,0 +1,21 @@
+input_name,used_in_case,value,unit,status,source,source_url_or_citation,notes
+copper_electrical_resistivity_ref,B00/B01/B02/B03,1.68e-8,ohm.m,REFERENCE,"Incropera & Bergman, Fundamentals of Heat and Mass Transfer, 7th ed., Table A.1",,"annealed pure copper; commercial busbar stock varies +/-3%"
+copper_temperature_coefficient_of_resistance,B00/B01/B02/B03,0.00393,1/K,REFERENCE,"CRC Handbook of Chemistry and Physics; IEC 60228",,"referenced at 293.15K, not 0C -- see units doc"
+copper_thermal_conductivity,B00/B02/B03,401.0,W/(m.K),REFERENCE,"Incropera & Bergman, Table A.1",,"constant-property model; T-dependence not yet implemented"
+copper_density,B00/B03,8933.0,kg/m^3,REFERENCE,"Incropera & Bergman, Table A.1",,
+copper_specific_heat,B00/B03,385.0,J/(kg.K),REFERENCE,"Incropera & Bergman, Table A.1",,
+aluminum_electrical_resistivity_ref,B00/B01,2.65e-8,ohm.m,REFERENCE,"Incropera & Bergman, Table A.1",,"pure Al; 6061-T6 busbar alloy is lower conductivity, see materials.csv note"
+aluminum_temperature_coefficient_of_resistance,B00/B01,0.00429,1/K,REFERENCE,"CRC Handbook of Chemistry and Physics; IEC 60228",,
+aluminum_thermal_conductivity,B00,237.0,W/(m.K),REFERENCE,"Incropera & Bergman, Table A.1",,
+aluminum_density,B00,2702.0,kg/m^3,REFERENCE,"Incropera & Bergman, Table A.1",,
+aluminum_specific_heat,B00,903.0,J/(kg.K),REFERENCE,"Incropera & Bergman, Table A.1",,
+emissivity_oxidized_copper,B02,0.78,dimensionless,ASSUMED,"Incropera & Bergman, Table A.11 (heavily oxidized copper)",,"REPRESENTATIVE only -- bright/polished copper spans 0.02-0.15, a >10x spread. Must be swept, not asserted, for any validation claim. See B02 sensitivity_sweep()."
+stefan_boltzmann_constant,B02/B03,5.670374419e-8,W/(m^2.K^4),REFERENCE,"CODATA 2018 recommended values",https://physics.nist.gov/cgi-bin/cuu/Value?sigma,"exact SI defining constant"
+baseline_geometry_length,B01/B02/B03,0.300,m,ASSUMED,"Chosen by this program for narrative continuity with personal-mentor hubbell_cae battery-pack busbar cases (32-40mm x 4-5mm section)",,"NOT a cited product dimension -- generic study geometry only, per roadmap Section 2 non-negotiable rule"
+baseline_geometry_width,B01/B02/B03,0.040,m,ASSUMED,"same as above",,
+baseline_geometry_thickness,B01/B02/B03,0.005,m,ASSUMED,"same as above",,
+baseline_current,B01/B02/B03,400.0,A,ASSUMED,"same as above; representative EV/ESS module-interconnect continuous current per general industry guidance (GRL Copper busbar design guide, cited in personal-mentor hubbell_cae RUN_LOG.md 2026-09-15 benchmark entry)",https://www.grlcopper.com/blogs/ev-battery-busbars-current-rating-thermal-management-safety-requirements/,"NOT a certified rating"
+natural_convection_coefficient_h,B02/B03,10.0,W/(m^2.K),ASSUMED,"Generic natural-convection order-of-magnitude value for a vertical/horizontal plate in still air (typical textbook range 2-25 W/m^2K)",,"Must be swept (done in B02 sensitivity_sweep: 5/10/20/40 W/m^2K), never treated as a validated single value"
+end_conduction_thermal_resistance,B02,5.0,K/W,ASSUMED,"Generic placeholder representing an ideal, moderately-conductive terminal path -- no specific terminal geometry assumed",,"To be replaced with a computed value once a specific terminal geometry (e.g. B22's overlap joint) is defined"
+comsol_busbar_current,B20 (planned),160.0,A,REFERENCE,"COMSOL Electrical Heating in a Busbar",https://www.comsol.com/model/electrical-heating-in-a-busbar-8484,"Documented in roadmap; geometry/material/BC audit not yet performed -- B20 not started"
+comsol_busbar_Tmax_published,B20 (planned),330.42,K,REFERENCE,"COMSOL Electrical Heating in a Busbar (commonly cited published maximum temperature)",https://doc.comsol.com/6.3/doc/com.comsol.help.models.llac.busbar_llac/busbar_llac.html,"This is a TARGET for B20, not yet reproduced. Do not cite as our own result."
