@@ -1,0 +1,2 @@
+case_id,V_applied_V,I_iout_A,I_vin_A,current_imbalance_pct,V_drop_V,voltage_bc_check_pct,P_JdotE_W,P_IV_W,power_mismatch_pct,Q_sides_W,heat_balance_pct,Tmax_K,Tavg_K,gate_status
+b20_voltage_driven_proxy,0.0200,793.650794,-793.650794,0.000000,0.02000000,0.000000,15.873016,15.873016,0.000000,15.765763,0.675692,351.4009,351.3950,PASSED

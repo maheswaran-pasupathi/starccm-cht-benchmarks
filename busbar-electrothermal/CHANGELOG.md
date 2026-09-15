@@ -78,6 +78,39 @@
   (`UserSpecifiedEnergySource`/`BoundaryHeatFlux`) were found via a
   diagnostic dump and recorded in `starccm/field_functions.md`.
 
+## 2026-09-15 -- Fifth increment: B20 source audit and simplified proxy
+
+- **Audit finding, reported before any B20 code was written:** the
+  roadmap's Section 9 claim that COMSOL's public busbar example is
+  "commonly described with a 160 A DC load and a published maximum
+  temperature near 330.42 K" could not be verified. Fetched and fully
+  read BOTH official COMSOL busbar model-report PDFs (`busbar_llac`, the
+  base tutorial, and `busbar_llinventor`, the busbar-assembly tutorial) --
+  neither states 160 A or 330.42 K anywhere. `busbar_llac` is
+  voltage-driven (20 mV, not current) and reports 42-52C; `busbar_llinventor`
+  is current-density-driven (8,000 A/m^2, not a lumped current) and
+  reports 60-100C. `330.42K = 57.27C` falls outside both ranges. Full
+  write-up: `docs/b20_comsol_audit.md`.
+- `data/source_traceability.csv`: the roadmap's 160A/330.42K entries
+  downgraded from `REFERENCE` to `UNVERIFIED` (kept, not deleted); four
+  new rows added for the VERIFIED `busbar_llac` values actually used
+  (20mV BC, 293K ambient, copper+titanium materials, <10K reported
+  deltaT).
+- `docs/discrepancy_log.md`, `docs/validation_matrix.md`: B20 entry
+  updated to record this as a resolved source-provenance finding, not a
+  solver bug.
+- `starccm/case_setup_checklists/b20_voltage_driven_proxy.md`,
+  `starccm/macros/b20_voltage_driven_proxy.java`: B20 implemented as the
+  roadmap's own explicitly-sanctioned "simplified STAR-CCM+ proxy" --
+  reuses B12's straight-bar geometry/physics chain, but with BOTH
+  terminals `ELECTRIC_POTENTIAL` (20mV / 0V, verified BC methodology from
+  `busbar_llac`) instead of B10/B12's prescribed-current BC. Explicitly
+  does NOT claim to reproduce the real tutorial's geometry, materials, or
+  `Tmax` -- only validation-hierarchy items 1-3 (BC/methodology audit,
+  electrical power/voltage checks, boundary heat-flow audit) are in scope.
+- Results: see `results/processed/b20_results.csv` and the run log for
+  gate status.
+
 ## 2026-09-15 -- Fourth increment: B12 (coupled DC electro-thermal) -- B10-B12 complete
 
 - `starccm/macros/b12_coupled_electrothermal.java`: combines B10's

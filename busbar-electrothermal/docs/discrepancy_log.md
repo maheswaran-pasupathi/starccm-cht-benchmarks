@@ -140,6 +140,39 @@ recording so they are not rediscovered on B11/B12.
   (`-new` per macro invocation) avoids the issue entirely and may be
   preferable for future cases where iteration counts are less predictable.
 
+## 2026-09-15 -- B20: roadmap's cited COMSOL reference figures (160A/330.42K) could not be verified
+
+- **Comparison target:** roadmap Section 9's claim that COMSOL's public
+  "Electrical Heating in a Busbar" example is "commonly described with a
+  160 A DC load and a published maximum temperature near 330.42 K."
+- **Investigation:** fetched and fully read both official COMSOL busbar
+  model-report PDFs (`busbar_llac`, the base tutorial, and
+  `busbar_llinventor`, the busbar-assembly/electrolysis tutorial) --
+  16 pages each, verbatim text. Also checked `doc.comsol.com` 6.3/6.4 HTML
+  doc pages and ran a targeted web search for "COMSOL electrical heating
+  busbar 160 A 330 K maximum temperature" (no confirming source found).
+- **Root cause:** the roadmap's own wording ("commonly described") already
+  flags this as secondhand/unverified. Neither real COMSOL tutorial states
+  160 A or 330.42 K anywhere: `busbar_llac` is driven by a **20 mV**
+  potential BC (not current) and reports temperatures in the 42-52C
+  range at its largest swept geometry; `busbar_llinventor` is driven by an
+  **8,000 A/m^2** current density (not a lumped 160A) and reports 60-100C.
+  `330.42K = 57.27C` falls outside both reported ranges.
+- **Resolution:** per B20's own stated policy ("if an input is missing or
+  ambiguous, do not tune silently... mark it ASSUMED... separate the exact
+  reference reproduction from a simplified STAR-CCM+ proxy"), the
+  160A/330.42K pair is downgraded from `REFERENCE` to `UNVERIFIED` in
+  `data/source_traceability.csv` (kept, not deleted). B20 is implemented
+  as a simplified voltage-driven proxy on the existing straight-bar CAD,
+  using the VERIFIED 20mV/293K boundary conditions from `busbar_llac`,
+  with the geometry difference (no bolts, no titanium, different envelope)
+  explicitly documented. B20 does NOT claim to reproduce the published
+  `Tmax`/temperature pattern -- only the BC methodology and electrical/
+  heat-balance checks (validation-hierarchy items 1-3, not 4-6).
+- **Full write-up:** `docs/b20_comsol_audit.md`.
+- **Re-verification:** not applicable -- this is a source-provenance
+  finding, not a solver bug; no STAR-CCM+ re-run required to resolve it.
+
 ## Template for future entries
 
 ```
