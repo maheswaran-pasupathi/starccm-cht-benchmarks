@@ -57,6 +57,32 @@ boundary.
   (see `docs/discrepancy_log.md`) is reported as-is but has not been
   confirmed to survive mesh refinement.
 
+## B30 (CHT natural convection + radiation)
+
+- **The explicit radiative-vs-convective split of `Q_cht` was not
+  reliably isolated.** A field-function-name guess (`BoundaryRadiationHeatFlux`)
+  gave a near-zero value inconsistent with a hand-calculated Stefan-
+  Boltzmann estimate (~1.5W expected). The AGGREGATE heat balance
+  (verified correct, 4.68% vs the 5% gate) and the Tmax-reduction
+  comparison (radiation lowers Tmax from 35.66C to 33.73C at the same
+  400A, the physically expected direction) are the trustworthy evidence
+  instead. Finding the correct field function name for an explicit split
+  is an open follow-up.
+- **No boundary-distance (domain-size) sensitivity check was run** for
+  the external air box (0.30x0.40m cross-section, ~7-11x the Rayleigh
+  characteristic length in clearance) -- an ASSUMED size, not verified
+  independent of the domain.
+- **Only ONE natural-convection case was run** ("open ambient," a
+  pressure-boundary opening) -- the roadmap's "sealed still air" and
+  "forced air at multiple speeds" cases are explicitly deferred, not
+  attempted.
+- **Only ONE emissivity value (0.78, oxidized copper) was used** --
+  no emissivity sensitivity sweep, matching this repo's existing B02
+  convention of flagging (not silently ignoring) that oxidized/polished
+  copper emissivity spans a >10x range.
+- **Solar load is explicitly deferred**, per the roadmap's own wording
+  ("only after the basic balances are correct").
+
 ## Known risk carried from a related (but separate) project
 
 The personal-mentor `hubbell_cae` project found that an area-normalized

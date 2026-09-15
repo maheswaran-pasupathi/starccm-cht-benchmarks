@@ -1,5 +1,46 @@
 # Changelog
 
+## 2026-09-16 -- Eighth increment: B30 CHT natural convection + radiation
+
+- `src/b30_rayleigh_estimate.py`: Rayleigh-number scoping estimate
+  (Ra=7.5e3, 3-4 orders of magnitude below the ~1e7-1e8 horizontal-plate
+  turbulent transition) done BEFORE any STAR-CCM+ work, justifying
+  `LaminarModel` for the real external air domain, per the roadmap's own
+  checklist requirement.
+- `data/materials.csv`: added air properties (density, cp, k, viscosity,
+  thermal expansion) at 300K, Incropera & Bergman Table A.4.
+- `starccm/case_setup_checklists/b30_cht_natural_convection_radiation.md`,
+  `starccm/macros/b30_cht_natural_convection.java` (stage 1),
+  `b30_add_radiation.java` (stage 2): a REAL external air domain around
+  the baseline bar, replacing the fixed `h=10 W/m^2K` approximation used
+  everywhere else in this repo -- buoyancy-driven natural convection
+  (Boussinesq) plus S2S radiation (emissivity 0.78, oxidized copper).
+  Bar split into free/CHT-region/free segments since electrical
+  terminals cannot sit on a CHT interface shared with non-electrical air.
+- **Both stages PASSED.** Stage 1 (natural convection only): heat
+  balance 1.70%, Tmax=35.66C. Stage 2 (+ radiation): heat balance 4.68%,
+  **Tmax=33.73C -- verified LOWER with radiation added**, the expected
+  physical direction (radiation is a real additional heat-rejection
+  path). Stage 2 was warm-started from stage 1's converged state
+  (avoiding a ~14-hour cold rebuild).
+- Several real, substantial construction issues found and fixed (full
+  write-ups in `docs/discrepancy_log.md`): (1) a stale-Boundary-reference
+  bug (same class as B22) initially gave `Q_cht=NaN`, fixed via a
+  standalone macro operating on the saved `.sim` rather than a re-solve;
+  (2) S2S radiation models (`S2sModel`, `GrayThermalRadiationModel`)
+  could not be added to an already-built continuum -- fixed by building
+  fresh continua with radiation in the correct enable-order slot and
+  reassigning regions; (3) `ViewfactorsCalculatorModel`+
+  `PatchGeneratorModel` are additional required models found only at
+  solve time; (4) a second-client "peek" connection attempt likely
+  crashed the primary session, losing ~9 hours of progress -- fixed with
+  explicit frequent `AutoSave` configuration and a firm rule never to
+  join a busy server as a second client again.
+- The explicit radiative-vs-convective split of `Q_cht` was NOT reliably
+  isolated (a field-function-name guess gave an implausible near-zero
+  value) -- reported as an open item in `docs/limitations.md`, not
+  silently published as a wrong number.
+
 ## 2026-09-15 -- Seventh increment: B22 bolted overlap joint (electrical ladder)
 
 - `starccm/case_setup_checklists/b22_bolted_overlap_joint.md`,

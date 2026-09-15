@@ -1,0 +1,2 @@
+case_id,current_A,I_iout_A,I_vin_A,current_imbalance_pct,P_total_W,Q_leadConv_W,Q_cht_W,Q_radiation_W,Q_totalOut_W,heat_balance_pct,Tmax_solid_K,Tmax_air_K,gate_status
+b30_natural_convection_with_radiation,400.00,-400.000000,400.000000,0.000000,4.032000,0.494012,3.726798,PENDING,4.220810,4.6828,306.8821,302.4060,PASSED

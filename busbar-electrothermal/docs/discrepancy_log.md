@@ -328,6 +328,75 @@ recording so they are not rediscovered on B11/B12.
   contact and `T_jump` is expected to be small/mesh-limited, not a focus
   metric until a real thermal-Rc sweep is implemented.
 
+## 2026-09-16 -- B30: a second-client "peek" connection likely destabilized the primary session, losing ~9 hours of converged progress
+
+- **Symptom:** the B30 radiation-stage macro reached its target iteration
+  count (3600) cleanly -- the iteration/residual line printed normally --
+  but immediately afterward the log showed `Connection reset` (twice)
+  followed by a client-side `NullPointerException` while trying to
+  compute the post-solve reports. No results were ever written; the
+  ~9-hour compute investment for this stage was lost with no recovery
+  point, because no autosave checkpoint existed near iteration 3600
+  (autosave defaults appear to be off, or set to a very sparse interval,
+  for a batch macro run).
+- **Investigation:** partway through this same run (at iteration ~3167),
+  a SEPARATE macro was launched with `-host <hostname>:<port>` to join
+  the already-running server as a second client and read report values
+  without interrupting the primary solve. That attempt correctly failed
+  with `"The Server is currently busy executing RunSimulation and cannot
+  execute the command: RestoreState"` -- a clean rejection, seemingly
+  harmless. However, the primary run's own connection was reset roughly
+  400+ iterations later, at the very end of its own run() call. The
+  timing (a rejected second connection attempt, followed eventually by
+  the primary connection dying) is circumstantial, not proven, but
+  consistent enough to treat as the likely cause.
+- **Resolution:** (1) do NOT attempt a second client connection to a
+  server that is busy executing `run()`, even for a read-only "peek" --
+  wait for it to finish naturally instead; (2) explicitly configure
+  `star.common.AutoSave` (`setAutoSaveBatch(true)`,
+  `getStarUpdate().setUpdateFrequency(150)`) at the start of any
+  long-running macro from now on, so a future crash of any cause loses
+  at most ~150 iterations instead of the whole run.
+- **Carried forward:** this is a real, costly lesson for any future
+  long-running STAR-CCM+ batch macro in this project -- always configure
+  frequent autosave checkpoints before a multi-hour `run()` call, and
+  never join a busy server as a second client mid-solve.
+
+## 2026-09-16 -- B30: explicit radiation-vs-convection split not reliably isolated (aggregate heat balance is correct)
+
+- **Symptom:** after B30's radiation stage converged and PASSED its
+  overall heat-balance gate, a follow-up attempt to isolate the EXPLICIT
+  radiative fraction of `Q_cht` (per the roadmap's "heat split among
+  convection, radiation..." output) used a field function named
+  `BoundaryRadiationHeatFlux` (found via a diagnostic dump of every field
+  function containing "radiat"/"s2s"). The integrated value came back at
+  4.5e-6 W -- effectively zero.
+- **Investigation:** a hand calculation using the Stefan-Boltzmann law
+  (`q'' = epsilon*sigma*(Ts^4 - Tamb^4)`, `epsilon=0.78`, `Ts~307K`,
+  `Tamb~293K`, `barMid`'s CHT surface area ~0.0234 m^2) predicts roughly
+  **1.5 W** of radiative loss -- three orders of magnitude larger than
+  the reported 4.5e-6 W. The field function name is almost certainly
+  wrong (one of several similarly-named candidates -- `BoundaryIrradiation`,
+  `FilteredOutgoingRadiation`, `BoundaryHeatFluxRadiationCoefficient`,
+  etc. -- were also found in the same dump but not tried).
+- **What IS verified correct:** the AGGREGATE energy balance from the
+  main solve is trustworthy independent of this specific diagnostic --
+  `P_total` (4.032 W, Joule heating) vs `Q_totalOut` (4.221 W) closes to
+  4.68% (inside the <5% gate), and radiation's real physical effect is
+  visible in a comparison that does NOT depend on isolating the split:
+  `Tmax` with radiation enabled (33.73C) is LOWER than without radiation
+  (35.66C, the natural-convection-only stage) at the identical 400A --
+  exactly the expected direction (radiation adds a real heat-rejection
+  path, so the same power dissipates at a lower steady-state temperature).
+- **Resolution:** the specific radiative-vs-convective SPLIT of `Q_cht`
+  is reported as `NOT RELIABLY ISOLATED` rather than publishing the
+  near-zero value from an unverified field-function-name guess. The
+  aggregate heat balance and the Tmax-reduction comparison are reported
+  as the trustworthy, verified evidence that radiation is working
+  correctly. Finding the correct field function name is left as an open
+  follow-up (see `docs/limitations.md`), not worth further live-diagnostic
+  cycles given how much wall-clock time this case has already consumed.
+
 ## Template for future entries
 
 ```
