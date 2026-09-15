@@ -2,6 +2,8 @@
 
 This file records the provenance of numerical inputs used by the STAR-CCM+ CHT benchmarks. The intent is to keep **literature-derived data**, **manufacturer data**, **derived values**, and **project assumptions** visibly separate.
 
+> **Source-integrity statement:** the benchmark does **not** claim that every numerical input was measured for one identical commercial 18650 cell. Case 1 intentionally combines traceable public values from different 18650 sources to build a transparent physics benchmark. In particular, the density is **derived** from cited mass and benchmark geometry, while `k = 0.30 W/m·K` is a **selected representative modelling value within published radial-conductivity data**, not a directly measured property of the Samsung INR18650-25R. This distinction must be retained whenever results from this repository are presented or reused.
+
 ## Case 1 — Air-cooled 18650 cell, forced cross-flow
 
 ### S1 — Specific heat of a Sony US-18650 cell
@@ -11,6 +13,7 @@ H. Maleki, S. Al Hallaj, J. R. Selman, R. B. Dinwiddie, H. Wang, “Thermal Prop
 - DOI: https://doi.org/10.1149/1.1391704
 - Reported whole-cell heat capacity: 0.96 ± 0.02 J/g·K at 2.75 V OCV and 1.04 ± 0.02 J/g·K at 3.75 V OCV.
 - Benchmark value: **1000 J/kg·K**, a rounded engineering value between those measurements.
+- Provenance class: **measured literature value, rounded for the benchmark**.
 
 ### S2 — Volumetric heat generation at 2C
 
@@ -20,6 +23,7 @@ P. D. Dhabarde, R. P. Soni, J. G. Suryawanshi, “Passive-cooling of Li-ion batt
 - Public preprint: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5366050
 - Reported modelling condition: **41,789 W/m³** uniform volumetric heat generation at **2C**.
 - Benchmark value: **41,789 W/m³**.
+- Provenance class: **published modelling input**; this repository does not relabel it as a direct calorimetric measurement.
 
 ### S3 — Radial thermal conductivity of cylindrical Li-ion cells
 
@@ -33,7 +37,8 @@ N. S. Spinner et al., “Novel 18650 lithium-ion battery surrogate cell design w
 - Public repository record: https://digitalcommons.unl.edu/usnavyresearch/104/
 - Reported radial conductivity: **0.120–0.197 W/m·K**.
 - Reported axial conductivity: **5.1 ± 0.6 W/m·K**.
-- Benchmark value: **0.30 W/m·K**, deliberately selected between published radial measurements and used isotropically for this first transparent analytical benchmark. It is a project modelling choice, not a direct measurement of the Samsung cell used for the envelope/mass reference.
+- Benchmark value: **0.30 W/m·K**, deliberately selected between published radial measurements and used isotropically for this first transparent analytical benchmark.
+- Provenance class: **project modelling choice constrained by published measurements**. It is **not** a direct measurement of the Samsung cell used for the envelope/mass reference.
 
 ### S4 — Commercial 18650 envelope and mass reference
 
@@ -43,6 +48,7 @@ Samsung SDI INR18650-25R product specification.
 - Manufacturer specification values: diameter **18.33 ± 0.07 mm**, height **64.85 ± 0.15 mm**, mass **45.0 g max** (technical data also show a typical mass around 43.8 g).
 - Benchmark geometry: **18 mm × 65 mm**, rounded to the nominal 18650 envelope.
 - Density in the macro is **derived**, not independently measured: 0.045 kg divided by the benchmark cylindrical volume, giving approximately **2720 kg/m³**.
+- Provenance class: geometry/mass are **manufacturer specification**; density is a **derived project value**.
 
 ### S5 — Analytical validation equation
 
@@ -53,6 +59,8 @@ T_center - T_surface = q''' R² / (4 k)
 ```
 
 This is a standard internal-heat-generation solution of the cylindrical heat equation; see heat-transfer textbooks such as F. P. Incropera et al., *Fundamentals of Heat and Mass Transfer*.
+
+- Provenance class: **closed-form analytical reference**, not fitted CFD data.
 
 ## Provenance policy
 
