@@ -76,6 +76,48 @@ recording so they are not rediscovered on B11/B12.
   must account for this same outward-normal sign convention before
   interpreting a raw magnitude mismatch as a real physics problem.
 
+## 2026-09-15 -- B11: field function name guesses were wrong; 3D-vs-1D Tavg gap explained
+
+### Field function names
+
+- **Symptom:** `Server Error: Unable to generate report - Field function
+  is not set` when trying to use `VolumetricHeatSource` and
+  `WallHeatFlux`.
+- **Cause:** neither name matches the actual registered field function
+  name, despite matching the condition/profile CLASS names
+  (`VolumetricHeatSourceProfile`, and the general "wall heat flux"
+  concept). The real names, found via a diagnostic dump of every field
+  function containing "heat"/"source"/"flux": `UserSpecifiedEnergySource`
+  and `BoundaryHeatFlux`.
+- **Resolution:** added an explicit diagnostic-dump-then-null-check
+  pattern (throw a clear error naming the dump above, rather than let a
+  null field function silently propagate into a report and fail
+  opaquely later). Recorded the correct names in
+  `starccm/field_functions.md` so this is not rediscovered for B12.
+
+### 3D average temperature vs B02's 1D lumped prediction (2.06% of rise)
+
+- **Comparison target:** B02 `variant_1_convection_only_constant_R()`,
+  34.93C (`SIMULATED`, from the 1D lumped model).
+- **Our result:** B11 3D `Tavg` = 34.63C (`SIMULATED`).
+- **Discrepancy:** 0.30C absolute, 2.06% of the ~34.9K rise above ambient.
+- **Investigation:** checked the temperature field
+  (`results/figures/b11_temperature.png`) -- shows a clear, symmetric
+  axial gradient: hottest at the bar's center, cooler toward both
+  terminal end-caps (which ALSO convect in B11, unlike B10/B12).
+- **Root cause:** the 1D lumped model in B02 assumes a single uniform bar
+  temperature; the real 3D solution has an axial temperature profile
+  because the end-caps are additional heat-rejection area not captured by
+  a single-node lumped abstraction. This is NOT a bug -- it is exactly
+  the kind of difference the roadmap's own B11 gate wording anticipates
+  ("differences in Tmax explained by axial/three-dimensional conduction
+  rather than treated as failure").
+- **Resolution:** no code change; the difference is explained and
+  accepted. The heat-balance gate (<1%) and applied-heat gate (<0.1%)
+  both passed independently, confirming the 3D setup itself is correct --
+  the Tavg gap is a genuine modeling-abstraction difference, not an error.
+- **Re-verification:** not applicable (no fix was needed).
+
 ## Template for future entries
 
 ```

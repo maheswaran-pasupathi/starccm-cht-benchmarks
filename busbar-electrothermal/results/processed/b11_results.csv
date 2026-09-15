@@ -1,0 +1,2 @@
+case_id,P_total_W,Q_applied_integral_W,applied_heat_mismatch_pct,Q_rejected_W,heat_balance_mismatch_pct,Tmax_K,Tavg_K,B02_variant1_T_K,T_vs_B02_pct,gate_status
+b11_prescribed_heat_solid_thermal,4.032000,4.032000,0.000000,4.007239,0.614123,307.7863,307.7760,308.0833,2.0579,PASSED

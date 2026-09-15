@@ -58,3 +58,22 @@
 - `results/figures/b10_{geometry,potential,current_density}.png` show the
   expected textbook-linear potential gradient and uniform current density.
 - **45/45 tests passing** (41 analytical + 4 new B10 checks).
+
+## 2026-09-15 -- Third increment: B11 (prescribed-heat solid thermal)
+
+- `starccm/macros/b11_prescribed_heat_solid_thermal.java`: same straight
+  bar as B10, prescribed uniform volumetric heat source (region-level
+  `EnergyUserVolumeSourceOption.VOLUMETRIC_HEAT_SOURCE`) set to EXACTLY
+  B01's `q'''` (67,200 W/m^3 at 400A), convection on every face
+  (h=10 W/m^2K, T_inf=293.15K, matching B02's variant 1).
+- **Gate PASSED:** applied-heat-vs-prescribed 2.0e-13% (exact); heat
+  balance (rejected vs applied) 0.61% (<1% gate).
+- **3D Tavg (34.63C) vs B02's 1D lumped prediction (34.93C): 2.06% of
+  rise, EXPLAINED, not a failure** -- the real 3D solution has an axial
+  temperature gradient (hot center, cooler convecting end-caps) that a
+  single-node lumped model cannot capture, visible in
+  `results/figures/b11_temperature.png`.
+- Two field-function name guesses were wrong
+  (`VolumetricHeatSource`/`WallHeatFlux`); the real names
+  (`UserSpecifiedEnergySource`/`BoundaryHeatFlux`) were found via a
+  diagnostic dump and recorded in `starccm/field_functions.md`.

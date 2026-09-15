@@ -11,6 +11,8 @@ personal-mentor `hubbell_cae` project, RUN_LOG.md 2026-09-15):
 | `Electric Current Density` | `ElectrodynamicsPotentialModel` | vector | `J = sigma * E`; use `.getMagnitudeFunction()` for `\|J\|` |
 | `Electrical Conductivity` | `ElectrodynamicsPotentialModel` | scalar | S/m |
 | `Specific Ohmic Heat Source` | `OhmicHeatingModel` (B12+ only) | scalar | `q''' = J.E`; NOT available in B10 (no thermal model enabled) |
+| `UserSpecifiedEnergySource` | `EnergyUserVolumeSourceOption.VOLUMETRIC_HEAT_SOURCE` (B11) | scalar | The prescribed volumetric heat source itself, exposed as a field function for `VolumeIntegralReport` verification -- NOT named `VolumetricHeatSource` despite the condition/profile classes using that name (found live, B11, 2026-09-15) |
+| `BoundaryHeatFlux` | `SegregatedSolidEnergyModel` | scalar | Wall-normal heat flux at a boundary; use with `SurfaceIntegralReport` for a heat-balance check. NOT named `WallHeatFlux` (found live, B11) |
 
 ## Custom field functions this program defines
 
