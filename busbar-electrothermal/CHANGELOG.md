@@ -27,3 +27,34 @@
 - **41/41 tests passing.** B10 (3D STAR-CCM+ electrical benchmark) not yet
   started -- see `docs/validation_matrix.md`.
 - Open item, not silently resolved: repository license not yet chosen.
+
+## 2026-09-15 -- Second increment: B10 (3D STAR-CCM+ electrical benchmark)
+
+- `starccm/case_setup_checklists/b10_straight_bar_electrical.md`,
+  `starccm/field_functions.md`, `starccm/export_schema.md`: setup
+  checklist, field-function/derived-part definitions, and export schema
+  written BEFORE the macro, per the roadmap's ordering rule.
+- `starccm/macros/b10_straight_bar_electrical.java`: straight 0.300 x
+  0.040 x 0.005 m copper bar, 400 A prescribed current, electrical-only
+  (`SolidModel` + `ElectromagnetismModel` + `ElectrodynamicsPotentialModel`,
+  deliberately no energy/Ohmic-heating model). Same material constants as
+  B01 (`rho_e_ref = 1.68e-8 ohm.m`) for a meaningful direct comparison.
+- **Gate PASSED, all three checks, at essentially machine precision:**
+  current balance 2.5e-12% (gate <0.5%), voltage-drop-vs-B01 5.2e-14% and
+  power-vs-B01 2.0e-13% (gate <1%), section-average-J-vs-nominal 2.3e-14%
+  (gate <1%). Expected result for a uniform straight bar with no geometric
+  crowding -- confirms STAR-CCM+'s electrical solver reproduces the 1D
+  closed form exactly for this case.
+- `tests/test_b10_vs_b01.py`: independent Python-side verification against
+  B01's own live-computed values (not a hardcoded copy) -- 4 tests, skips
+  cleanly (not a failure) if B10 has not been run.
+- Two real issues found and documented in `docs/discrepancy_log.md`:
+  (1) `ConstantDensityModel` requires an energy model registered first,
+  and was simply dropped (unused without an energy model) rather than
+  worked around; (2) the current-balance check must compare boundary-flux
+  MAGNITUDES, not signed values, because `SurfaceIntegralReport` uses the
+  outward-normal convention (current entering vs leaving a boundary have
+  opposite sign by construction, not by error).
+- `results/figures/b10_{geometry,potential,current_density}.png` show the
+  expected textbook-linear potential gradient and uniform current density.
+- **45/45 tests passing** (41 analytical + 4 new B10 checks).

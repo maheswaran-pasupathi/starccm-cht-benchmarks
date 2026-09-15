@@ -34,6 +34,48 @@ contact resistivity reused across different contact areas.**
   recorded here because the roadmap instructs preserving lessons that
   generalize, and this one directly bears on B22's design.
 
+## 2026-09-15 -- B10: ConstantDensityModel dependency and current-balance sign convention
+
+Two real issues found and resolved while getting B10 to run, both worth
+recording so they are not rediscovered on B11/B12.
+
+### 1. `ConstantDensityModel` requires an energy model registered first
+
+- **Symptom:** `EnableModel` server error: "star.flow.ConstantDensityModel
+  is incompatible with the currently enabled models ... no registration
+  found."
+- **Cause:** this API requires an energy model (e.g.
+  `SegregatedSolidEnergyModel`) to be enabled before `ConstantDensityModel`
+  can register -- consistent with the "model-enable order matters" pattern
+  already found in the personal-mentor `hubbell_cae` project (Case 1: enable
+  `SegregatedSolidEnergyModel` before `ConstantDensityModel`).
+- **Resolution:** B10 is electrical-only by design (no energy model), and
+  density is not used by anything active in this case (no
+  buoyancy/transient-thermal-capacitance term exists without an energy
+  model) -- so `ConstantDensityModel` was simply DROPPED, not
+  worked around. Confirmed the case still solves correctly without it.
+- **Not yet re-confirmed:** whether `ConstantDensityModel` is needed once
+  B11/B12 add `SegregatedSolidEnergyModel` back -- expect to re-add it
+  then, in the correct order.
+
+### 2. Current-balance check must compare magnitudes, not signed values
+
+- **Symptom:** first computed a spurious 200% "current imbalance" even
+  though the underlying solve was later shown to match B01 to 1e-13%.
+- **Cause:** `SurfaceIntegralReport` uses the boundary's OUTWARD normal by
+  convention. At `Iout` (current entering the domain), the flux is
+  measured AGAINST the outward normal, giving a negative signed value
+  (-400.000...A); at `Vin` (current leaving to ground), the flux is WITH
+  the outward normal, giving positive (+400.000...A). A perfectly balanced
+  case therefore gives `I_iout = -I_vin`, not `I_iout = I_vin`.
+- **Resolution:** changed the imbalance metric to compare `|I_iout|` vs
+  `|I_vin|` (equivalently, check `|I_iout + I_vin| ~= 0`). After the fix,
+  imbalance = 2.5e-12%, passing the <0.5% gate with enormous margin.
+- **Carried forward:** any future boundary-flux balance check in this
+  program (B11's heat balance, B12's boundary heat-flow-percentage report)
+  must account for this same outward-normal sign convention before
+  interpreting a raw magnitude mismatch as a real physics problem.
+
 ## Template for future entries
 
 ```

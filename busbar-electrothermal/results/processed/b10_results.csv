@@ -1,0 +1,2 @@
+case_id,current_A,I_iout_A,I_vin_A,current_imbalance_pct,V_vin_V,V_iout_V,V_drop_V,P_JdotE_W,P_IV_W,power_mismatch_pct,Jmax_A_m2,J_section_avg_A_m2,J_nominal_A_m2,voltage_drop_vs_B01_pct,power_vs_B01_pct,J_section_vs_nominal_pct,gate_status
+b10_straight_bar_electrical,400.00,-400.000000,400.000000,0.000000,0.00000000,0.01008000,0.01008000,4.032000,4.032000,0.000000,2000000.000,2000000.000,2000000.000,0.000000,0.000000,0.000000,PASSED
